@@ -153,55 +153,80 @@
                                                 <div class="element no_full_width col-md-8 col-sm-8 not-animated" data-animate="fadeInUp" data-delay="0">
                                                     <ul class="row-container list-unstyled clearfix">
                                                         <li class="row-left">
-                                                        <a href="product.html" class="container_item">
-                                                        <img src="{{ url('public') }}/uploads/prods/1_grande.jpg" class="img-responsive" alt="Curabitur cursus dignis">
-                                                        @if ($item['discount'] > 0)
-                                                            <span class="sale_banner">
-                                                        <span class="sale_text">Sale</span>
-                                                        </span>
-                                                        @endif
-                                                        </a>
-                                                        <div class="hbw">
-                                                            <span class="hoverBorderWrapper"></span>
-                                                        </div>
+                                                            <a href="product.html" class="container_item">
+                                                                <img src="{{ url('resources') }}/assets/images/1_grande.jpg"
+                                                                    class="img-responsive getImg"
+                                                                    alt="Curabitur cursus dignis">
+                                                                @if ($item['discount'] > 0)
+                                                                <span class="sale_banner">
+                                                                    <span class="sale_text">Sale</span>
+                                                                </span>
+                                                                @endif
+                                                            </a>
+                                                            <div class="hbw">
+                                                                <span class="hoverBorderWrapper"></span>
+                                                            </div>
                                                         </li>
                                                         <li class="row-right parent-fly animMix">
-                                                        <div class="product-content-left">
-                                                            <a class="title-5" href="product.html">{{ $item['name'] }}</a>
-                                                            <span class="spr-badge" id="spr_badge_12932382113" data-rating="0.0">
-                                                            <span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span>
-                                                            <span class="spr-badge-caption">
-                                                            No reviews </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-content-right">
-                                                            <div class="product-price">
-                                                                @if ($item['discount'] > 0)
-                                                                <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
-                                                                <del class="price_compare"> ${{ $item['price'] }}</del>
-                                                                @else
-                                                                <span class="price">${{ $item['price'] }}</span>
-                                                                 @endif
-                                                                
+                                                            <div class="product-content-left">
+                                                                <a class="title-5 getName" href="product.html">{{ $item['name'] }}</a>
+                                                                <span class="spr-badge" id="spr_badge_129323821155"
+                                                                    data-rating="0.0">
+                                                                    <span class="spr-starrating spr-badge-starrating"><i
+                                                                            class="spr-icon spr-icon-star-empty"
+                                                                            style=""></i><i
+                                                                            class="spr-icon spr-icon-star-empty"
+                                                                            style=""></i><i
+                                                                            class="spr-icon spr-icon-star-empty"
+                                                                            style=""></i><i
+                                                                            class="spr-icon spr-icon-star-empty"
+                                                                            style=""></i><i
+                                                                            class="spr-icon spr-icon-star-empty"
+                                                                            style=""></i></span>
+                                                                    <span class="spr-badge-caption">
+                                                                        No reviews </span>
+                                                                </span>
                                                             </div>
-                                                        </div>
-                                                        <div class="list-mode-description">
-                                                             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis amet voluptas assumenda est, omnis dolor repellendus quis nostrum. Temporibus autem quibusdam et aut officiis debitis aut rerum dolorem necessitatibus saepe eveniet ut et neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed...
-                                                        </div>
-                                                        <div class="hover-appear">
-                                                            <form action="http://demo.themeforshop.com/html_jewelry/product.html" method="post">
-                                                                <div class="effect-ajax-cart">
-                                                                    <input type="hidden" name="quantity" value="1">
-                                                                    <button class="select-option" type="button" onclick="window.location.href='product.html'"><i class="fa fa-th-list" title="Select Options"></i><span class="list-mode">Select Option</span></button>
-                                                                </div>
-                                                            </form>
-                                                            <div class="product-ajax-qs hidden-xs hidden-sm">
-                                                                <div data-href="./ajax/_product-qs.html" data-target="#quick-shop-modal" class="quick_shop" data-toggle="modal">
-                                                                    <i class="fa fa-eye" title="Quick view"></i><span class="list-mode">Quick View</span>																		
+                                                            
+                                                            <div class="product-content-right">
+                                                                <div class="product-price">
+                                                                    @if ($item['discount'] > 0)
+                                                                        <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
+                                                                        <del class="price_compare"> ${{ $item['price'] }}</del>
+                                                                        @else
+                                                                        <span class="price">${{ $item['price'] }}</span>
+                                                                        @endif
                                                                 </div>
                                                             </div>
-                                                            <a class="wish-list" href="account.html" title="wish list"><i class="fa fa-heart"></i><span class="list-mode">Add to Wishlist</span></a>
-                                                        </div>
+                                                            <div class="list-mode-description getDes">
+                                                                {{ $item['description'] }}
+                                                            </div>
+                                                            <div class="hover-appear">
+                                                                <form action="#" method="post">
+                                                                    <div class="effect-ajax-cart">
+                                                                        <input name="quantity" value="1" type="hidden">
+                                                                        <button class="select-option" type="button"
+                                                                            onclick="window.location.href='product.html'"><i
+                                                                                class="fa fa-th-list"
+                                                                                title="Select Options"></i><span
+                                                                                class="list-mode">Select
+                                                                                Option</span></button>
+                                                                    </div>
+                                                                </form>
+                                                                <div class="product-ajax-qs hidden-xs hidden-sm ">
+                                                                    <div data-handle="curabitur-cursus-dignis"
+                                                                        data-target="#quick-shop-modal"
+                                                                        class="quick_shop quick-view-handle" data-toggle="modal">
+                                                                        <i id="quich-view-i" class="fa fa-eye"
+                                                                            title="Quick view"></i><span
+                                                                            class="list-mode">Quick View</span>
+    
+                                                                    </div>
+                                                                </div>
+                                                                <a class="wish-list" href="account.html"
+                                                                    title="wish list"><i class="fa fa-heart"></i><span
+                                                                        class="list-mode">Add to Wishlist</span></a>
+                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div> 
@@ -326,7 +351,7 @@
                                             <div id="home_fp">
                                                 @foreach ($prod_est as $item)
                                                 <div class="element no_full_width not-animated" data-animate="fadeInUp" data-delay="0">
-                                                    <ul class="row-container list-unstyled clearfix">
+                                                    {{-- <ul class="row-container list-unstyled clearfix">
                                                         <li class="row-left">
                                                         <a href="product.html" class="container_item">
                                                         <img src="{{ url('public') }}/uploads/prods/1_grande.jpg" class="img-responsive" alt="Curabitur cursus dignis">
@@ -359,9 +384,7 @@
                                                                  @endif
                                                             </div>
                                                         </div>
-                                                        <div class="list-mode-description">
-                                                             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis amet voluptas assumenda est, omnis dolor repellendus quis nostrum. Temporibus autem quibusdam et aut officiis debitis aut rerum dolorem necessitatibus saepe eveniet ut et neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed...
-                                                        </div>
+                                                        
                                                         <div class="hover-appear">
                                                             <form action="http://demo.themeforshop.com/html_jewelry/product.html" method="post">
                                                                 <div class="effect-ajax-cart">
@@ -370,14 +393,92 @@
                                                                 </div>
                                                             </form>
                                                             <div class="product-ajax-qs hidden-xs hidden-sm">
-                                                                <div data-href="./ajax/_product-qs.html" data-target="#quick-shop-modal" class="quick_shop" data-toggle="modal">
+                                                                <div data-href="./ajax/_product-qs.html" data-target="#quick-shop-modal" class="quick_shop quick-view-handle" data-toggle="modal">
                                                                     <i class="fa fa-eye" title="Quick view"></i><span class="list-mode">Quick View</span>																		
                                                                 </div>
                                                             </div>
                                                             <a class="wish-list" href="account.html" title="wish list"><i class="fa fa-heart"></i><span class="list-mode">Add to Wishlist</span></a>
                                                         </div>
                                                         </li>
-                                                    </ul>
+                                                    </ul> --}}
+                                                <ul class="row-container list-unstyled clearfix">
+                                                    <li class="row-left">
+                                                        <a href="product.html" class="container_item">
+                                                            <img src="{{ url('resources') }}/assets/images/1_grande.jpg"
+                                                                class="img-responsive getImg"
+                                                                alt="Curabitur cursus dignis">
+                                                            @if ($item['discount'] > 0)
+                                                            <span class="sale_banner">
+                                                                <span class="sale_text">Sale</span>
+                                                            </span>
+                                                            @endif
+                                                        </a>
+                                                        <div class="hbw">
+                                                            <span class="hoverBorderWrapper"></span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="row-right parent-fly animMix">
+                                                        <div class="product-content-left">
+                                                            <a class="title-5 getName" href="product.html">{{ $item['name'] }}</a>
+                                                            <span class="spr-badge" id="spr_badge_129323821155"
+                                                                data-rating="0.0">
+                                                                <span class="spr-starrating spr-badge-starrating"><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i></span>
+                                                                <span class="spr-badge-caption">
+                                                                    No reviews </span>
+                                                            </span>
+                                                        </div>
+                                                        
+                                                        <div class="product-content-right">
+                                                            <div class="product-price">
+                                                                @if ($item['discount'] > 0)
+                                                                    <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
+                                                                    <del class="price_compare"> ${{ $item['price'] }}</del>
+                                                                    @else
+                                                                    <span class="price">${{ $item['price'] }}</span>
+                                                                    @endif
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-mode-description getDes">
+                                                            {{ $item['description'] }}
+                                                        </div>
+                                                        <div class="hover-appear">
+                                                            <form action="#" method="post">
+                                                                <div class="effect-ajax-cart">
+                                                                    <input name="quantity" value="1" type="hidden">
+                                                                    <button class="select-option" type="button"
+                                                                        onclick="window.location.href='product.html'"><i
+                                                                            class="fa fa-th-list"
+                                                                            title="Select Options"></i><span
+                                                                            class="list-mode">Select
+                                                                            Option</span></button>
+                                                                </div>
+                                                            </form>
+                                                            <div class="product-ajax-qs hidden-xs hidden-sm ">
+                                                                <div data-handle="curabitur-cursus-dignis"
+                                                                    data-target="#quick-shop-modal"
+                                                                    class="quick_shop quick-view-handle" data-toggle="modal">
+                                                                    <i id="quich-view-i" class="fa fa-eye"
+                                                                        title="Quick view"></i><span
+                                                                        class="list-mode">Quick View</span>
+
+                                                                </div>
+                                                            </div>
+                                                            <a class="wish-list" href="account.html"
+                                                                title="wish list"><i class="fa fa-heart"></i><span
+                                                                    class="list-mode">Add to Wishlist</span></a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                                 </div>
                                                 @endforeach
 

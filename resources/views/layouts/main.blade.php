@@ -647,15 +647,13 @@
 							</div>
 						</div>
 						<div class="col-md-12 product-information">
-							<h1 id="quick-shop-title"><span> <a href="http://demo.themeforshop.com/products/curabitur-cursus-dignis">Curabitur cursus dignis</a></span></h1>
+							<h1 id="quick-shop-title"><span> <a id="setName" href="http://demo.themeforshop.com/products/curabitur-cursus-dignis">Curabitur cursus dignis</a></span></h1>
 							<div id="quick-shop-infomation" class="description">
 								<div id="quick-shop-description" class="text-left">
-									<p>
+									<p id="setDes">
 										Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis amet voluptas assumenda est, omnis dolor repellendus quis nostrum.
 									</p>
-									<p>
-										Temporibus autem quibusdam et aut officiis debitis aut rerum dolorem necessitatibus saepe eveniet ut et neque porro quisquam est, qui dolorem ipsum quia dolor s...
-									</p>
+									
 								</div>
 							</div>
 							<div id="quick-shop-container">
@@ -671,7 +669,11 @@
 								</div>
 								<form action="#" method="post" class="variants" id="quick-shop-product-actions" enctype="multipart/form-data">
 									<div id="quick-shop-price-container" class="detail-price">
-										<span class="price_sale">$259.00</span><span class="dash">/</span><del class="price_compare">$300.00</del>
+										<span id="setPriceSale" class="price_sale">$259.00</span>
+										<div id="hide-jq"><span class="dash">/</span>
+											<del id="setPrice" class="price_compare">$300.00</del>
+										</div>
+										
 									</div>
 									<div class="quantity-wrapper clearfix">
 										<label class="wrapper-title">Quantity</label>
@@ -727,5 +729,53 @@
 			</div>
 		</div>
 	</div>
-    @yield('popupIndex')
+	@yield('popupIndex')
+	<script>
+		$('.quick-view-handle').click(function(e) {
+			if (e.target.id == 'quich-view-i') {
+				$name = $(e.target).parent().parent().parent().parent().children().children().first().text();
+				// sale
+				if ($(e.target).parent().parent().parent().parent().children().eq(1).children().children().attr('class') == 'price_sale') {
+					$priceSale = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().first().text();
+					$price = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().eq(1).text();
+					$('#hide-jq').css('display', 'inline');
+					$('#setPriceSale').text($priceSale);
+					$('#setPrice').text($price);
+					
+				}
+				// ko sale
+				else{
+					$price = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().first().text();
+					$('#hide-jq').css('display', 'none');
+					$('#setPriceSale').text($price);
+				}
+			}
+			else {
+				$name = $(e.target).parent().parent().parent().children().children().first().text();
+				// sale
+				if ($(e.target).parent().parent().parent().children().eq(1).children().children().attr('class') == 'price_sale') {
+					$priceSale = $(e.target).parent().parent().parent().children().eq(1).children().children().first().text();
+					$price = $(e.target).parent().parent().parent().children().eq(1).children().children().eq(1).text();
+					$('#hide-jq').css('display', 'inline');
+					$('#setPriceSale').text($priceSale);
+					$('#setPrice').text($price);
+				}
+				// ko sale
+				else{
+					$price = $(e.target).parent().parent().parent().children().eq(1).children().children().first().text();
+					$('#hide-jq').css('display', 'none');
+					$('#setPriceSale').text($price);
+				}
+			}
+			//  $price = $(".getPrice").text();
+			//  $des = $(".getDes").text();
+			//  $img = $(".getImg").attr('src');
+			$('#setName').text($name);
+			
+			console.log($price);
+			// console.log($des);
+			// console.log($img);
+		});
+			 
+		</script>
 </body>

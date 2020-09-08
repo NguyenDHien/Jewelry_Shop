@@ -475,10 +475,10 @@
                                                         <div class="product-content-right">
                                                             <div class="product-price">
                                                                 @if ($item['discount'] > 0)
-                                                                    <span class="price_sale getPrice">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
+                                                                    <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
                                                                     <del class="price_compare"> ${{ $item['price'] }}</del>
                                                                     @else
-                                                                    <span class="price getPrice">${{ $item['price'] }}</span>
+                                                                    <span class="price">${{ $item['price'] }}</span>
                                                                     @endif
                                                             </div>
                                                         </div>
@@ -497,11 +497,11 @@
                                                                             Option</span></button>
                                                                 </div>
                                                             </form>
-                                                            <div class="product-ajax-qs hidden-xs hidden-sm quick-view-handle">
+                                                            <div class="product-ajax-qs hidden-xs hidden-sm ">
                                                                 <div data-handle="curabitur-cursus-dignis"
                                                                     data-target="#quick-shop-modal"
-                                                                    class="quick_shop" data-toggle="modal">
-                                                                    <i class="fa fa-eye"
+                                                                    class="quick_shop quick-view-handle" data-toggle="modal">
+                                                                    <i id="quich-view-i" class="fa fa-eye"
                                                                         title="Quick view"></i><span
                                                                         class="list-mode">Quick View</span>
 
@@ -514,6 +514,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
+                                            
                                             @endforeach
                                         </ul>
                                     </div>
@@ -526,17 +527,52 @@
         </div>
     </div>
 </div>
-<script>
+{{-- <script>
 $('.quick-view-handle').click(function(e) {
-    $name = $(e.target.class).text();
-     $price = $(".getPrice").text();
-     $des = $(".getDes").text();
-     $img = $(".getImg").attr('src');
-    console.log($name);
+    if (e.target.id == 'quich-view-i') {
+        $name = $(e.target).parent().parent().parent().parent().children().children().first().text();
+        // sale
+        if ($(e.target).parent().parent().parent().parent().children().eq(1).children().children().attr('class') == 'price_sale') {
+            $priceSale = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().first().text();
+            $price = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().eq(1).text();
+            $('#hide-jq').css('display', 'inline');
+            $('#setPriceSale').text($priceSale);
+            $('#setPrice').text($price);
+            
+        }
+        // ko sale
+        else{
+            $price = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().first().text();
+            $('#hide-jq').css('display', 'none');
+            $('#setPriceSale').text($price);
+        }
+    }
+    else {
+        $name = $(e.target).parent().parent().parent().children().children().first().text();
+        // sale
+        if ($(e.target).parent().parent().parent().children().eq(1).children().children().attr('class') == 'price_sale') {
+            $priceSale = $(e.target).parent().parent().parent().children().eq(1).children().children().first().text();
+            $price = $(e.target).parent().parent().parent().children().eq(1).children().children().eq(1).text();
+            $('#hide-jq').css('display', 'inline');
+            $('#setPriceSale').text($priceSale);
+            $('#setPrice').text($price);
+        }
+        // ko sale
+        else{
+            $price = $(e.target).parent().parent().parent().children().eq(1).children().children().first().text();
+            $('#hide-jq').css('display', 'none');
+            $('#setPriceSale').text($price);
+        }
+    }
+    //  $price = $(".getPrice").text();
+    //  $des = $(".getDes").text();
+    //  $img = $(".getImg").attr('src');
+    $('#setName').text($name);
+    
     console.log($price);
-    console.log($des);
-    console.log($img);
+    // console.log($des);
+    // console.log($img);
 });
      
-</script>
+</script> --}}
 @endsection
