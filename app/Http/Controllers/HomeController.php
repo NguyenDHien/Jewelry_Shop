@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -20,5 +21,23 @@ class HomeController extends Controller
         # code...
         $prod = product::all();
         return view('collection', compact('prod'));
+    }
+    public function getOne($id)
+    {
+        $prod = product::find($id);
+        return response($prod);
+        # code...
+    }
+    public function getListView($id, $slug)
+    {
+        $cate = category::where('slug', $slug)->first();
+        $prod = product::find($id);
+        if ($cate) {
+            return view('category', compact('cate'));
+        } else if ($prod) {
+            return view('product', compact('prod'));
+        } else {
+            return abort(404);
+        }
     }
 }

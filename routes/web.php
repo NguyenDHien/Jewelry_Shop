@@ -22,6 +22,9 @@ Route::get('/register', 'AdminController@register')->name('admin.register');
 Route::post('/register', 'AdminController@p_register');
 
 Route::get('/collection', 'HomeController@collection')->name('collection');
+Route::get('/$2y$10$E/Rre07ZvM0ER9cKkhJMwuNcFcrFYv6J.WtYA9Kc431SRSfRPB2WG/{id}', 'HomeController@getOne')->name('getOne');
+
+Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getListView');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Category

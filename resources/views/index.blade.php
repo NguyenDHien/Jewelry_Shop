@@ -48,22 +48,25 @@
                                         <h6 class="general-title">Popular Collections</h6>
                                         <div class="home_collections_wrapper">												
                                             <div id="home_collections">
-                                                            <div class="home_collections_item">
-                                                                <div class="home_collections_item_inner">
-                                                                    <div class="collection-details">
-                                                                        <a href="collection.html" title="Browse our Bracelets">
-                                                                            <img src="{{ url('resources') }}/assets/images/3_large.png" alt="Bracelets">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="hover-overlay">
-                                                                        <span class="col-name"><a href="collection.html">Bracelets</a></span>
-                                                                        <div class="collection-action">
-                                                                            <a href="collection.html">See the Collection</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                @foreach ($cateList as $item)
+                                                <div class="home_collections_item">
+                                                    <div class="home_collections_item_inner">
+                                                        <div class="collection-details">
+                                                            <a href="{{ route('getListView', [$id = $item['id'],$slug = $item['slug']]) }}" title="Browse our Bracelets">
+                                                                <img src="{{ url('resources') }}/assets/images/3_large.png" alt="Bracelets">
+                                                            </a>
+                                                        </div>
+                                                        <div class="hover-overlay">
+                                                            <span class="col-name"><a href="collection.html">Bracelets</a></span>
+                                                            <div class="collection-action">
+                                                                <a href="collection.html">See the Collection</a>
                                                             </div>
-                                                            <div class="home_collections_item">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                                            
+                                                            {{-- <div class="home_collections_item">
                                                                 <div class="home_collections_item_inner">
                                                                     <div class="collection-details">
                                                                         <a href="collection.html" title="Browse our Earrings">
@@ -122,7 +125,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
                                                 </div>													
                                             </div>
                                         </div>
@@ -153,7 +156,7 @@
                                                 <div class="element no_full_width col-md-8 col-sm-8 not-animated" data-animate="fadeInUp" data-delay="0">
                                                     <ul class="row-container list-unstyled clearfix">
                                                         <li class="row-left">
-                                                            <a href="product.html" class="container_item">
+                                                            <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
                                                                 <img src="{{ url('resources') }}/assets/images/1_grande.jpg"
                                                                     class="img-responsive getImg"
                                                                     alt="Curabitur cursus dignis">
@@ -213,7 +216,7 @@
                                                                                 Option</span></button>
                                                                     </div>
                                                                 </form>
-                                                                <div class="product-ajax-qs hidden-xs hidden-sm ">
+                                                                    <div onclick="getProdDetail({{ $item['id'] }})" class="product-ajax-qs hidden-xs hidden-sm ">
                                                                     <div data-handle="curabitur-cursus-dignis"
                                                                         data-target="#quick-shop-modal"
                                                                         class="quick_shop quick-view-handle" data-toggle="modal">
@@ -463,7 +466,7 @@
                                                                             Option</span></button>
                                                                 </div>
                                                             </form>
-                                                            <div class="product-ajax-qs hidden-xs hidden-sm ">
+                                                            <div onclick="getProdDetail({{ $item['id'] }})" class="product-ajax-qs hidden-xs hidden-sm ">
                                                                 <div data-handle="curabitur-cursus-dignis"
                                                                     data-target="#quick-shop-modal"
                                                                     class="quick_shop quick-view-handle" data-toggle="modal">

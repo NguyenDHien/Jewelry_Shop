@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class category extends Model
 {
     //
     protected $table = 'category';
-    protected $fillable = ['name', 'status', 'parent_id', 'priority'];
+    protected $fillable = ['name', 'status', 'parent_id', 'priority', 'slug'];
 
     public function prods()
     {
@@ -19,7 +20,13 @@ class category extends Model
     public function scopeThem($query)
     {
         # code...
-        $add = $this->create(request()->all());
+        $add = $this->create([
+            'name' => request()->name,
+            'status' => request()->status,
+            'parent_id' => request()->parent_id,
+            'priority' => request()->priority,
+            'slug' => Str::slug(request()->name),
+        ]);
         return $add;
     }
     public function scopeSua($query, $id)

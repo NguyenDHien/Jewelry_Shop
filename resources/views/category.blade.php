@@ -1,6 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Collection')
-
+@section('title', 'Category')
 @section('body')
 <div id="content-wrapper-parent">
     <div id="content-wrapper">
@@ -432,7 +431,7 @@
                                     </div>
                                     <div id="sandBox-wrapper" class="group-product-item row collection-full">
                                         <ul id="sandBox" class="list-unstyled">
-                                            @foreach ($prod as $item)
+                                            @foreach ($cate->prods as $item)
                                             <li class="element first no_full_width"
                                             data-alpha="Curabitur cursus dignis" data-price="25900">
                                                 <ul class="row-container list-unstyled clearfix">

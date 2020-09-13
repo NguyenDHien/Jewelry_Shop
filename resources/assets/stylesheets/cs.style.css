@@ -308,8 +308,8 @@ a,
 .element form .row-right .effect-ajax-cart button{background:transparent;border:1px solid #dedede;border-radius:4px;-moz-transition:background 0.3s ease-in-out;-webkit-transition:background 0.3s ease-in-out;transition:background 0.3s ease-in-out;height:36px !important;padding:0 8px;}
 .element form .row-right .effect-ajax-cart button:hover{background:#a07936;color:#ffffff;border-color:#a07936;}
 .element form .row-left i.fa-angle-right{font-size:15px;color:#202020;}
-.element ul li.row-right .product-content-left{width:70%;text-align:left;display:inline-block;text-overflow:ellipsis;overflow:hidden;padding:10px 20px 0;}
-.element ul li.row-right .product-content-right{display:inline-block;float:right;text-align:right;padding:14px 20px 0 0;width:30%;}
+.element ul li.row-right .product-content-left{width:60%;text-align:left;display:inline-block;text-overflow:ellipsis;overflow:hidden;padding:10px 20px 0;}
+.element ul li.row-right .product-content-right{display:inline-block;float:right;text-align:right;padding:14px 20px 0 0;width:40%;}
 .element ul li.row-right .product-content-right .price_compare{padding-top:10px;}
 .element.full_width ul li.row-right .product-content-right .price_compare{padding-top:0;}
 .element > ul{margin:0;position:relative;overflow:hidden;background-color:#fff;}

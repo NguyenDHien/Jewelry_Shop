@@ -20,6 +20,7 @@
                     <tr>
                       <th>ID</th>
                       <th>Name</th>
+                      <th>Slug</th>
                       <th>Parent</th>
                       <th>Priority</th>
                       <th>Status</th>
@@ -31,6 +32,7 @@
                       <tr>
                         <td>{{ $item['id'] }}</td>
                         <td>{{ $item['name'] }}</td>
+                        <td>{{ $item['slug'] }}</td>
                         <td>{{ $item['parent_id'] }}</td>
                         <td>{{ $item['priority'] }}</td>
                         @if ($item['status'] == 0)

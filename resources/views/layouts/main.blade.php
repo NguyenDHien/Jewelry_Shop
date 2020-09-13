@@ -175,19 +175,19 @@
 								</div>
 								<div class="collapse navbar-collapse">
 									<ul class="nav navbar-nav hoverMenuWrapper">
-										<li class="nav-item active">
+										{{-- <li class="nav-item active">
 										<a href="#">
 										<span>Home</span>
 										</a>
-										</li>
+										</li> --}}
 										<li class="dropdown mega-menu">
-										<a href="collection.html" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
+										<a href="{{ route('collection') }}" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
 										<span>Collections</span>
 										<i class="fa fa-caret-down"></i>
 										<i class="sub-dropdown1 visible-sm visible-md visible-lg"></i>
 										<i class="sub-dropdown visible-sm visible-md visible-lg"></i>
 										</a>
-										<div class="megamenu-container megamenu-container-1 dropdown-menu banner-bottom mega-col-4" style="">
+										<div class="megamenu-container megamenu-container-1 dropdown-menu banner-bottom mega-col-2" style="">
 											<ul class="sub-mega-menu">
 												<li>
 												<ul>
@@ -226,7 +226,7 @@
 													</li>
 												</ul>
 												</li>
-												<li>
+												{{-- <li>
 												<ul>
 													<li class="list-title">Collection Links</li>
 													<li class="list-unstyled li-sub-mega">
@@ -262,7 +262,7 @@
 													</a>
 													</li>
 												</ul>
-												</li>
+												</li> --}}
 											</ul>
 										</div>
 										</li>
@@ -730,52 +730,24 @@
 		</div>
 	</div>
 	@yield('popupIndex')
-	<script>
-		$('.quick-view-handle').click(function(e) {
-			if (e.target.id == 'quich-view-i') {
-				$name = $(e.target).parent().parent().parent().parent().children().children().first().text();
-				// sale
-				if ($(e.target).parent().parent().parent().parent().children().eq(1).children().children().attr('class') == 'price_sale') {
-					$priceSale = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().first().text();
-					$price = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().eq(1).text();
-					$('#hide-jq').css('display', 'inline');
-					$('#setPriceSale').text($priceSale);
-					$('#setPrice').text($price);
-					
+
+
+<script>
+	function getProdDetail(id) { 
+		console.log(id);
+		$.ajax({
+				type: "get",
+				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/$2y$10$E/Rre07ZvM0ER9cKkhJMwuNcFcrFYv6J.WtYA9Kc431SRSfRPB2WG/${id}`,
+				data: "data",
+				dataType: "json",
+				success: function (data) {
+					console.log(data);
+					$('#setPriceSale').text(data.price);
+					$('#setPrice').text(data.price);
+					$('#setName').text(data.name);
 				}
-				// ko sale
-				else{
-					$price = $(e.target).parent().parent().parent().parent().children().eq(1).children().children().first().text();
-					$('#hide-jq').css('display', 'none');
-					$('#setPriceSale').text($price);
-				}
-			}
-			else {
-				$name = $(e.target).parent().parent().parent().children().children().first().text();
-				// sale
-				if ($(e.target).parent().parent().parent().children().eq(1).children().children().attr('class') == 'price_sale') {
-					$priceSale = $(e.target).parent().parent().parent().children().eq(1).children().children().first().text();
-					$price = $(e.target).parent().parent().parent().children().eq(1).children().children().eq(1).text();
-					$('#hide-jq').css('display', 'inline');
-					$('#setPriceSale').text($priceSale);
-					$('#setPrice').text($price);
-				}
-				// ko sale
-				else{
-					$price = $(e.target).parent().parent().parent().children().eq(1).children().children().first().text();
-					$('#hide-jq').css('display', 'none');
-					$('#setPriceSale').text($price);
-				}
-			}
-			//  $price = $(".getPrice").text();
-			//  $des = $(".getDes").text();
-			//  $img = $(".getImg").attr('src');
-			$('#setName').text($name);
-			
-			console.log($price);
-			// console.log($des);
-			// console.log($img);
-		});
-			 
-		</script>
+			});
+	}
+
+</script>
 </body>
