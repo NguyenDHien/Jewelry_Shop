@@ -9,7 +9,7 @@
             <div class="camera_wrap" id="home-slider">
                 <div data-src="{{ url('resources') }}/assets/images/slide-image-1.jpg">
                     <div class="camera_caption camera_title_1 fadeIn">
-                      <a href="collection.html" style="color:#010101;">Live the moment</a>
+                      <a href="{{ route('collection') }}" style="color:#010101;">Live the moment</a>
                     </div>
                     <div class="camera_caption camera_caption_1 fadeIn" style="color: rgb(1, 1, 1);">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -18,12 +18,12 @@
                         <img src="{{ url('resources') }}/assets/images/slide-image-caption-1.png" alt="image_caption">
                     </div>
                     <div class="camera_cta_1">
-                        <a href="collection.html" class="btn">See Collection</a>
+                        <a href="{{ route('collection') }}" class="btn">See Collection</a>
                     </div>
                 </div>
                 <div data-src="{{ url('resources') }}/assets/images/slide-image-2.jpg">
                     <div class="camera_caption camera_title_2 moveFromLeft">
-                      <a href="collection.html" style="color:#666666;">Love’s embrace</a>
+                      <a href="{{ route('collection') }}" style="color:#666666;">Love’s embrace</a>
                     </div>
                     <div class="camera_caption camera_image-caption_2 moveFromLeft" style="visibility: hidden;">
                         <img src="{{ url('resources') }}/assets/images/slide-image-caption-2.png" alt="image_caption">
