@@ -113,29 +113,7 @@
         </form>
     </div>
   </div> <!-- / .card -->
-  <script>
-    function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    var filename = $('#imgInp').val();
-    if (filename.substring(3,11) == 'fakepath') {
-            filename = filename.substring(12);
-        }
-    reader.onload = function(e) {
-    $('#blah').css('display', 'block');
-
-      $('#blah').attr('src', e.target.result);
-      $('#choose-file-value').html(filename);
-    }
-
-    reader.readAsDataURL(input.files[0]); // convert to base64 string
-  }
-}
-
-$("#imgInp").change(function() {
-  readURL(this);
-});
-</script>
+  
     <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog"
         aria-labelledby="defaultModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">

@@ -31,7 +31,7 @@ class productDetail extends Model
         if (request()->has('image')) {
             # code...
             $img_name = request()->image->getClientOriginalName();
-            request()->image->move(public_path('uploads'), $img_name);
+            request()->image->move(public_path('uploads/prods'), $img_name);
         }
         $add = $this->create([
             'product_id' => request()->product_id,
@@ -51,7 +51,7 @@ class productDetail extends Model
         if (request()->has('image')) {
             # code...
             $img_name = request()->image->getClientOriginalName();
-            request()->image->move(public_path('uploads'), $img_name);
+            request()->image->move(public_path('uploads/prods'), $img_name);
         }
         $query = $query->update([
             'product_id' => request()->product_id,

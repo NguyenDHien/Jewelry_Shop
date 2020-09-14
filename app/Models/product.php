@@ -8,7 +8,7 @@ class product extends Model
 {
     //
     protected $table = 'product';
-    protected $fillable = ['product_code', 'name', 'discount', 'price', 'category_id', 'status', 'description'];
+    protected $fillable = ['product_code', 'name', 'discount', 'price', 'category_id', 'status', 'description', 'image'];
 
     public function img()
     {
@@ -27,14 +27,44 @@ class product extends Model
     public function scopeThem()
     {
         # code...
-        $add = $this->create(request()->all());
+        $img_name = '';
+        if (request()->has('image')) {
+            # code...
+            $img_name = request()->image->getClientOriginalName();
+            request()->image->move(public_path('uploads/prods'), $img_name);
+        }
+        $add = $this->create([
+            'product_code' => request()->product_code,
+            'name' => request()->name,
+            'price' => request()->price,
+            'discount' => request()->discount,
+            'status' => request()->status,
+            'category_id' => request()->category_id,
+            'description' => request()->description,
+            'image' => $img_name,
+        ]);
         return $add;
     }
     public function scopeSua($query, $id)
     {
         $query = $query->find($id);
-        # code...
-        $query = $query->update(request()->all());
+        $img_name = '';
+        if (request()->has('image')) {
+            # code...
+            $img_name = request()->image->getClientOriginalName();
+            request()->image->move(public_path('uploads/prods'), $img_name);
+        }
+        $query = $query->update([
+            'product_code' => request()->product_code,
+            'name' => request()->name,
+            'price' => request()->price,
+            'discount' => request()->discount,
+            'status' => request()->status,
+            'category_id' => request()->category_id,
+            'description' => request()->description,
+            'image' => $img_name,
+        ]);
+
         return $query;
     }
     public function scopeXoa($query, $id)

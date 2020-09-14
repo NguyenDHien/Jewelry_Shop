@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Product\ProductRequest;
 use App\Models\category;
 use App\Models\product;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -22,7 +22,7 @@ class ProductController extends Controller
         return view('admin.product.create', compact('cates'));
     }
 
-    public function p_create(Request $request)
+    public function p_create(ProductRequest $request)
     {
         $add = product::them();
         if ($add) {
@@ -36,7 +36,7 @@ class ProductController extends Controller
         $prod = product::find($id);
         return view('admin.product.edit', compact('prod', 'cates'));
     }
-    public function p_edit($id, Request $request)
+    public function p_edit($id, ProductRequest $request)
     {
         $sua = product::sua($id);
         if ($sua) {

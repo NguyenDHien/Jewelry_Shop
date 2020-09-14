@@ -157,7 +157,7 @@
                                                     <ul class="row-container list-unstyled clearfix">
                                                         <li class="row-left">
                                                             <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
-                                                                <img src="{{ url('resources') }}/assets/images/1_grande.jpg"
+                                                                <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}"
                                                                     class="img-responsive getImg"
                                                                     alt="Curabitur cursus dignis">
                                                                 @if ($item['discount'] > 0)
@@ -407,7 +407,7 @@
                                                 <ul class="row-container list-unstyled clearfix">
                                                     <li class="row-left">
                                                         <a href="product.html" class="container_item">
-                                                            <img src="{{ url('resources') }}/assets/images/1_grande.jpg"
+                                                            <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}"
                                                                 class="img-responsive getImg"
                                                                 alt="Curabitur cursus dignis">
                                                             @if ($item['discount'] > 0)

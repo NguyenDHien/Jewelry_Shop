@@ -196,6 +196,13 @@
 													<a href="#">Dolorem Sed </a>
 													</li>
 													<li class="list-unstyled li-sub-mega">
+														<a href="#">Dolorem Sed </a>
+														</li>
+														<li class="list-unstyled li-sub-mega">
+															<a href="#">Dolorem Sed </a>
+															</li>
+															
+													<li class="list-unstyled li-sub-mega">
 													<a href="#">Proident Nulla </a>
 													</li>
 													<li class="list-unstyled li-sub-mega">
@@ -635,9 +642,9 @@
 					<div class="row">
 						<div class="col-md-12 product-image">
 							<div id="quick-shop-image" class="product-image-wrapper">
-								<a class="main-image"><img class="img-zoom img-responsive image-fly" src="{{ url('resources') }}/assets/images/1_grande.jpg" data-zoom-image="./{{ url('resources') }}/assets/images/1.jpg" alt=""/></a>
+								<a class="main-image"><img id="image-thumb" class="img-zoom img-responsive image-fly" src="{{ url('resources') }}/assets/images/1_grande.jpg" data-zoom-image="./{{ url('resources') }}/assets/images/1.jpg" alt=""/></a>
 								<div id="gallery_main_qs" class="product-image-thumb">
-									<a class="image-thumb active" href="{{ url('resources') }}/assets/1images/.html" data-image="./{{ url('resources') }}/assets/images/1_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/1.html"><img src="{{ url('resources') }}/assets/images/1_compact.jpg" alt=""/></a>
+									<a class="image-thumb active" href="{{ url('resources') }}/assets/1images/.html" data-image="./{{ url('resources') }}/assets/images/1_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/1.html"><img id="image-thumb" src="{{ url('resources') }}/assets/images/1_compact.jpg" alt=""/></a>
 									<a class="image-thumb" href="{{ url('resources') }}/assets/images/2.html" data-image="./{{ url('resources') }}/assets/images/2_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/2.html"><img src="{{ url('resources') }}/assets/images/2_compact.jpg" alt=""/></a>
 									<a class="image-thumb" href="{{ url('resources') }}/assets/images/3.html" data-image="./{{ url('resources') }}/assets/images/3_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/3.html"><img src="{{ url('resources') }}/assets/images/3_compact.jpg" alt=""/></a>
 									<a class="image-thumb" href="{{ url('resources') }}/assets/images/4.html" data-image="./{{ url('resources') }}/assets/images/4_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/4.html"><img src="{{ url('resources') }}/assets/images/4_compact.jpg" alt=""/></a>
@@ -650,9 +657,7 @@
 							<h1 id="quick-shop-title"><span> <a id="setName" href="http://demo.themeforshop.com/products/curabitur-cursus-dignis">Curabitur cursus dignis</a></span></h1>
 							<div id="quick-shop-infomation" class="description">
 								<div id="quick-shop-description" class="text-left">
-									<p id="setDes">
-										Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis amet voluptas assumenda est, omnis dolor repellendus quis nostrum.
-									</p>
+									<p id="setDes">Description</p>
 									
 								</div>
 							</div>
@@ -745,6 +750,25 @@
 					$('#setPriceSale').text(data.price);
 					$('#setPrice').text(data.price);
 					$('#setName').text(data.name);
+					if (!(data.description)) {
+						$('#setDes').text('');
+					} else {
+						$('#setDes').text(data.description);
+					}
+					$('#image-thumb').attr('src', `{{ url('public') }}/uploads/prods/{{ $item['image'] }}`);
+					if (data.discount === 0) {
+						$('.detail-price').html(`
+						<span class="price">$${data.price}</span>
+						`)
+					}
+					else {
+						$('.detail-price').html(`
+						<span id="setPriceSale" class="price_sale">$${ parseInt(data.price-(data.price*data.discount)/100) }</span>
+										<div id="hide-jq"><span class="dash">/</span>
+											<del id="setPrice" class="price_compare">$${data.price}</del>
+										</div>
+						`)
+					}
 				}
 			});
 	}

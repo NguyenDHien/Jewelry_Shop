@@ -31,7 +31,9 @@ class ProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'image.required' => 'Bạn cần chọn ảnh'
+            'image.required' => 'Bạn cần chọn ảnh',
+            'image.mimes' => 'Bạn cần chọn đúng định dạng ảnh',
+            'image.file' => 'Bạn cần chọn file'
         ];
     }
 }

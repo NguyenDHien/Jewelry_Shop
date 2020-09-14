@@ -29,7 +29,7 @@
                   <tbody>
                       @foreach ($prodDs as $item)
                       <tr>
-                        <td><img width="100px-" src="{{ url('public/uploads').'/'.$item['image'] }}" alt=""></td>
+                        <td><img width="100px-" src="{{ url('public/uploads/prods').'/'.$item['image'] }}" alt=""></td>
                         <td>{{ $item->prod->product_code }}</td>
                         <td>{{ $item->prod->name }}</td>
                         <td>{{ $item->color->name }} ({{ $item->color->hex_color }})</td>

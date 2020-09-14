@@ -30,7 +30,8 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ url('resources/admin') }}/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="{{ url('resources/admin') }}/css/app-dark.css" id="darkTheme" disabled>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 </head>
 
 <body class="vertical  light  ">
@@ -693,6 +694,29 @@
         }
 
     </script>
+    <script>
+      function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      var filename = $('#imgInp').val();
+      if (filename.substring(3,11) == 'fakepath') {
+              filename = filename.substring(12);
+          }
+      reader.onload = function(e) {
+      $('#blah').css('display', 'block');
+  
+        $('#blah').attr('src', e.target.result);
+        $('#choose-file-value').html(filename);
+      }
+  
+      reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+  }
+  
+  $("#imgInp").change(function() {
+    readURL(this);
+  });
+  </script>
 </body>
 
 </html>

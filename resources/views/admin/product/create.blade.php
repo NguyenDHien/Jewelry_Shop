@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('body')
+
 <a href="{{ route('product') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
     <div class="card-header">
@@ -9,7 +10,7 @@
     </div>
     <div class="card-body">
         
-        <form class="needs-validation" method="POST" novalidate>
+        <form class="needs-validation" method="POST" enctype="multipart/form-data"  novalidate>
             @csrf
         <div class="row">
             <div class="col-md-12">
@@ -51,6 +52,17 @@
             <div class="form-group mb-3">
                 <label for="validationTextarea">Description</label>
                 <textarea name="description" class="form-control" id="validationTextarea" ></textarea>
+              </div>
+              <div class="form-group mb-3">
+                <label for="customFile">Custom file input</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="image" id="imgInp">
+                  <label class="custom-file-label" id="choose-file-value" for="customFile">Choose file</label>
+                </div>
+                @error('image')
+                <small class="help-block">{{$message}}</small>
+                @enderror
+                <img width="160px" id="blah" src="#" style="display: none; margin-top: 10px" alt="your image" />
               </div>
             <button class="btn btn-primary" type="submit">Submit</button>
             </div>

@@ -20,6 +20,7 @@
                       <th>Name</th>
                       <th>Discount</th>
                       <th>Price</th>
+                      <th>Image</th>
                       <th>Category</th>
                       <th>Status</th>
                       <th>Description</th>
@@ -33,6 +34,7 @@
                         <td class="word-break">{{ $item['name'] }}</td>
                         <td>{{ $item['discount'] }}</td>
                         <td>{{ $item['price'] }}</td>
+                        <td>{{ $item['image'] }}</td>
                         <td>{{ $item->cate->name }}</td>
                         @if ($item['status'] == 0)
                         <td><span class="badge badge-pill badge-success">OK</span></td>
