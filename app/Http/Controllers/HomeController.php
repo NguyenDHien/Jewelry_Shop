@@ -22,12 +22,7 @@ class HomeController extends Controller
         $prod = product::all();
         return view('collection', compact('prod'));
     }
-    public function getOne($id)
-    {
-        $prod = product::find($id);
-        return response($prod);
-        # code...
-    }
+    
     public function getListView($id, $slug)
     {
         $cate = category::where('slug', $slug)->first();

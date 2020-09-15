@@ -1,0 +1,27 @@
+.image-thumb-tab {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.image-thumb-tab img {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.image-thumb-tab img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.product-image-thumb:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main-image {
+    position: relative;
+    display: block;
+}

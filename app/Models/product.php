@@ -23,7 +23,6 @@ class product extends Model
         # code...
         return $this->hasMany(productDetail::class, 'product_id', 'id');
     }
-
     public function scopeThem()
     {
         # code...

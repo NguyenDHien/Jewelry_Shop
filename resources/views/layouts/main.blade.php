@@ -11,7 +11,6 @@
   <link rel="canonical" href="http://demo.themeforshop.com/" />
   <meta name="description" content="" />
   <title>@yield('title')</title>
-    <link href="{{ url('resources') }}/assets/stylesheets/style.css" rel='stylesheet' type='text/css'>
 	<link href="{{ url('resources') }}/assets/stylesheets/font.css" rel='stylesheet' type='text/css'>
 	<link href="{{ url('resources') }}/assets/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"> 
 	<link href="{{ url('resources') }}/assets/stylesheets/jquery.camera.css" rel="stylesheet" type="text/css" media="all">
@@ -43,6 +42,7 @@
 	<script src="{{ url('resources') }}/assets/javascripts/jquery.fancybox-buttons.js" type="text/javascript"></script>
 	<script src="{{ url('resources') }}/assets/javascripts/jquery.zoom.js" type="text/javascript"></script>	
 	<script src="{{ url('resources') }}/assets/javascripts/cs.script.js" type="text/javascript"></script>
+    <link href="{{ url('resources') }}/assets/stylesheets/style.css" rel='stylesheet' type='text/css'>
 
 </head>
 <body itemscope="" itemtype="http://schema.org/WebPage" class="templatePage notouch">
@@ -642,14 +642,15 @@
 					<div class="row">
 						<div class="col-md-12 product-image">
 							<div id="quick-shop-image" class="product-image-wrapper">
-								<a class="main-image"><img id="image-thumb" class="img-zoom img-responsive image-fly" src="{{ url('resources') }}/assets/images/1_grande.jpg" data-zoom-image="./{{ url('resources') }}/assets/images/1.jpg" alt=""/></a>
-								<div id="gallery_main_qs" class="product-image-thumb">
-									<a class="image-thumb active" href="{{ url('resources') }}/assets/1images/.html" data-image="./{{ url('resources') }}/assets/images/1_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/1.html"><img id="image-thumb" src="{{ url('resources') }}/assets/images/1_compact.jpg" alt=""/></a>
-									<a class="image-thumb" href="{{ url('resources') }}/assets/images/2.html" data-image="./{{ url('resources') }}/assets/images/2_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/2.html"><img src="{{ url('resources') }}/assets/images/2_compact.jpg" alt=""/></a>
-									<a class="image-thumb" href="{{ url('resources') }}/assets/images/3.html" data-image="./{{ url('resources') }}/assets/images/3_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/3.html"><img src="{{ url('resources') }}/assets/images/3_compact.jpg" alt=""/></a>
-									<a class="image-thumb" href="{{ url('resources') }}/assets/images/4.html" data-image="./{{ url('resources') }}/assets/images/4_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/4.html"><img src="{{ url('resources') }}/assets/images/4_compact.jpg" alt=""/></a>
-									<a class="image-thumb" href="{{ url('resources') }}/assets/images/5.html" data-image="./{{ url('resources') }}/assets/images/5_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/5.html"><img src="{{ url('resources') }}/assets/images/5_compact.jpg" alt=""/></a>
-									<a class="image-thumb" href="{{ url('resources') }}/assets/images/6.html" data-image="./{{ url('resources') }}/assets/images/6_grande.jpg" data-zoom-image="{{ url('resources') }}/assets/images/6.html"><img src="{{ url('resources') }}/assets/images/6_compact.jpg" alt=""/></a>
+								<a class="main-image">
+									<img id="main-img" class="image-thumb1" class="img-zoom img-responsive image-fly" 
+										src="{{ url('resources') }}/assets/images/1_grande.jpg" 
+										alt=""/>
+									</a>
+								<div id="gallery" class="product-image-thumb">
+									<div class="image-thumb-tab">
+										<img class="image-thumb1" onclick="showMainImg(this);" src="{{ url('resources') }}/assets/images/1_grande.jpg" alt=""/>
+									</div>
 								</div>	
 							</div>
 						</div>
@@ -738,15 +739,18 @@
 
 
 <script>
+	function showMainImg(imgs) {
+		var expandImg = document.getElementById("main-img");
+		expandImg.src = imgs.src;
+	}
 	function getProdDetail(id) { 
-		console.log(id);
 		$.ajax({
 				type: "get",
-				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/$2y$10$E/Rre07ZvM0ER9cKkhJMwuNcFcrFYv6J.WtYA9Kc431SRSfRPB2WG/${id}`,
+				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/product/${id}`,
 				data: "data",
 				dataType: "json",
 				success: function (data) {
-					console.log(data);
+					prodsDetail(id);
 					$('#setPriceSale').text(data.price);
 					$('#setPrice').text(data.price);
 					$('#setName').text(data.name);
@@ -755,7 +759,7 @@
 					} else {
 						$('#setDes').text(data.description);
 					}
-					$('#image-thumb').attr('src', `{{ url('public') }}/uploads/prods/{{ $item['image'] }}`);
+					$('.image-thumb1').attr('src', `{{ url('public') }}/uploads/prods/{{ $item['image'] }}`);
 					if (data.discount === 0) {
 						$('.detail-price').html(`
 						<span class="price">$${data.price}</span>
@@ -772,6 +776,24 @@
 				}
 			});
 	}
-
+	function prodsDetail(id) {
+		$.ajax({
+				type: "get",
+				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/productDt/${id}`,
+				data: "data",
+				dataType: "json",
+				success: function (data) {
+					$.each(data, function(index) {
+						$('.product-image-thumb').append(`
+						<div class="image-thumb-tab">
+							<img class="image-thumb1" onclick="showMainImg(this);" src="{{ url('public') }}/uploads/prods/${data[index].image}" alt=""/>
+						</div>
+						`);
+					});
+					
+					
+				}
+			});
+	}
 </script>
 </body>
