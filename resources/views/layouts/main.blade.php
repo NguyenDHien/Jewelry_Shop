@@ -659,7 +659,6 @@
 							<div id="quick-shop-infomation" class="description">
 								<div id="quick-shop-description" class="text-left">
 									<p id="setDes">Description</p>
-									
 								</div>
 							</div>
 							<div id="quick-shop-container">
@@ -701,26 +700,20 @@
 										<div class="selector-wrapper">
 											<label for="#quick-shop-variants-1293238211-option-0">Color</label>
 											<div class="wrapper">
-												<select class="single-option-selector" data-option="option1" id="#quick-shop-variants-1293238211-option-0" style="z-index: 1000; position: absolute; opacity: 0; font-size: 15px;">
-													<option value="black">black</option>
-													<option value="red">red</option>
-													<option value="blue">blue</option>
-													<option value="purple">purple</option>
-													<option value="green">green</option>
-													<option value="white">white</option>
+												<select class="single-option-selector color-select" id="#quick-shop-variants-1293238211-option-0" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
 												</select>
-												<button type="button" class="custom-style-select-box" style="display: block; overflow: hidden;"><span class="custom-style-select-box-inner" style="width: 264px; display: inline-block;">black</span></button><i class="fa fa-caret-down"></i>
+												
+												<i class="fa fa-caret-down"></i>
 											</div>
 										</div>
 										<div class="selector-wrapper">
 											<label for="#quick-shop-variants-1293238211-option-1">Size</label>
 											<div class="wrapper">
-												<select class="single-option-selector" data-option="option2" id="#quick-shop-variants-1293238211-option-1" style="z-index: 1000; position: absolute; opacity: 0; font-size: 15px;">
-													<option value="small">small</option>
-													<option value="medium">medium</option>
-													<option value="large">large</option>
+												<select class="single-option-selector size-select" id="#quick-shop-variants-1293238211-option-1" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
+													
 												</select>
-												<button type="button" class="custom-style-select-box" style="display: block; overflow: hidden;"><span class="custom-style-select-box-inner" style="width: 264px; display: inline-block;">small</span></button><i class="fa fa-caret-down"></i>
+												
+												<i class="fa fa-caret-down"></i>
 											</div>
 										</div>
 									</div>
@@ -734,11 +727,26 @@
 				</div>
 			</div>
 		</div>
+	<div class="modalLoading"><!-- Place at bottom of page --></div>
+		
 	</div>
 	@yield('popupIndex')
+	
 
 
 <script>
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() { 
+		$body.addClass("loading"); 
+		$('#quick-shop-modal').addClass('background-white'); 
+	},
+    ajaxStop: function() { 
+		 $body.removeClass("loading"); 
+		 $('#quick-shop-modal').removeClass('background-white'); 
+	}    
+});
 	function showMainImg(imgs) {
 		var expandImg = document.getElementById("main-img");
 		expandImg.src = imgs.src;
@@ -759,7 +767,7 @@
 					} else {
 						$('#setDes').text(data.description);
 					}
-					$('.image-thumb1').attr('src', `{{ url('public') }}/uploads/prods/{{ $item['image'] }}`);
+					$('.image-thumb1').attr('src', `{{ url('public') }}/uploads/prods/${data.image}`);
 					if (data.discount === 0) {
 						$('.detail-price').html(`
 						<span class="price">$${data.price}</span>
@@ -773,6 +781,7 @@
 										</div>
 						`)
 					}
+					
 				}
 			});
 	}
@@ -783,15 +792,48 @@
 				data: "data",
 				dataType: "json",
 				success: function (data) {
+					$('.image-remove').remove();
+					$('.color-op').remove();
+
 					$.each(data, function(index) {
 						$('.product-image-thumb').append(`
-						<div class="image-thumb-tab">
-							<img class="image-thumb1" onclick="showMainImg(this);" src="{{ url('public') }}/uploads/prods/${data[index].image}" alt=""/>
+						<div class="image-thumb-tab image-remove">
+							<img class="image-thumb" onclick="showMainImg(this);" src="{{ url('public') }}/uploads/prods/${data[index].image}" alt=""/>
 						</div>
 						`);
+						getColor(data[index].color_id);
+						getSize(data[index].size_id);
 					});
 					
 					
+				}
+			});
+	}
+	function getColor(id) {
+		$.ajax({
+				type: "get",
+				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/color/${id}`,
+				data: "data",
+				dataType: "json",
+				success: function (data) {
+					console.log(data.name);
+						$('.color-select').append(`
+						<option class="color-op" value="black">${data.name}</option>
+						`);
+				}
+			});
+	}
+	function getSize(id) {
+		$.ajax({
+				type: "get",
+				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/size/${id}`,
+				data: "data",
+				dataType: "json",
+				success: function (data) {
+					console.log(data.name);
+						$('.size-select').append(`
+						<option class="color-op" value="black">${data.name}</option>
+						`);
 				}
 			});
 	}

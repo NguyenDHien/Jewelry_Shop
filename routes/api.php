@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/product/{id}', 'Api\ProductController@getOne')->name('getOne');
 Route::get('/productDt/{id}', 'Api\ProductController@getOneDt')->name('getOneDt');
+Route::get('/color/{id}', 'Api\ProductController@getColor');
+Route::get('/size/{id}', 'Api\ProductController@getSize');
