@@ -66,66 +66,7 @@
                                                 </div>
                                                 @endforeach
                                                             
-                                                            {{-- <div class="home_collections_item">
-                                                                <div class="home_collections_item_inner">
-                                                                    <div class="collection-details">
-                                                                        <a href="collection.html" title="Browse our Earrings">
-                                                                        <img src="{{ url('resources') }}/assets/images/2_large.png" alt="Earrings">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="hover-overlay">
-                                                                        <span class="col-name"><a href="collection.html">Earrings</a></span>
-                                                                        <div class="collection-action">
-                                                                            <a href="collection.html">See the Collection</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="home_collections_item">
-                                                                <div class="home_collections_item_inner">
-                                                                    <div class="collection-details">
-                                                                        <a href="collection.html" title="Browse our Necklaces">
-                                                                        <img src="{{ url('resources') }}/assets/images/1_79ec3305-7c83-4daa-804c-fac19b2d1b7b_large.png" alt="Necklaces">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="hover-overlay">
-                                                                        <span class="col-name"><a href="collection.html">Necklaces</a></span>
-                                                                        <div class="collection-action">
-                                                                            <a href="collection.html">See the Collection</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="home_collections_item">
-                                                                <div class="home_collections_item_inner">
-                                                                    <div class="collection-details">
-                                                                        <a href="collection.html" title="Browse our Rings">
-                                                                        <img src="{{ url('resources') }}/assets/images/4_large.png" alt="Rings">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="hover-overlay">
-                                                                        <span class="col-name"><a href="collection.html">Rings</a></span>
-                                                                        <div class="collection-action">
-                                                                            <a href="collection.html">See the Collection</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="home_collections_item">
-                                                                <div class="home_collections_item_inner">
-                                                                    <div class="collection-details">
-                                                                        <a href="collection.html" title="Browse our Bracelets">
-                                                                            <img src="{{ url('resources') }}/assets/images/3_large.png" alt="Bracelets">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="hover-overlay">
-                                                                        <span class="col-name"><a href="collection.html">Bracelets</a></span>
-                                                                        <div class="collection-action">
-                                                                            <a href="collection.html">See the Collection</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div> --}}
+                                                            
                                                 </div>													
                                             </div>
                                         </div>
@@ -406,7 +347,7 @@
                                                     </ul> --}}
                                                 <ul class="row-container list-unstyled clearfix">
                                                     <li class="row-left">
-                                                        <a href="product.html" class="container_item">
+                                                        <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
                                                             <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}"
                                                                 class="img-responsive getImg"
                                                                 alt="Curabitur cursus dignis">

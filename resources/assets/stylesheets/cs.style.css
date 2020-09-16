@@ -4682,7 +4682,7 @@ form.comment-form {
 .swatch input:checked+label,
 .swatch label:hover {
     background: #404e53;
-    border-color: #404e53;
+    border: 3px solid #404e53;
     color: #fff;
     -webkit-transition: all 0.5s ease 0s;
     -moz-transition: all 0.5s ease 0s;

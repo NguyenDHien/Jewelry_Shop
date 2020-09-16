@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class product extends Model
 {
@@ -22,6 +23,21 @@ class product extends Model
     {
         # code...
         return $this->hasMany(productDetail::class, 'product_id', 'id');
+    }
+    public function scopeGetAttr($query, $attr, $id)
+    {
+        $attrRs = $query
+            ->join('product_detail', 'product_detail.product_id', '=', 'product.id')
+            ->join($attr, $attr . '.id', '=', 'product_detail.' . $attr . '_id')
+            ->where('product_detail.product_id', '=', $id)
+            ->get();
+        return $attrRs;
+    }
+    public function scopeProdSale($query)
+    {
+        # code...
+        $query = $query->where('discount', '>', '0')->orderBy('discount', 'DESC')->get();
+        return $query;
     }
     public function scopeThem()
     {

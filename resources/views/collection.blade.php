@@ -10,7 +10,7 @@
                 <div itemprop="breadcrumb" class="container">
                     <div class="row">
                         <div class="col-md-24">
-                            <a href="index.html" class="homepage-link" title="Back to the frontpage">Home</a>
+                            <a href="{{ route('home') }}" class="homepage-link" title="Back to the frontpage">Home</a>
                             <span>/</span>
                             <span class="page-title">Collection Left Sidebar</span>
                         </div>
@@ -437,8 +437,8 @@
                                             data-alpha="Curabitur cursus dignis" data-price="25900">
                                                 <ul class="row-container list-unstyled clearfix">
                                                     <li class="row-left">
-                                                        <a href="product.html" class="container_item">
-                                                            <img src="{{ url('resources') }}/assets/images/1_grande.jpg"
+                                                        <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
+                                                            <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}"
                                                                 class="img-responsive getImg"
                                                                 alt="Curabitur cursus dignis">
                                                             @if ($item['discount'] > 0)
