@@ -93,4 +93,29 @@ class product extends Model
         $query->delete();
         return 0;
     }
+
+    public function scopeSearch($query)
+    {
+        if (request()->search_str) {
+            $search = request()->search_str;
+            $query = $query->where('name', 'like', '%' . $search . '%');
+        }
+        if (request()->from && request()->to) {
+            $from = request()->from;
+            $to = request()->to;
+            if ((int)$from < (int)$to) {
+                $query = $query->whereBetween('price', [(int)$from, (int)$to]);
+            }
+        }
+        if (request()->search_str && request()->from && request()->to) {
+            $from = request()->from;
+            $to = request()->to;
+            $search = request()->search_str;
+            $query = $query->where('name', 'like', '%' . $search . '%');
+            if ((int)$from < (int)$to) {
+                $query = $query->whereBetween('price', [(int)$from, (int)$to]);
+            }
+        }
+        return $query;
+    }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Collection')
+@section('title', 'Search result')
 
 @section('body')
 <div id="content-wrapper-parent">
@@ -63,41 +63,17 @@
                                                         Color
                                                     </p>
                                                     <ul>
+                                                        @foreach ($colorAll as $item)
                                                         <li class="swatch-tag"><span
-                                                                style="background-color: red; background-image: url({{ url('resources') }}/assets/images/red.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Red"><a
-                                                                    title="Narrow selection to products matching tag Red"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: green; background-image: url({{ url('resources') }}/assets/images/green.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Green"><a
-                                                                    title="Narrow selection to products matching tag Green"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: black; background-image: url({{ url('resources') }}/assets/images/black.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Black"><a
-                                                                    title="Narrow selection to products matching tag Black"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: gray; background-image: url({{ url('resources') }}/assets/images/gray.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Gray"><a
-                                                                    title="Narrow selection to products matching tag Gray"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: white; background-image: url({{ url('resources') }}/assets/images/white.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="White"><a
-                                                                    title="Narrow selection to products matching tag White"
-                                                                    href="#"></a></span></li>
+                                                            style="background-color: {{ $item['hex_color'] }};"
+                                                            class="btooltip" data-toggle="tooltip"
+                                                            data-placement="top" title=""
+                                                            data-original-title="{{ $item['name'] }}"><a
+                                                                title="Narrow selection to products matching tag {{ $item['name'] }}"
+                                                                href="#"></a></span></li>
+                                                        @endforeach
+                                                        
+                                                        
                                                     </ul>
                                                 </div>
                                                 <!-- price filter -->
@@ -132,6 +108,7 @@
                                                       </div>
                                                       
                                                 </div>
+
                                             </div>
                                         </div>
                                         {{-- cate list --}}
@@ -187,7 +164,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
                                         <div class="sb-wrapper">
                                             <h6 class="sb-title">Welcome</h6>
                                             <ul class="list-unstyled sb-content textwidget list-styled">
@@ -271,7 +247,7 @@
                                     </div>
                                     <div id="sandBox-wrapper" class="group-product-item row collection-full">
                                         <ul id="sandBox" class="list-unstyled">
-                                            @foreach ($prod as $item)
+                                            @foreach ($prodSearch as $item)
                                             <li class="element first no_full_width element-items"
                                             data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
                                                 <ul class="row-container list-unstyled clearfix">
@@ -314,10 +290,10 @@
                                                         <div class="product-content-right">
                                                             <div class="product-price">
                                                                 @if ($item['discount'] > 0)
-                                                                    <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
+                                                                    <span class="price_sale price-final">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
                                                                     <del class="price_compare"> ${{ $item['price'] }}</del>
                                                                     @else
-                                                                    <span class="price">${{ $item['price'] }}</span>
+                                                                    <span class="price price-final">${{ $item['price'] }}</span>
                                                                     @endif
                                                             </div>
                                                         </div>

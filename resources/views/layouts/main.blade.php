@@ -42,7 +42,7 @@
 	<script src="{{ url('resources') }}/assets/javascripts/jquery.fancybox-buttons.js" type="text/javascript"></script>
 	<script src="{{ url('resources') }}/assets/javascripts/jquery.zoom.js" type="text/javascript"></script>	
 	<script src="{{ url('resources') }}/assets/javascripts/cs.script.js" type="text/javascript"></script>
-    <link href="{{ url('resources') }}/assets/stylesheets/style.css" rel='stylesheet' type='text/css'>
+	<link href="{{ url('resources') }}/assets/stylesheets/style.css" rel='stylesheet' type='text/css'>
 
 </head>
 <body itemscope="" itemtype="http://schema.org/WebPage" class="templatePage notouch">
@@ -233,124 +233,9 @@
 													</li>
 												</ul>
 												</li>
-												{{-- <li>
-												<ul>
-													<li class="list-title">Collection Links</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Dolorem Sed </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Proident Nulla </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Phasellus Leo <span class="megamenu-label sale-label">Sale</span>
-													</a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Tristique Amet </a>
-													</li>
-												</ul>
-												</li>
-												<li>
-												<ul>
-													<li class="list-title">Collection Links</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Dolorem Sed <span class="megamenu-label new-label">New</span>
-													</a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Proident Nulla </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="product.html">Phasellus Leo </a>
-													</li>
-													<li class="list-unstyled li-sub-mega last">
-													<a href="product.html">Tristique Amet <span class="megamenu-label hot-label">Hot</span>
-													</a>
-													</li>
-												</ul>
-												</li> --}}
 											</ul>
 										</div>
 										</li>
-										{{-- Navbar pages --}}
-										{{-- <li class="dropdown mega-menu">
-										<a href="collection.html" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
-										<span>Pages</span>
-										<i class="fa fa-caret-down"></i>
-										<i class="sub-dropdown1 visible-sm visible-md visible-lg"></i>
-										<i class="sub-dropdown visible-sm visible-md visible-lg"></i>
-										</a>
-										<div class="megamenu-container megamenu-container-2 dropdown-menu banner-right mega-col-2" style="display: none;">
-											<ul class="sub-mega-menu">
-												<li>
-												<ul>
-													<li class="list-title">Page Layout</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="collection.html">Collection full width </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="collection-left.html">Collection - left sidebar </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="collection-right.html">Collection - right sidebar </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="product.html">Product full width </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="product-left.html">Product - left sidebar </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="product-right.html">Product - right sidebar </a>
-													</li>
-												</ul>
-												</li>
-												<li>
-												<ul>
-													<li class="list-title">Page Content</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="about-us.html">About </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="price-table.html">Price table </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="faqs.html">FAQs </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="testimonials.html">Testimonial </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="collection.html">New product introduction </a>
-													</li>
-													<li class="list-unstyled li-sub-mega last">
-													<a href="contact.html"> Contact </a>
-													</li>
-												</ul>
-												</li>
-											</ul>
-										</div>
-										</li> --}}
-										{{-- Navbar --}}
-										{{-- <li class="nav-item dropdown">
-										<a href="blog-full.html" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
-										<span>Blog</span>
-										<i class="fa fa-caret-down"></i>
-										<i class="sub-dropdown1 visible-sm visible-md visible-lg"></i>
-										<i class="sub-dropdown visible-sm visible-md visible-lg"></i>
-										</a>
-										<ul class="dropdown-menu">
-											<li class=""><a tabindex="-1" href="blog-3-col.html">Blog grid 3 columns</a></li>
-											<li class=""><a tabindex="-1" href="blog-2-col.html">Blog grid 2 columns</a></li>
-											<li class=""><a tabindex="-1" href="blog.html">Blog grid full width</a></li>
-											<li class=""><a tabindex="-1" href="blog-left.html">Blog - left sidebar</a></li>
-											<li class=""><a tabindex="-1" href="blog-right.html">Blog - right sidebar</a></li>
-											<li class=""><a tabindex="-1" href="article.html">Post full width</a></li>
-											<li class=""><a tabindex="-1" href="article-left.html"> Post - left sidebar</a></li>
-											<li class="last"><a tabindex="-1" href="article-right.html">Post - right sidebar</a></li>
-										</ul>
-										</li> --}}
 										<li class="nav-item">
 										<a href="contact.html">
 										<span>Contact</span>
@@ -370,9 +255,9 @@
 							<i class="sub-dropdown"></i>
 							</span>
 							</a>
-							<form id="header-search" class="search-form dropdown-menu" action="http://demo.themeforshop.com/html_jewelry/search.html" method="get">
-								<input type="hidden" name="type" value="product">
-								<input type="text" name="q" value="" accesskey="4" autocomplete="off" placeholder="Search something...">
+							<form id="header-search" class="search-form dropdown-menu" action="{{ route('search') }}" method="get">
+
+								<input type="text" name="search_str" value="" accesskey="4" autocomplete="off" placeholder="Search something...">
 								<button type="submit" class="btn">Search</button>
 							</form>
 						</div>
@@ -458,40 +343,6 @@
 		</div>
     </header>
 
-	{{-- TOAST NOTIFY --}}
-	{{-- @if (Session::has('success'))
-	<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-		<div class="toast" style="position: absolute; top: 0; right: 0;">
-		  <div class="toast-header">
-			<img src="..." class="rounded mr-2" alt="...">
-			<strong class="mr-auto">Notification</strong>
-			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>
-		  <div class="toast-body">
-			{{ Session::get('success') }}
-		  </div>
-		</div>
-	  </div>
-	
-	@endif
-	@if (Session::has('error'))
-	<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-		<div class="toast" style="position: absolute; top: 0; right: 0;">
-		  <div class="toast-header">
-			<img src="..." class="rounded mr-2" alt="...">
-			<strong class="mr-auto">Notification</strong>
-			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>
-		  <div class="toast-body">
-			{{ Session::get('error') }}
-		  </div>
-		</div>
-	  </div>
-	@endif --}}
 
 	@if (Session::has('success'))
 	<div class="alert alert-success alert-dismissible" style="margin-bottom: 10px">
@@ -732,6 +583,7 @@
 	</div>
 	@yield('popupIndex')
 	
+	<script src="{{ url('resources') }}/js/js.js" type="text/javascript"></script>
 
 
 <script>
@@ -740,11 +592,11 @@ $body = $("body");
 $(document).on({
     ajaxStart: function() { 
 		$body.addClass("loading"); 
-		$('#quick-shop-modal').addClass('background-white'); 
+		// $('#quick-shop-modal').addClass('background-white'); 
 	},
     ajaxStop: function() { 
 		 $body.removeClass("loading"); 
-		 $('#quick-shop-modal').removeClass('background-white'); 
+		//  $('#quick-shop-modal').removeClass('background-white'); 
 	}    
 });
 	function showMainImg(imgs) {

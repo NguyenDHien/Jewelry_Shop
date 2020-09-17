@@ -41,4 +41,13 @@ class HomeController extends Controller
             return abort(404);
         }
     }
+
+    public function search()
+    {
+        if (!request()->search_str) {
+            return redirect()->route('collection');
+        }
+        $prodSearch = product::search()->paginate(16);
+        return view('search', compact('prodSearch'));
+    }
 }

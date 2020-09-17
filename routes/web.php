@@ -18,6 +18,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AdminController@login')->name('admin.login');
 Route::post('/login', 'AdminController@p_login');
 
+Route::get('/search', 'HomeController@search')->name('search');
+
 Route::get('/register', 'AdminController@register')->name('admin.register');
 Route::post('/register', 'AdminController@p_register');
 

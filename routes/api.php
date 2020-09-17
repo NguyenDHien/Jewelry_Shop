@@ -21,3 +21,4 @@ Route::get('/product/{id}', 'Api\ProductController@getOne')->name('getOne');
 Route::get('/productDt/{id}', 'Api\ProductController@getOneDt')->name('getOneDt');
 Route::get('/color/{id}', 'Api\ProductController@getColor');
 Route::get('/size/{id}', 'Api\ProductController@getSize');
+Route::get('/highestPrice', 'Api\ProductController@getProd');

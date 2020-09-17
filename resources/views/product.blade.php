@@ -13,7 +13,7 @@
                             <span>/</span>
                             <a href="{{ route('getListView', [$id = $prod->cate->id,$slug = $prod->cate->slug]) }}" title="">{{ $prod->cate->name }}</a>
                             <span>/</span>
-                            <span class="page-title">Product Left Sidebar</span>
+                            <span class="page-title">{{ $prod->name }}</span>
                         </div>
                     </div>
                 </div>
@@ -45,13 +45,6 @@
                                                 @endforeach
                                             </ul>
                                         </div>  											
-                                        {{-- <div id="detail-right-column" class="right-coloum col-sm-6 fadeInLeft not-animated" data-animate="fadeInLeft">
-                                            <div class="addthis_sharing_toolbox" data-url="#" data-title="Donec aliquam ante non | Jewelry - HTML Template">
-                                                <div id="atstbx" class="at-share-tbx-element addthis_32x32_style addthis-smartlayers addthis-animated at4-show">
-                                                    <a class="at-share-btn at-svc-facebook"><span class="at4-icon aticon-facebook" title="Facebook"></span></a><a class="at-share-btn at-svc-twitter"><span class="at4-icon aticon-twitter" title="Twitter"></span></a><a class="at-share-btn at-svc-email"><span class="at4-icon aticon-email" title="Email"></span></a><a class="at-share-btn at-svc-print"><span class="at4-icon aticon-print" title="Print"></span></a><a class="at-share-btn at-svc-compact"><span class="at4-icon aticon-compact" title="More"></span></a>
-                                                </div>
-                                            </div>
-                                        </div>       --}}
                                     </div>
                                     <div id="product-information" class="product-information row text-center no_full_width col-sm-12">        
                                         <h2 id="page-title" class="text-left">
@@ -62,38 +55,13 @@
                                                 <div class="description">
                                                     <p>{{ $prod['description'] }}</p>
                                                 </div>
-                                                {{-- tag --}}
-                                                {{-- <div class="relative">
-                                                    <ul class="list-unstyled">
-                                                        <li class="tags">
-                                                        <span>Tags :</span>
-                                                        <a href="#">
-                                                        above-200<span>,</span>
-                                                        </a>
-                                                        <a href="#">
-                                                        black<span>,</span>
-                                                        </a>
-                                                        <a href="#">
-                                                        l<span>,</span>
-                                                        </a>
-                                                        <a href="#">
-                                                        sale-off </a>
-                                                        </li>
-                                                    </ul>
-                                                </div> --}}
                                             </div>          
                                             <div id="product-info-right">     
                                                 <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="col-sm-24 group-variants">
                                                     <meta itemprop="priceCurrency" content="USD">              
                                                     <link itemprop="availability" href="http://schema.org/InStock">
                                                     <form action="http://demo.themeforshop.com/html_jewelry/cart.html" method="post" class="variants" id="product-actions">
-                                                        <div id="product-actions-1293235843" class="options clearfix">
-                                                            {{-- <style scoped>
-                                                              /* label[for="product-select-option-0"] { display: none; }
-                                                              #product-select-option-0 { display: none; }
-                                                              #product-select-option-0 + .custom-style-select-box { display: none !important; } */
-                                                            </style>		 --}}
-                                                            {{-- color --}}														
+                                                        <div id="product-actions-1293235843" class="options clearfix">													
                                                             <div class="swatch color clearfix" data-option-index="0">
                                                                 <div class="header">
                                                                     Color
@@ -361,7 +329,7 @@
                                         <div class="home-collection-wrapper sb-wrapper clearfix">
                                             <h6 class="sb-title">Product Categories</h6>
                                             <ul class="list-unstyled sb-content list-styled">
-                                                @foreach ($cates as $item)
+                                                @foreach ($cates5 as $item)
                                                 <li>
                                                     <a href="collection.html"><span><i class="fa fa-circle"></i> {{ $item->name }}</span></a>
                                                 </li>

@@ -396,17 +396,6 @@
                                                             {{ $item['description'] }}
                                                         </div>
                                                         <div class="hover-appear">
-                                                            <form action="#" method="post">
-                                                                <div class="effect-ajax-cart">
-                                                                    <input name="quantity" value="1" type="hidden">
-                                                                    <button class="select-option" type="button"
-                                                                        onclick="window.location.href='product.html'"><i
-                                                                            class="fa fa-th-list"
-                                                                            title="Select Options"></i><span
-                                                                            class="list-mode">Select
-                                                                            Option</span></button>
-                                                                </div>
-                                                            </form>
                                                             <div onclick="getProdDetail({{ $item['id'] }})" class="product-ajax-qs hidden-xs hidden-sm ">
                                                                 <div data-handle="curabitur-cursus-dignis"
                                                                     data-target="#quick-shop-modal"

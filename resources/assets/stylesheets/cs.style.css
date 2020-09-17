@@ -6418,12 +6418,12 @@ ul#price-table {
 .element ul li.row-right .hover-appear form,
 .element ul li.row-right .hover-appear .product-ajax-qs,
 .element ul li.row-right .hover-appear .wish-list {
+    border-right: 1px solid #eaeaea;
     width: 50px;
     height: 50px;
     background: transparent;
     cursor: pointer;
     color: #464646;
-    border: none;
 }
 
 .element ul li.row-right .hover-appear .quick_shop {
