@@ -45,8 +45,7 @@
 	<link href="{{ url('resources') }}/assets/stylesheets/style.css" rel='stylesheet' type='text/css'>
 
 </head>
-<body itemscope="" itemtype="http://schema.org/WebPage" class="templatePage notouch">
-  
+<body itemscope="" itemtype="http://schema.org/WebPage" class="templatePage notouch">  
 	<header id="top" class="clearfix">
 		<!--top-->
 		<div class="container">
@@ -265,7 +264,7 @@
 					<li class="umbrella hidden-xs">
 						<div id="umbrella" class="list-inline unmargin">
 							<div class="cart-link">
-								<a href="cart.html" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
+								<a href="{{ route('cart') }}" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
 									<i class="sub-dropdown1"></i>
 									<i class="sub-dropdown"></i>
 									<div class="num-items-in-cart">

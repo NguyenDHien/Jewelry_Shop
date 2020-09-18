@@ -60,34 +60,33 @@
                                                 <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="col-sm-24 group-variants">
                                                     <meta itemprop="priceCurrency" content="USD">              
                                                     <link itemprop="availability" href="http://schema.org/InStock">
-                                                    <form action="http://demo.themeforshop.com/html_jewelry/cart.html" method="post" class="variants" id="product-actions">
+                                                    <form action="" method="get" class="variants" id="product-actions">
                                                         <div id="product-actions-1293235843" class="options clearfix">													
-                                                            <div class="swatch color clearfix" data-option-index="0">
+                                                            <div class="swatch color clearfix">
                                                                 <div class="header">
                                                                     Color
                                                                 </div>
 
-                                                                @foreach ($color as $item) 
-                                                                    <div data-value="{{ $item->name }}" class="swatch-element color {{ $item->name }} available">
+                                                                @foreach ($prod->prodDs as $item) 
+                                                                    <div data-value="{{ $item->color->name }}" class="swatch-element color {{ $item->color->name }} available">
                                                                         <div class="tooltip">
-                                                                            {{ $item->name }}
+                                                                            {{ $item->color->name }}
                                                                         </div>
-                                                                        <input id="swatch-0-{{ $item->name }}" name="option-0" value="{{ $item->name }}" type="radio">
-                                                                        <label for="swatch-0-{{ $item->name }}" style="background-color: {{ $item->hex_color }}">
-                                                                        <img class="crossed-out" src="assets/images/soldout.png" alt="">
+                                                                        <input id="swatch-0-{{ $item->color->name }}" name="color" checked value="{{ $item->color->name }}" type="radio">
+                                                                        <label for="swatch-0-{{ $item->color->name }}" style="background-color: {{ $item->color->hex_color }}">
                                                                         </label>
                                                                     </div>
                                                                 @endforeach															
                                                             </div>
-                                                            <div class="swatch clearfix" data-option-index="1">
+                                                            <div class="swatch clearfix">
                                                                 <div class="header">
                                                                     Size
                                                                 </div>
-                                                                @foreach ($size as $item)
-                                                                <div data-value="{{ $item->name }}" class="swatch-element {{ $item->name }} available">
-                                                                    <input id="swatch-1-{{ $item->name }}" name="option-1" value="{{ $item->name }}" checked="checked" type="radio">
-                                                                    <label for="swatch-1-{{ $item->name }}">
-                                                                        {{ $item->name }} <img class="crossed-out" src="assets/images/soldout.png" alt="">
+                                                                @foreach ($prod->prodDs as $item)
+                                                                <div data-value="{{ $item->size->name }}" class="swatch-element {{ $item->size->name }} available">
+                                                                    <input id="swatch-1-{{ $item->size->name }}" name="size" checked value="{{ $item->size->name }}" type="radio">
+                                                                    <label for="swatch-1-{{ $item->size->name }}">
+                                                                        {{ $item->size->name }} 
                                                                     </label>
                                                                 </div>
                                                                 @endforeach
@@ -127,7 +126,7 @@
                                                     <div class="wls">
                                                         <a class="wish-list" href="wishlist.html"><i class="fa fa-heart"></i> Wish list</a>
                                                         <span>|</span>
-                                                        <a href="mailto:info@yourdomain.com"><i class="fa fa-envelope"></i> SEND EMAIL</a>
+                                                        <a href="mailto:ndhien288@gmail.com"><i class="fa fa-envelope"></i> SEND EMAIL</a>
                                                     </div>                                          
                                                 </div>                        
                                                 <ul id="tabs_detail" class="tabs-panel-detail hidden-xs hidden-sm">

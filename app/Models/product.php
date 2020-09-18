@@ -21,7 +21,6 @@ class product extends Model
     }
     public function prodDs()
     {
-        # code...
         return $this->hasMany(productDetail::class, 'product_id', 'id');
     }
     public function scopeGetAttr($query, $attr, $id)

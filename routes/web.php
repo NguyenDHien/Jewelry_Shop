@@ -97,4 +97,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/delete/{id}', 'productDetailController@delete')->name('product_detail.delete');
     });
     // users
+
+
+});
+// cart
+Route::group(['prefix' => 'cart'], function () {
+    Route::get('/', 'CartController@index')->name('cart');
+    Route::get('/add/{id}', 'CartController@add')->name('cart.add');
+    Route::get('/update', 'CartController@update')->name('cart.update');
+    Route::get('/delete/{id}', 'CartController@delete')->name('cart.delete');
+    Route::get('/delete-all', 'CartController@delete-all')->name('cart.delete-all');
 });

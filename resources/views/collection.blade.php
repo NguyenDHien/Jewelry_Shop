@@ -336,7 +336,7 @@
 
                                                                 </div>
                                                             </div>
-                                                            <a class="wish-list" href="account.html"
+                                                            <a class="wish-list" href="{{ route('cart.add', [$item->id]) }}"
                                                                 title="wish list"><i class="fa fa-heart"></i><span
                                                                     class="list-mode">Add to Wishlist</span></a>
                                                         </div>
@@ -358,4 +358,9 @@
 </div>
 <script src="{{ url('resources') }}/js/range-input.js" type="text/javascript"></script>
 
+@foreach ($prod as $item)
+    @foreach ($item->prodDs as $item2)
+        <p>{{ $item2->color->name }}</p>
+    @endforeach
+@endforeach
 @endsection
