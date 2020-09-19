@@ -12,10 +12,12 @@ class cart
     {
         $this->items = session('cart') ? session('cart') : [];
     }
-    public function addItem($prod, $quantity = 1)
+    public function addItem($prod, $quantity = 1, $color, $size)
     {
         if (isset($this->items[$prod->id])) {
             $this->items[$prod->id]['quantity'] += $quantity;
+            $this->items[$prod->id]['color'] = $color;
+            $this->items[$prod->id]['size'] = $size;
         } else {
             $priceFinal = $prod->price - (($prod->price * $prod->discount) / 100);
             $item = [
@@ -24,6 +26,8 @@ class cart
                 'name' => $prod->name,
                 'price' => $priceFinal,
                 'quantity' => $quantity,
+                'color' => $color,
+                'size' => $size
             ];
             $this->items[$prod->id] = $item;
         }
@@ -43,12 +47,6 @@ class cart
             }
         }
         session(['cart' => $this->items]);
-        // if (isset($this->items[$id])) {
-        //     $quantity = $quantity > 0 ? ceil((int)$quantity) : 1;
-        //     $quantity = $quantity <= 10 ? ceil((int)$quantity) : 10;
-        //     $this->items[$id]['quantity'] = $quantity;
-        //     
-        // }
     }
     public function removeItem($id)
     {

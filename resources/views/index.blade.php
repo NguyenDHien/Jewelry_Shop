@@ -146,17 +146,7 @@
                                                                 {{ $item['description'] }}
                                                             </div>
                                                             <div class="hover-appear">
-                                                                <form action="#" method="post">
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input name="quantity" value="1" type="hidden">
-                                                                        <button class="select-option" type="button"
-                                                                            onclick="window.location.href='product.html'"><i
-                                                                                class="fa fa-th-list"
-                                                                                title="Select Options"></i><span
-                                                                                class="list-mode">Select
-                                                                                Option</span></button>
-                                                                    </div>
-                                                                </form>
+                                                                
                                                                     <div onclick="getProdDetail({{ $item['id'] }})" class="product-ajax-qs hidden-xs hidden-sm ">
                                                                     <div data-handle="curabitur-cursus-dignis"
                                                                         data-target="#quick-shop-modal"
@@ -295,56 +285,6 @@
                                             <div id="home_fp">
                                                 @foreach ($prod_est as $item)
                                                 <div class="element no_full_width not-animated" data-animate="fadeInUp" data-delay="0">
-                                                    {{-- <ul class="row-container list-unstyled clearfix">
-                                                        <li class="row-left">
-                                                        <a href="product.html" class="container_item">
-                                                        <img src="{{ url('public') }}/uploads/prods/1_grande.jpg" class="img-responsive" alt="Curabitur cursus dignis">
-                                                        @if ($item['discount'] > 0)
-                                                            <span class="sale_banner">
-                                                        <span class="sale_text">Sale</span>
-                                                        </span>
-                                                        @endif
-                                                        </a>
-                                                        <div class="hbw">
-                                                            <span class="hoverBorderWrapper"></span>
-                                                        </div>
-                                                        </li>
-                                                        <li class="row-right parent-fly animMix">
-                                                        <div class="product-content-left">
-                                                            <a class="title-5" href="product.html">{{ $item['name'] }}</a>
-                                                            <span class="spr-badge" id="spr_badge_1293238211" data-rating="0.0">
-                                                            <span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span>
-                                                            <span class="spr-badge-caption">
-                                                            No reviews </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-content-right">
-                                                            <div class="product-price">
-                                                                @if ($item['discount'] > 0)
-                                                                <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
-                                                                <del class="price_compare"> ${{ $item['price'] }}</del>
-                                                                @else
-                                                                <span class="price">${{ $item['price'] }}</span>
-                                                                 @endif
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="hover-appear">
-                                                            <form action="http://demo.themeforshop.com/html_jewelry/product.html" method="post">
-                                                                <div class="effect-ajax-cart">
-                                                                    <input type="hidden" name="quantity" value="1">
-                                                                    <button class="select-option" type="button" onclick="window.location.href='product.html'"><i class="fa fa-th-list" title="Select Options"></i><span class="list-mode">Select Option</span></button>
-                                                                </div>
-                                                            </form>
-                                                            <div class="product-ajax-qs hidden-xs hidden-sm">
-                                                                <div data-href="./ajax/_product-qs.html" data-target="#quick-shop-modal" class="quick_shop quick-view-handle" data-toggle="modal">
-                                                                    <i class="fa fa-eye" title="Quick view"></i><span class="list-mode">Quick View</span>																		
-                                                                </div>
-                                                            </div>
-                                                            <a class="wish-list" href="account.html" title="wish list"><i class="fa fa-heart"></i><span class="list-mode">Add to Wishlist</span></a>
-                                                        </div>
-                                                        </li>
-                                                    </ul> --}}
                                                 <ul class="row-container list-unstyled clearfix">
                                                     <li class="row-left">
                                                         <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
@@ -481,7 +421,7 @@
 @endsection
 @section('popupIndex')
 <div class="newsletter-popup" style="display: none;">
-    <form action="http://codespot.us5.list-manage.com/subscribe/post?u=ed73bc2d2f8ae97778246702e&amp;id=c63b4d644d" method="post" name="mc-embedded-subscribe-form" target="_blank">
+    {{-- <form action="http://codespot.us5.list-manage.com/subscribe/post?u=ed73bc2d2f8ae97778246702e&amp;id=c63b4d644d" method="post" name="mc-embedded-subscribe-form" target="_blank">
         <h4>-50% Deal</h4>
         <p class="tagline">
             subscribe for newsletter and get the item for 50% off
@@ -490,7 +430,7 @@
             <input class="form-control" type="email" name="EMAIL" placeholder="YOUR EMAIL">
             <button class="btn" type="submit"><i class="fa fa-paper-plane"></i></button>
         </div>
-    </form>
+    </form> --}}
     <div id="popup-hide">
         <input type="checkbox" id="mc-popup-hide" value="1" checked="checked"><label for="mc-popup-hide">Never show this message again</label>
     </div>

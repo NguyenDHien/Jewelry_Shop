@@ -70,7 +70,7 @@
                                                         <span class="title-5">{{ $item['name'] }}</span>
                                                         </a>
                                                         <br>
-                                                        <span class="variant_title">black / small</span>
+                                                        <span class="variant_title">{{ $item['color'] }} / {{ $item['size'] }}</span>
                                                         <br>
                                                         </li>
                                                     </ul>
@@ -119,7 +119,7 @@
                             </form>
                                 <div class="clearfix">
                                     <div id="checkout-proceed" class="last1 text-right">
-                                        <button class="btn" type="submit" id="checkout"  name="checkout">Proceed to Checkout</button>
+                                        <button class="btn" type="submit" id="checkout" onclick="window.location='{{ route('checkout') }}'">Proceed to Checkout</button>
                                     </div>
                                 </div>
                                 <div class="row">

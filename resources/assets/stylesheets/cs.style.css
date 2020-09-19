@@ -603,7 +603,7 @@ header#top.affix #umbrella .cart-link:after {
 }
 
 #cart-info {
-    padding: 20px;
+    padding: 5px 10px 20px 20px;
 }
 
 #cart-content .cart-close {
@@ -615,7 +615,7 @@ header#top.affix #umbrella .cart-link:after {
     bottom: 0;
     right: 0;
     position: absolute;
-    margin-bottom: 27px;
+    margin-bottom: 65px;
     z-index: 2;
 }
 
@@ -637,7 +637,7 @@ header#top.affix #umbrella .cart-link:after {
 
 #cart-content .cart-right .cart-title {
     line-height: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 #cart-content .cart-right .cart-title a {
@@ -717,6 +717,7 @@ header#top.affix #umbrella .cart-link:after {
 #cart-content .cart-right {
     padding-left: 0;
     padding-right: 0;
+    padding-top: 7px;
 }
 
 .dropdown-menu {
@@ -2146,7 +2147,7 @@ button:focus {
 
 #register-form .form-control {
     height: 40px;
-    width: 45%;
+    width: 90%;
 }
 
 #register-form li,

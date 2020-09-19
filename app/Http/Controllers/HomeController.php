@@ -50,4 +50,8 @@ class HomeController extends Controller
         $prodSearch = product::search()->paginate(16);
         return view('search', compact('prodSearch'));
     }
+    public function checkout()
+    {
+        return view('checkout');
+    }
 }

@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function add($id, cart $cart)
+    public function add(cart $cart)
     {
+        $id = request('id');
+        $quantity = request('quantity');
+        $color = request('color');
+        $size = request('size');
         $product = product::find($id);
         if ($product) {
-            $cart->addItem($product);
+            $cart->addItem($product, $quantity, $color, $size);
             return redirect()->back();
         } else {
             return redirect()->route('home');
@@ -25,7 +29,7 @@ class CartController extends Controller
     public function delete($id, Cart $cart)
     {
         $cart->removeItem($id);
-        return redirect()->route('cart');
+        return redirect()->back();
     }
     public function update(Cart $cart)
     {
@@ -36,6 +40,6 @@ class CartController extends Controller
     public function deleteAll(Cart $cart)
     {
         $cart->removeAll();
-        return redirect()->route('cart');
+        return redirect()->back();
     }
 }

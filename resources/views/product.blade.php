@@ -60,7 +60,8 @@
                                                 <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="col-sm-24 group-variants">
                                                     <meta itemprop="priceCurrency" content="USD">              
                                                     <link itemprop="availability" href="http://schema.org/InStock">
-                                                    <form action="" method="get" class="variants" id="product-actions">
+                                                    <form action="{{ route('cart.add') }}" method="get" class="variants" id="product-actions">
+                                                        <input type="hidden" name="id" value="{{ $prod['id'] }}">
                                                         <div id="product-actions-1293235843" class="options clearfix">													
                                                             <div class="swatch color clearfix">
                                                                 <div class="header">
@@ -160,98 +161,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <div id="shopify-product-reviews" data-id="1293236931">
-                                                <style scoped="">
-                                                  .spr-container {
-                                                    padding: 24px;
-                                                    border-color: #ECECEC;
-                                                  }
-                                                  .spr-review, .spr-form {
-                                                    border-color: #ECECEC;
-                                                  }
-                                                </style>
-                                                <div class="spr-container">
-                                                    <div class="spr-header">
-                                                        <h2 class="spr-header-title">Customer Reviews</h2>
-                                                        <div class="spr-summary" itemscope="" itemtype="http://data-vocabulary.org/Review-aggregate">
-                                                            <meta itemprop="itemreviewed" content="Donec aliquam ante non">
-                                                            <meta itemprop="votes" content="1">
-                                                            <span itemprop="rating" itemscope="" itemtype="http://data-vocabulary.org/Rating" class="spr-starrating spr-summary-starrating">
-                                                            <meta itemprop="average" content="4.0">
-                                                            <meta itemprop="best" content="5">
-                                                            <meta itemprop="worst" content="1">
-                                                            <i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i>
-                                                            </span>
-                                                            <span class="spr-summary-caption">
-                                                            <span class="spr-summary-actions-togglereviews">Based on 1 review</span>
-                                                            </span>
-                                                            <span class="spr-summary-actions">
-                                                            <a href="#" class="spr-summary-actions-newreview" onclick="SPR.toggleForm(1293236931);return false">Write a review</a>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="spr-content">
-                                                        <div class="spr-form" id="form_1293236931" style="display: none">
-                                                            <form method="post" action="#" id="new-review-form_1293236931" class="new-review-form">
-                                                                <input type="hidden" name="review[rating]"><input type="hidden" name="product_id" value="1293236931">
-                                                                <h3 class="spr-form-title">Write a review</h3>
-                                                                <fieldset class="spr-form-contact">
-                                                                    <div class="spr-form-contact-name">
-                                                                        <label class="spr-form-label" for="review_author_1293236931">Name</label>
-                                                                        <input class="spr-form-input spr-form-input-text " id="review_author_1293236931" type="text" name="review[author]" value="" placeholder="Enter your name">
-                                                                    </div>
-                                                                    <div class="spr-form-contact-email">
-                                                                        <label class="spr-form-label" for="review_email_1293236931">Email</label>
-                                                                        <input class="spr-form-input spr-form-input-email " id="review_email_1293236931" type="email" name="review[email]" value="" placeholder="john.smith@example.com">
-                                                                    </div>
-                                                                </fieldset>
-                                                                <fieldset class="spr-form-review">
-                                                                    <div class="spr-form-review-rating">
-                                                                        <label class="spr-form-label">Rating</label>
-                                                                        <div class="spr-form-input spr-starrating ">
-                                                                            <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="1">&nbsp;</a>
-                                                                            <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="2">&nbsp;</a>
-                                                                            <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="3">&nbsp;</a>
-                                                                            <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="4">&nbsp;</a>
-                                                                            <a href="#" onclick="SPR.setRating(this);return false;" class="spr-icon spr-icon-star spr-icon-star-empty" data-value="5">&nbsp;</a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="spr-form-review-title">
-                                                                        <label class="spr-form-label" for="review_title_1293236931">Review Title</label>
-                                                                        <input class="spr-form-input spr-form-input-text " id="review_title_1293236931" type="text" name="review[title]" value="" placeholder="Give your review a title">
-                                                                    </div>
-                                                                    <div class="spr-form-review-body">
-                                                                        <label class="spr-form-label" for="review_body_1293236931">Body of Review <span class="spr-form-review-body-charactersremaining">(1500)</span></label>
-                                                                        <div class="spr-form-input">
-                                                                            <textarea class="spr-form-input spr-form-input-textarea " id="review_body_1293236931" data-product-id="1293236931" name="review[body]" rows="10" placeholder="Write your comments here"></textarea>																				
-                                                                        </div>
-                                                                    </div>
-                                                                </fieldset>
-                                                                <fieldset class="spr-form-actions">
-                                                                    <input type="submit" class="spr-button spr-button-primary button button-primary btn btn-primary" value="Submit Review">
-                                                                </fieldset>
-                                                            </form>
-                                                        </div>
-                                                        <div class="spr-reviews" id="reviews_1293236931">
-                                                            <div class="spr-review" id="spr-review-906174">
-                                                                <div class="spr-review-header">
-                                                                    <span class="spr-starratings spr-review-header-starratings"><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span>
-                                                                    <h3 class="spr-review-header-title">test</h3>
-                                                                    <span class="spr-review-header-byline"><strong>test</strong> on <strong>Aug 10, 2015</strong></span>
-                                                                </div>
-                                                                <div class="spr-review-content">
-                                                                    <p class="spr-review-content-body">
-                                                                        test
-                                                                    </p>
-                                                                </div>
-                                                                <div class="spr-review-footer">
-                                                                    <a href="#" class="spr-review-reportreview" onclick="SPR.reportReview(906174);return false" id="report_906174" data-msg="This review has been reported">Report as Inappropriate</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                    </div>				 --}}
                                 </div>
                             </div>         
                             <!-- Related Products -->

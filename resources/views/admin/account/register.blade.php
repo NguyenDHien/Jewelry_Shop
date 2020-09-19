@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Login')
+@section('title', 'Register')
 @section('body')
 <div id="content-wrapper-parent">
     <div id="content-wrapper">  
@@ -29,13 +29,13 @@
                                 <ul id="register-form" class="row list-unstyled">
                                     <li class="clearfix"></li>
                                     <li id="first_namef">
-                                    <label class="control-label" for="first_name">Name</label>
+                                    <label class="control-label" for="first_name">Name <span class="req">*</span></label>
                                     <input name="name" id="first_name" class="form-control" type="text" oninvalid="this.setCustomValidity('Enter Name Here')"
                                     oninput="this.setCustomValidity('')" required>
                                     </li>
                                     <li class="clearfix"></li>
                                     <li id="last_namef">
-                                    <label class="control-label" for="last_name">Phone Number</label>
+                                    <label class="control-label" for="last_name">Phone Number <span class="req">*</span></label>
                                     <input name="phone" id="last_name" class="form-control " type="number" required>
                                     </li>
                                     <li class="clearfix"></li>
@@ -68,7 +68,7 @@
 </div>
 <script>
     var password = document.getElementById("password")
-  , confirm_password = document.getElementById("confirm_password");
+    var confirm_password = document.getElementById("confirm_password");
 
 function validatePassword(){
   if(password.value != confirm_password.value) {

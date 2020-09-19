@@ -276,27 +276,35 @@
 								</a>
 								<div id="cart-info" class="dropdown-menu" style="display: none;">
 									<div id="cart-content">
+										<div  class="cart-mini-overflow">
+										@foreach ($cart->items as $item)
 										<div class="items control-container">
 											<div class="row items-wrapper">
-												<a class="cart-close" title="Remove" href="javascript:void(0);"><i class="fa fa-times"></i></a>
+												<a class="cart-close" title="Remove" href="{{ route('cart.delete', [$id = $item['id']]) }}"><i class="fa fa-times"></i></a>
 												<div class="col-md-8 cart-left">
-													<a class="cart-image" href="product.html"><img src="{{ url('resources') }}/assets/images/1_grande.jpg" alt="" title=""></a>
+													<a class="cart-image" href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}"><img width="100px" src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}" alt="" title=""></a>
 												</div>
 												<div class="col-md-16 cart-right">
 													<div class="cart-title">
-														<a href="product.html">Product with left sidebar - black / small</a>
+														<a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}">{{ $item['name'] }}</a>
+                                                        <span class="cart_attr_prod">{{ $item['color'] }} / {{ $item['size'] }}</span>
+													
 													</div>
 													<div class="cart-price">
-														$200.00<span class="x"> x </span>1
+														${{ number_format($item['price']) }}<span class="x"> x </span>{{ ($item['quantity']) }}
 													</div>
 												</div>
 											</div>
 										</div>
+										
+										@endforeach
+									</div>
 										<div class="subtotal">
 											<span>Subtotal:</span><span class="cart-total-right">$200.00</span>
 										</div>
 										<div class="action">
-											<button class="btn" onclick="window.location='cart.html'">CHECKOUT</button><a class="btn btn-1" href="cart.html">View Cart</a>
+											<button class="btn" onclick="window.location='{{ route('checkout') }}'">CHECKOUT</button>
+											<a class="btn btn-1" href="{{ route('cart') }}">View Cart</a>
 										</div>
 									</div>
 								</div>
@@ -522,7 +530,9 @@
 										</li>
 									</ul>
 								</div>
-								<form action="#" method="post" class="variants" id="quick-shop-product-actions" enctype="multipart/form-data">
+								<form action="{{ route('cart.add') }}" method="get" class="variants" id="quick-shop-product-actions" enctype="multipart/form-data">
+									<input type="hidden" id="setId" name="id" value="0">
+									
 									<div id="quick-shop-price-container" class="detail-price">
 										<span id="setPriceSale" class="price_sale">$259.00</span>
 										<div id="hide-jq"><span class="dash">/</span>
@@ -533,7 +543,7 @@
 									<div class="quantity-wrapper clearfix">
 										<label class="wrapper-title">Quantity</label>
 										<div class="wrapper">
-											<input type="text" id="qs-quantity" size="5" class="item-quantity" name="quantity" value="1">
+											<input type="text" id="qs-quantity" size="1" class="item-quantity" name="quantity" value="1">
 											<span class="qty-group">
 											<span class="qty-wrapper">
 											<span class="qty-up" title="Increase" data-src="#qs-quantity">
@@ -550,7 +560,7 @@
 										<div class="selector-wrapper">
 											<label for="#quick-shop-variants-1293238211-option-0">Color</label>
 											<div class="wrapper">
-												<select class="single-option-selector color-select" id="#quick-shop-variants-1293238211-option-0" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
+												<select class="single-option-selector color-select" name="color" id="#quick-shop-variants-1293238211-option-0" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
 												</select>
 												
 												<i class="fa fa-caret-down"></i>
@@ -559,7 +569,7 @@
 										<div class="selector-wrapper">
 											<label for="#quick-shop-variants-1293238211-option-1">Size</label>
 											<div class="wrapper">
-												<select class="single-option-selector size-select" id="#quick-shop-variants-1293238211-option-1" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
+												<select class="single-option-selector size-select" name="size" id="#quick-shop-variants-1293238211-option-1" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
 													
 												</select>
 												
@@ -568,7 +578,7 @@
 										</div>
 									</div>
 									<div class="others-bottom">
-										<input id="quick-shop-add" class="btn small add-to-cart" type="submit" name="add" value="Add to Cart" style="opacity: 1;">
+										<input id="quick-shop-add" class="btn small add-to-cart" type="submit" value="Add to Cart" style="opacity: 1;">
 									</div>
 								</form>
 							</div>
@@ -586,18 +596,7 @@
 
 
 <script>
-$body = $("body");
 
-$(document).on({
-    ajaxStart: function() { 
-		$body.addClass("loading"); 
-		// $('#quick-shop-modal').addClass('background-white'); 
-	},
-    ajaxStop: function() { 
-		 $body.removeClass("loading"); 
-		//  $('#quick-shop-modal').removeClass('background-white'); 
-	}    
-});
 	function showMainImg(imgs) {
 		var expandImg = document.getElementById("main-img");
 		expandImg.src = imgs.src;
@@ -610,6 +609,8 @@ $(document).on({
 				dataType: "json",
 				success: function (data) {
 					prodsDetail(id);
+					$('#setId').val(data.id);
+					console.log($('#setId').val())
 					$('#setPriceSale').text(data.price);
 					$('#setPrice').text(data.price);
 					$('#setName').text(data.name);
@@ -669,7 +670,7 @@ $(document).on({
 				success: function (data) {
 					console.log(data.name);
 						$('.color-select').append(`
-						<option class="color-op" value="black">${data.name}</option>
+						<option class="color-op" value="${data.name}">${data.name}</option>
 						`);
 				}
 			});
@@ -683,7 +684,7 @@ $(document).on({
 				success: function (data) {
 					console.log(data.name);
 						$('.size-select').append(`
-						<option class="color-op" value="black">${data.name}</option>
+						<option class="color-op" value="${data.name}">${data.name}</option>
 						`);
 				}
 			});

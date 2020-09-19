@@ -27,6 +27,8 @@ Route::get('/collection', 'HomeController@collection')->name('collection');
 
 Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getListView');
 
+Route::get('/checkout', 'HomeController@checkout')->name('checkout');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Category
     Route::get('/', 'AdminController@index')->name('admin');
@@ -103,7 +105,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 // cart
 Route::group(['prefix' => 'cart'], function () {
     Route::get('/', 'CartController@index')->name('cart');
-    Route::get('/add/{id}', 'CartController@add')->name('cart.add');
+    Route::get('/add', 'CartController@add')->name('cart.add');
     Route::get('/update', 'CartController@update')->name('cart.update');
     Route::get('/delete/{id}', 'CartController@delete')->name('cart.delete');
     Route::get('/delete-all', 'CartController@delete-all')->name('cart.delete-all');
