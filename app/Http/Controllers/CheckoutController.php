@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\orderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -26,6 +27,16 @@ class CheckoutController extends Controller
                 $price = $item['price'];
                 orderDetail::them($order_id, $prod_id, $quantity, $price);
             }
+            Mail::send('mail.order', [
+                'name' => $req->name,
+                'order' => $add,
+                'total' => $total_price,
+                'items' => $cart->items
+            ], function ($mail) use ($req) {
+                $mail->to($req->email, $req->name);
+                $mail->from('hienrider@gmail.com');
+                $mail->subject('Order');
+            });
             session(['cart' => '']);
             return redirect()->route('home')->with('success', 'Đặt hàng thành công');
         } else {

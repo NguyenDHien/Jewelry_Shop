@@ -12,6 +12,7 @@ class cart
     {
         $this->items = session('cart') ? session('cart') : [];
         $this->total_price = $this->get_total_price();
+        $this->countItems = count($this->items);
         $this->total_quantity = $this->get_total_quantity();
     }
     public function addItem($prod, $quantity = 1, $color, $size)

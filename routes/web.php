@@ -27,6 +27,8 @@ Route::get('/collection', 'HomeController@collection')->name('collection');
 
 Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getListView');
 
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::post('/contact', 'HomeController@p_contact');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Category

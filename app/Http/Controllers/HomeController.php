@@ -6,6 +6,7 @@ use App\Models\category;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -49,5 +50,22 @@ class HomeController extends Controller
         }
         $prodSearch = product::search()->paginate(16);
         return view('search', compact('prodSearch'));
+    }
+    public function contact()
+    {
+        return view('contact');
+        # code...
+    }
+    public function p_contact(Request $req)
+    {
+        Mail::send('mail.contact', [
+            'name' => $req->name,
+            'content' => $req->content
+        ], function ($mail) use ($req) {
+            $mail->to('hienrider@gmail.com', $req->name);
+            $mail->from($req->email);
+            $mail->subject('Test mail');
+        });
+        return redirect()->back()->with('success', 'Gửi mail thành công');
     }
 }

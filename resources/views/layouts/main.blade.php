@@ -238,7 +238,7 @@
 										</div>
 										</li>
 										<li class="nav-item">
-										<a href="contact.html">
+										<a href="{{ route('contact') }}">
 										<span>Contact</span>
 										</a>
 										</li>
@@ -272,7 +272,7 @@
 									<div class="num-items-in-cart">
 										<span class="icon">
 										  Cart
-										  <span class="number">{{ $cart->total_quantity }}</span>
+										  <span class="number">{{ $cart->countItems }}</span>
 										</span>
 									</div>
 								</a>
@@ -302,8 +302,8 @@
 										@endforeach
 										@if ( $cart->total_quantity > 0 )
 										</div>
-											<div class="subtotal">
-												<span>Subtotal:</span><span class="cart-total-right">${{ $cart->total_price }}</span>
+											<div class="subtotal" style="display: flex; justify-content: space-between">
+												<p>Total price:</p><p class="cart-total-right">${{ $cart->total_price }}</p>
 											</div>
 											<div class="action">
 												<button class="btn" onclick="window.location='{{ route('checkout') }}'">CHECKOUT</button>

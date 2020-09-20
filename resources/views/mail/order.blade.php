@@ -1,0 +1,36 @@
+    <h2>Chúc mừng bạn {{ $name }} đã đặt hàng thành công!</h2>
+    <br>
+    <p style="font-size: 15px">Thông tin đơn hàng của bạn:</p>
+    <p style="font-size: 15px">Mã đơn hàng: {{ $order->id }}</p>
+    <p style="font-size: 15px">Ngày đặt hàng: {{ $order->created_at }}</p>
+    <p style="font-size: 15px">Chi tiết sản phẩm:</p>
+    <table border="1" cellspacing = '0' cellpadding = "10">
+        <thead>
+            <tr style="border-top:1px solid #adadad; border-bottom: 1px solid #adadad; ">
+                <th style="width: 50px">STT</th>
+                <th style="width: 140px">Tên</th>
+                <th style="width: 100px">Giá</th>
+                <th style="width: 50px">SL</th>
+                <th style="width: 100px">Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $n = 1; ?>
+            
+            @foreach ($items as $item)
+            <tr>
+                <td style="text-align: center">{{ $n }}</td>
+                <td>{{ $item['name'] }}</td>
+                <td>${{ $item['price'] }}</td>
+                <td style="text-align: center">{{ $item['quantity'] }}</td>
+                <td>${{ $item['price']*$item['quantity'] }}</td>
+            </tr>
+            <?php  $n++; ?>
+            @endforeach
+            <tr>
+                <td style="font-size: 20px; font-weight: bold;" colspan="3">Tổng tiền:</td>
+                <td style="font-size: 20px; font-weight: bold; text-align: center" colspan="2">${{ $total }}</td>
+            </tr>
+        </tbody>
+    </table>
+
