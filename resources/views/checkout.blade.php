@@ -33,24 +33,24 @@
                                     <li class="clearfix"></li>
                                     <li id="first_namef">
                                     <label class="control-label" for="first_name">Name <span class="req">*</span></label>
-                                    <input name="name" id="first_name" class="form-control" type="text" oninvalid="this.setCustomValidity('Enter Name Here')"
+                                    <input name="name" id="first_name" class="form-control" value="{{ Auth::user()->name }}" type="text" oninvalid="this.setCustomValidity('Enter Name Here')"
                                     oninput="this.setCustomValidity('')" required>
                                     </li>
                                     <li class="clearfix"></li>
                                     <li id="last_namef">
                                     <label class="control-label" for="last_name">Phone Number <span class="req">*</span></label>
-                                    <input name="phone" id="last_name" class="form-control " type="number" required>
+                                    <input name="phone" id="last_name" value="{{ Auth::user()->phone }}" class="form-control" type="number" required>
                                     </li>
                                     <li class="clearfix"></li>
                                     <li id="emailf" class="">
                                     <label class="control-label" for="email">Your Email <span class="req">*</span></label>
-                                    <input name="email" id="email" class="form-control " type="email" required>
+                                    <input name="email" id="email" value="{{ Auth::user()->email }}" class="form-control " type="email" required>
                                     </li>
                                     
                                     <li class="clearfix"></li>
                                     <li id="addressff">
                                     <label class="control-label" for="first_name">Address <span class="req">*</span></label>
-                                    <input name="address" id="addressff" class="form-control" type="text" required>
+                                    <input name="address" id="addressff" value="{{ Auth::user()->address }}" class="form-control" type="text" required>
                                     </li>
 
                                     <li class="clearfix"></li>
@@ -64,7 +64,10 @@
                                     <label class="control-label" for="first_name">Tỉnh/TP <span class="req">*</span></label>
                                     <input name="address3" id="addressff" class="form-control" type="text" required>
                                     </li>
-
+                                    <div class="form-group mb-3">
+                                        <label for="validationTextarea">Note</label>
+                                        <textarea name="note" class="form-control" id="validationTextarea"></textarea>
+                                    </div>
                                     <li class="clearfix"></li>
                                     <li class="unpadding-top action-last">
                                     <button class="btn" type="submit">Checkout</button>
@@ -94,6 +97,11 @@
                                 </div>
                                 
                                 @endforeach
+                                </div>
+                                    <div class="text-checkout">
+                                        <p>total money: </p><p class="text-right">${{ $cart->total_price }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>   
                     </div>

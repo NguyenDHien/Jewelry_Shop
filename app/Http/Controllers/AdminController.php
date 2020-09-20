@@ -16,7 +16,12 @@ class AdminController extends Controller
     }
     public function login()
     {
-
+        $check_login = Auth::check();
+        // session(['link' => url()->previous()]);
+        if ($check_login) {
+            # code...
+            return redirect()->back();
+        }
         return view('admin.account.login');
         # code...
     }
@@ -31,13 +36,18 @@ class AdminController extends Controller
         $check_login = Auth::attempt($data, $remember);
         if ($check_login) {
             # code...
-            return redirect()->route('home');
+            return redirect()->intended('defaultpage');
         }
         return redirect()->back()->with('error', 'Đăng nhập thất bại');
     }
     public function register()
     {
-
+        $check_login = Auth::check();
+        session(['link' => url()->previous()]);
+        if ($check_login) {
+            # code...
+            return redirect()->back();
+        }
         return view('admin.account.register');
         # code...
     }
@@ -48,7 +58,7 @@ class AdminController extends Controller
         // $check_login = Auth::attempt($data, $remember);
         if ($add) {
             # code...
-            return redirect()->route('admin.login')->with('success', 'Đăng kí thành công!');
+            return redirect(session('link'))->with('success', 'Đăng kí thành công!');
         }
         return redirect()->back()->with('error', 'Đăng kí thất bại');
     }

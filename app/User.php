@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -46,6 +47,15 @@ class User extends Authenticatable
             'email' => request('email'),
             'password' => bcrypt(request('password')),
         ]);
+        if ($add) {
+            $data = [
+                'email' => request('email'),
+                'password' => request('password')
+            ];
+            $remember = true;
+            $check_login = Auth::attempt($data, $remember);
+            return $check_login;
+        }
         return $add;
     }
 }

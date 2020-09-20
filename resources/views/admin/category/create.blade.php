@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
         
-        <form class="needs-validation" method="POST" novalidate>
+        <form class="needs-validation" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
         <div class="row">
             <div class="col-md-12">
@@ -39,8 +39,19 @@
             </select>
             <br>
             <div class="form-group mb-3">
-                <label for="example-number">Number</label>
+                <label for="example-number">Priority</label>
                 <input class="form-control" id="example-number" type="number" name="priority" value="1">
+            </div>
+            <div class="form-group mb-3">
+                <label for="customFile">Custom file input</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="image" id="imgInp">
+                  <label class="custom-file-label" id="choose-file-value" for="customFile">Choose file</label>
+                </div>
+                @error('image')
+                <small class="help-block">{{$message}}</small>
+                @enderror
+                <img width="160px" id="blah" src="#" style="display: none; margin-top: 10px" alt="your image" />
             </div>
             <button class="btn btn-primary" type="submit">Submit form</button>
             </div>

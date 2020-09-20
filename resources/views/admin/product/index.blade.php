@@ -34,7 +34,7 @@
                         <td class="word-break">{{ $item['name'] }}</td>
                         <td>{{ $item['discount'] }}</td>
                         <td>{{ $item['price'] }}</td>
-                        <td>{{ $item['image'] }}</td>
+                        <td><img width="100px-" src="{{ url('public/uploads/prods').'/'.$item['image'] }}" alt=""></td>
                         <td>{{ $item->cate->name }}</td>
                         @if ($item['status'] == 0)
                         <td><span class="badge badge-pill badge-success">OK</span></td>

@@ -11,6 +11,8 @@ class cart
     public function __construct()
     {
         $this->items = session('cart') ? session('cart') : [];
+        $this->total_price = $this->get_total_price();
+        $this->total_quantity = $this->get_total_quantity();
     }
     public function addItem($prod, $quantity = 1, $color, $size)
     {
@@ -58,5 +60,21 @@ class cart
     public function removeAll()
     {
         session(['cart' => []]);
+    }
+    private function get_total_price()
+    {
+        $t = 0;
+        foreach ($this->items as $item) {
+            $t += $item['price'] * $item['quantity'];
+        }
+        return $t;
+    }
+    private function get_total_quantity()
+    {
+        $t = 0;
+        foreach ($this->items as $item) {
+            $t += $item['quantity'];
+        }
+        return $t;
     }
 }

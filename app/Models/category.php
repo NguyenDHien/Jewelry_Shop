@@ -9,7 +9,7 @@ class category extends Model
 {
     //
     protected $table = 'category';
-    protected $fillable = ['name', 'status', 'parent_id', 'priority', 'slug'];
+    protected $fillable = ['name', 'status', 'parent_id', 'priority', 'image', 'slug'];
 
 
 
@@ -22,20 +22,39 @@ class category extends Model
     public function scopeThem($query)
     {
         # code...
+        $img_name = '';
+        if (request()->has('image')) {
+            # code...
+            $img_name = request()->image->getClientOriginalName();
+            request()->image->move(public_path('uploads/cate'), $img_name);
+        }
         $add = $this->create([
             'name' => request()->name,
             'status' => request()->status,
             'parent_id' => request()->parent_id,
             'priority' => request()->priority,
             'slug' => Str::slug(request()->name),
+            'image' => $img_name,
         ]);
         return $add;
     }
     public function scopeSua($query, $id)
     {
         $query = $query->find($id);
-        # code...
-        $query = $query->update(request()->all());
+        $img_name = '';
+        if (request()->has('image')) {
+            # code...
+            $img_name = request()->image->getClientOriginalName();
+            request()->image->move(public_path('uploads/cate'), $img_name);
+        }
+        $query = $query->update([
+            'name' => request()->name,
+            'status' => request()->status,
+            'parent_id' => request()->parent_id,
+            'priority' => request()->priority,
+            'slug' => Str::slug(request()->name),
+            'image' => $img_name,
+        ]);
         return $query;
     }
     public function scopeXoa($query, $id)

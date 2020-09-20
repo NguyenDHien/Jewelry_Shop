@@ -52,12 +52,12 @@
                                                 <div class="home_collections_item">
                                                     <div class="home_collections_item_inner">
                                                         <div class="collection-details">
-                                                            <a href="{{ route('getListView', [$id = $item['id'],$slug = $item['slug']]) }}" title="Browse our Bracelets">
-                                                                <img src="{{ url('resources') }}/assets/images/3_large.png" alt="Bracelets">
+                                                            <a href="{{ route('getListView', [$id = $item['id'],$slug = $item['slug']]) }}" title="{{ $item['name'] }}">
+                                                                <img src="{{ url('public') }}/uploads/cate/{{ $item['image'] }}" alt="{{ $item['name'] }}">
                                                             </a>
                                                         </div>
                                                         <div class="hover-overlay">
-                                                            <span class="col-name"><a href="collection.html">Bracelets</a></span>
+                                                            <span class="col-name"><a href="collection.html">{{ $item['name'] }}</a></span>
                                                             <div class="collection-action">
                                                                 <a href="collection.html">See the Collection</a>
                                                             </div>

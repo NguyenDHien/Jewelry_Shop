@@ -43,6 +43,8 @@
 	<script src="{{ url('resources') }}/assets/javascripts/jquery.zoom.js" type="text/javascript"></script>	
 	<script src="{{ url('resources') }}/assets/javascripts/cs.script.js" type="text/javascript"></script>
 	<link href="{{ url('resources') }}/assets/stylesheets/style.css" rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.typekit.net/ttg5cga.css">
 
 </head>
 <body itemscope="" itemtype="http://schema.org/WebPage" class="templatePage notouch">  
@@ -59,7 +61,7 @@
 					@if (Auth::check())
 					<ul id="accounts" class="list-inline">
 						<li class="my-account">
-							<a href="{{ route('admin') }}">My Account</a>
+							<a href="{{ route('admin') }}">{{ Auth::user()->name }}</a>
 						</li>  
 						<li class="register">
 							<a href="{{ route('admin.logout') }}" id="customer_register_link">Logout</a>
@@ -270,7 +272,7 @@
 									<div class="num-items-in-cart">
 										<span class="icon">
 										  Cart
-										  <span class="number">1</span>
+										  <span class="number">{{ $cart->total_quantity }}</span>
 										</span>
 									</div>
 								</a>
@@ -298,15 +300,27 @@
 										</div>
 										
 										@endforeach
-									</div>
-										<div class="subtotal">
-											<span>Subtotal:</span><span class="cart-total-right">$200.00</span>
+										@if ( $cart->total_quantity > 0 )
 										</div>
-										<div class="action">
-											<button class="btn" onclick="window.location='{{ route('checkout') }}'">CHECKOUT</button>
-											<a class="btn btn-1" href="{{ route('cart') }}">View Cart</a>
+											<div class="subtotal">
+												<span>Subtotal:</span><span class="cart-total-right">${{ $cart->total_price }}</span>
+											</div>
+											<div class="action">
+												<button class="btn" onclick="window.location='{{ route('checkout') }}'">CHECKOUT</button>
+												<a class="btn btn-1" href="{{ route('cart') }}">View Cart</a>
+											</div>
 										</div>
-									</div>
+										@else
+										</div>
+											<div class="text-center">
+												<h4>Your cart is empty!</h4>
+											</div>
+											<br>
+												<a class="btn btn-1" href="{{ route('collection') }}">Collections</a>
+											</div>
+										</div>
+										@endif
+
 								</div>
 							</div>
 						</div>
@@ -354,7 +368,7 @@
 	@if (Session::has('success'))
 	<div class="alert alert-success alert-dismissible" style="margin-bottom: 10px">
 		<div class="container">
-			<strong>Notify!</strong> {{ Session::get('success') }}.
+			<strong>Notify: </strong> {{ Session::get('success') }}.
 		</div>
 	  </div>
 	@endif

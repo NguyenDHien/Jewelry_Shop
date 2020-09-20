@@ -287,3 +287,22 @@ body.loading .modalLoading {
     font-style: italic;
     color: rgba(0, 0, 0, 0.815);
 }
+
+.text-checkout {
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-checkout p {
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.text-checkout p:nth-child(2) {
+    letter-spacing: 0px;
+    font-family: droid-serif, serif;
+}

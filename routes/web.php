@@ -27,12 +27,14 @@ Route::get('/collection', 'HomeController@collection')->name('collection');
 
 Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getListView');
 
-Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Category
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/logout', 'AdminController@logout')->name('admin.logout');
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+    Route::post('/checkout', 'CheckoutController@submit')->name('checkout');
+
 
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', 'CategoryController@index')->name('cate');

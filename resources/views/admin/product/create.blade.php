@@ -52,8 +52,8 @@
             <div class="form-group mb-3">
                 <label for="validationTextarea">Description</label>
                 <textarea name="description" class="form-control" id="validationTextarea" ></textarea>
-              </div>
-              <div class="form-group mb-3">
+            </div>
+            <div class="form-group mb-3">
                 <label for="customFile">Custom file input</label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" name="image" id="imgInp">
@@ -63,7 +63,7 @@
                 <small class="help-block">{{$message}}</small>
                 @enderror
                 <img width="160px" id="blah" src="#" style="display: none; margin-top: 10px" alt="your image" />
-              </div>
+            </div>
             <button class="btn btn-primary" type="submit">Submit</button>
             </div>
         </div>

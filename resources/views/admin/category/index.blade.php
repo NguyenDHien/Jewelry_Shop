@@ -18,6 +18,7 @@
                 <table class="table table-hover datatables" id="dataTable-1"">
                   <thead>
                     <tr>
+                      <th>Image</th>
                       <th>ID</th>
                       <th>Name</th>
                       <th>Slug</th>
@@ -30,6 +31,7 @@
                   <tbody>
                       @foreach ($cates as $item)
                       <tr>
+                        <td><img width="80px-" src="{{ url('public/uploads/cate').'/'.$item['image'] }}" alt=""></td>
                         <td>{{ $item['id'] }}</td>
                         <td>{{ $item['name'] }}</td>
                         <td>{{ $item['slug'] }}</td>

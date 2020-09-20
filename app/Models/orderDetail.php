@@ -4,30 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class orderDetail extends Model
 {
     //
-    protected $table = 'orders';
-    protected $fillable = ['user_id', 'address', 'discount', 'total', 'status', 'name', 'email', 'phone', 'note'];
+    protected $table = 'order_detail';
+    protected $fillable = ['order_id', 'product_id', 'quantity', 'price'];
 
     public function user()
     {
-        # code...
         return $this->hasOne(productDetail::class, 'size_id', 'id');
     }
 
-    public function scopeThem($query, $id, $price)
+    public function scopeThem($query, $order_id, $prod_id, $quantity, $price)
     {
         # code...
         $add = $this->create([
-            'user_id' => $id,
-            'address' => request()->address,
-            'discount' => request()->discount,
-            'total' => $price,
-            'name' => request()->name,
-            'email' => request()->email,
-            'phone' => request()->phone,
-            'note' => request()->note,
+            'order_id' => $order_id,
+            'product_id' => $prod_id,
+            'quantity' => $quantity,
+            'price' => $price
         ]);
 
         return $add;

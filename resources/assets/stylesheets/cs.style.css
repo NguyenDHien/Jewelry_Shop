@@ -18,7 +18,7 @@ textarea::-webkit-input-placeholder {
 
 @media print {
     a:after {
-        content: '';
+        content: "";
     }
 
     a[href]:after {
@@ -81,7 +81,7 @@ header#top .line {
 }
 
 .top-navigation {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-size: 14px;
     text-transform: uppercase;
@@ -151,7 +151,7 @@ header#top .line {
     text-align: right;
     position: relative;
     padding-right: 0;
-    padding-left: 15px;
+    padding-left: 0px;
 }
 
 .top-navigation .navbar ul.navbar-nav {
@@ -232,7 +232,7 @@ input:focus,
 .num-items-in-cart span {
     color: #202020;
     text-transform: uppercase;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 20px;
     vertical-align: 2px;
@@ -260,7 +260,7 @@ input:focus,
     border: none;
     color: #808080;
     font-size: 13px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 14px;
     width: 200px;
@@ -641,7 +641,7 @@ header#top.affix #umbrella .cart-link:after {
 }
 
 #cart-content .cart-right .cart-title a {
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     font-weight: 400;
     color: #202020;
     text-transform: uppercase;
@@ -652,7 +652,7 @@ header#top.affix #umbrella .cart-link:after {
 }
 
 #cart-content .cart-right .cart-price {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
 }
 
@@ -679,7 +679,7 @@ header#top.affix #umbrella .cart-link:after {
 }
 
 #cart-content .subtotal span {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-weight: 700;
 }
@@ -690,7 +690,7 @@ header#top.affix #umbrella .cart-link:after {
 
 #cart-content .subtotal span.cart-total-right span {
     font-size: 24px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     margin-left: 22%;
     font-weight: 500;
@@ -727,7 +727,7 @@ header#top.affix #umbrella .cart-link:after {
 
 #umbrella .empty {
     font-size: 13px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: initial;
 }
 
@@ -801,7 +801,7 @@ header#top.affix #umbrella .cart-link:after {
     width: 100%;
     display: block;
     font-size: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #8f8f8f;
 }
 
@@ -818,7 +818,7 @@ header#top.affix #umbrella .cart-link:after {
     text-transform: capitalize;
     padding: 19px 12px;
     font-weight: 400;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 18px;
     line-height: 18px;
     border-radius: 50%;
@@ -834,11 +834,11 @@ header#top.affix #umbrella .cart-link:after {
     opacity: 1;
     -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
-    -webkit-transition: opacity .7s ease, top .50s ease;
-    -moz-transition: opacity .7s ease, top .50s ease;
-    -ms-transition: opacity .7s ease, top .50s ease;
-    -o-transition: opacity .7s ease, top .50s ease;
-    transition: opacity .7s ease, top .50s ease;
+    -webkit-transition: opacity 0.7s ease, top 0.5s ease;
+    -moz-transition: opacity 0.7s ease, top 0.5s ease;
+    -ms-transition: opacity 0.7s ease, top 0.5s ease;
+    -o-transition: opacity 0.7s ease, top 0.5s ease;
+    transition: opacity 0.7s ease, top 0.5s ease;
     z-index: 1000;
 }
 
@@ -907,7 +907,7 @@ header#top.affix #umbrella .cart-link:after {
 .home-slider-wrapper .camera_title_4 a,
 .home-slider-wrapper .camera_title_5 a {
     font-size: 48px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-weight: 300;
     line-height: 48px;
 }
@@ -915,7 +915,7 @@ header#top.affix #umbrella .cart-link:after {
 .home-slider-wrapper .camera_title_4 a,
 .home-slider-wrapper .camera_caption_4 div {
     font-size: 13px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     text-transform: uppercase;
 }
 
@@ -951,7 +951,7 @@ header#top.affix #umbrella .cart-link:after {
 
 .home-slider-wrapper .camera_mc {
     font-size: 13px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -962,7 +962,7 @@ header#top.affix #umbrella .cart-link:after {
 .home-slider-wrapper .camera_cta_4 a,
 .home-slider-wrapper .camera_cta_5 a {
     font-size: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     text-transform: uppercase;
     border: 1px solid #362f2d;
@@ -1061,19 +1061,19 @@ header#top.affix #umbrella .cart-link:after {
     padding-right: 15px;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .camera_caption.camera_title_3 {
         width: 750px;
     }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
     .camera_caption.camera_title_3 {
         width: 970px;
     }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
     .camera_caption.camera_title_3 {
         width: 1200px;
     }
@@ -1095,7 +1095,7 @@ header#top.affix #umbrella .cart-link:after {
 
 .home-slider-wrapper .camera_caption_1:after,
 .home-slider-wrapper .camera_caption_1:before {
-    content: '';
+    content: "";
     position: absolute;
     width: 700px;
     border-bottom: 1px solid #aeaeae;
@@ -1131,7 +1131,7 @@ header#top.affix #umbrella .cart-link:after {
 }
 
 .home-slider-wrapper .camera_title_2 a {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-size: 30px;
 }
 
@@ -1145,7 +1145,7 @@ header#top.affix #umbrella .cart-link:after {
     position: absolute;
     right: 0 !important;
     left: auto !important;
-    margin-right: calc((100% - 1200px)/2);
+    margin-right: calc((100% - 1200px) / 2);
     text-align: right;
     top: 50%;
 }
@@ -1166,7 +1166,7 @@ header#top.affix #umbrella .cart-link:after {
 }
 
 h6.general-title:before {
-    content: '';
+    content: "";
     background: url(../images/home_line.png) no-repeat center;
     position: absolute;
     left: 0;
@@ -1222,14 +1222,14 @@ h6.general-title:before {
 }
 
 #home_collections .home_collections_item span.col-name a {
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     font-size: 24px;
     color: #454545;
     font-weight: 300;
 }
 
 #home_collections .home_collections_item .collection-action a {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 15px;
     color: #a07936;
     font-weight: 400;
@@ -1238,7 +1238,8 @@ h6.general-title:before {
 }
 
 .home-popular-collections {
-    margin-bottom: 60px;
+    padding-bottom: 60px;
+    background-color: #fff;
 }
 
 #home_collections .home_collections_item_inner {
@@ -1698,7 +1699,7 @@ a,
 }
 
 #home_blog .home-blog-item:after {
-    content: '';
+    content: "";
     border-bottom: 1px solid #e5e5e5;
     display: block;
     width: 100%;
@@ -1723,7 +1724,7 @@ a,
 #home_blog .home-blog-item .date_inner {
     text-align: center;
     font-size: 18px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #a07936;
     font-weight: 600;
     text-transform: uppercase;
@@ -1740,14 +1741,14 @@ a,
     line-height: 57px;
     text-align: center;
     color: #202020;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-weight: 300;
     margin: 0;
 }
 
 #home_blog .home-blog-item .date small {
     background: #a07936;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     font-size: 20px;
     line-height: 20px;
     font-weight: 300;
@@ -1775,7 +1776,7 @@ a,
 
 #home_blog .home-blog-content a {
     font-size: 24px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     color: #a07936;
     font-weight: 500;
     text-transform: capitalize;
@@ -1790,7 +1791,7 @@ a,
 #home_blog .home-blog-content ul>li.comment a {
     padding-left: 0;
     font-size: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #808080;
     font-weight: 400;
     text-transform: capitalize;
@@ -1818,7 +1819,7 @@ a,
 }
 
 #home_blog .home-blog-content .intro {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
 }
 
@@ -1839,7 +1840,7 @@ a,
 }
 
 #widget-newsletter .content h5.email:before {
-    content: '';
+    content: "";
     width: 100%;
     position: absolute;
     left: 0;
@@ -1936,7 +1937,7 @@ a,
 
 .footer-content-bottom .copyright,
 #footer .footer-content-bottom .copyright a {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 400;
 }
@@ -1999,7 +2000,7 @@ a,
 
 .breadcrumb {
     border-radius: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     background: #f2e4cc;
     padding: 13px 0;
     margin-bottom: 0;
@@ -2008,7 +2009,7 @@ a,
 #breadcrumb a {
     color: #808080;
     font-weight: 400;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     padding-right: 3px;
 }
 
@@ -2019,7 +2020,7 @@ a,
 #breadcrumb span {
     color: #a07936;
     font-weight: 400;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     padding-left: 3px;
     padding-right: 3px;
 }
@@ -2045,7 +2046,7 @@ button:focus {
 
 .control-label {
     font-size: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-weight: 400;
 }
@@ -2205,7 +2206,7 @@ div.customer_address {
 .address .address1 {
     font-size: 13px;
     color: #000000;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 7px;
 }
@@ -2406,7 +2407,7 @@ button.close {
     height: auto;
     z-index: 2;
     font-size: 13px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #505050;
     text-transform: uppercase;
     font-weight: 700;
@@ -2438,7 +2439,7 @@ button.close {
 .allcollections-page .collection-item .collection-title {
     text-align: center;
     font-size: 16px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     text-transform: uppercase;
     line-height: 16px;
@@ -2508,7 +2509,7 @@ button.close {
     padding: 6px 16px;
     text-transform: uppercase;
     font-weight: 500;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
 }
 
 #shopify-product-reviews .spr-summary-actions a:hover {
@@ -2544,7 +2545,7 @@ button.close {
     font-size: 15px;
     text-transform: uppercase;
     font-weight: 400;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
 }
 
 #shopify-product-reviews .spr-icon.spr-icon-star-empty,
@@ -2587,7 +2588,7 @@ button.close {
 }
 
 .featured-products .fprod-title a {
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     font-weight: 400;
     color: #202020;
     line-height: 12px;
@@ -2645,7 +2646,7 @@ button.close {
 
 .featured-products .product-price span.price {
     font-size: 18px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     line-height: 18px;
     font-weight: 700;
     padding-top: 10px;
@@ -2694,7 +2695,7 @@ button.close {
 
 .featured-products .fprod-descrip {
     font-size: 14px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-style: italic;
     color: #808080;
     line-height: 20px;
@@ -2927,7 +2928,7 @@ h6.general-title {
 
 #options select.sort-by {
     font-size: 11px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #000000;
     font-weight: 300;
     min-width: 150px;
@@ -2937,7 +2938,7 @@ h6.general-title {
 
 #options label {
     font-size: 13px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #323232;
     font-weight: 500;
 }
@@ -3220,7 +3221,7 @@ h6.general-title {
     zoom: 1;
     font-size: 13px;
     color: #8f8f8f;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     margin: 15px auto auto 20px;
@@ -3388,7 +3389,7 @@ h6.general-title {
 }
 
 .element .row-left .hoverBorderWrapper {
-    background: rgba(255, 255, 255, 0.90);
+    background: rgba(255, 255, 255, 0.9);
     height: 50px;
     text-align: center;
     line-height: 40px;
@@ -3428,7 +3429,7 @@ h6.general-title {
     transition: all 0.45s ease;
     font-size: 13px;
     text-transform: uppercase;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     cursor: pointer;
     font-weight: 700;
@@ -3759,7 +3760,7 @@ table {
 
 .cart-items tr td ul li a span.title-5 {
     font-size: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-weight: 500;
     margin: 0;
@@ -3790,7 +3791,7 @@ table {
 
 .cart-items tr td.title-1 {
     font-size: 24px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-weight: 300;
     vertical-align: top;
@@ -3824,7 +3825,7 @@ table {
 .cart-items tbody td {
     vertical-align: top;
     padding-top: 38px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     color: #000000;
 }
@@ -3832,7 +3833,7 @@ table {
 #checkout-proceed button#update-cart {
     padding: 0 15px;
     font-size: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 10px;
@@ -3957,7 +3958,7 @@ table {
 .typo .group_Paragraph span strong {
     font-size: 16px;
     color: #202020;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -3969,14 +3970,14 @@ table {
 
 .typo ol {
     list-style-type: decimal;
-    margin-lefT: 15px;
+    margin-left: 15px;
 }
 
 .typo ol li>a,
 .typo ul li>a {
     color: #808080;
     font-size: 13px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 300;
 }
 
@@ -3994,7 +3995,7 @@ table {
     list-style-type: disc;
     color: #1e1e1e;
     font-size: 16px;
-    margin-lefT: 15px;
+    margin-left: 15px;
 }
 
 .typo ul li>ul {
@@ -4010,7 +4011,7 @@ table {
     background: #ebebeb;
     color: #202020;
     font-size: 12px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     text-align: left;
@@ -4033,7 +4034,7 @@ table {
     color: #808080;
     font-size: 13px;
     font-weight: 300;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     padding: 35px 35px 35px 20px;
 }
 
@@ -4055,7 +4056,7 @@ table {
 
 .typo .address .phone-number {
     font-size: 14px;
-    font-weight: 'Lato', sans-serif;
+    font-weight: "Lato", sans-serif;
     color: #000000;
     font-weight: 600;
 }
@@ -4100,7 +4101,7 @@ table {
 .article-page .article-content ul>li.author {
     padding-left: 0;
     font-size: 11px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-weight: 500;
     text-transform: uppercase;
@@ -4108,7 +4109,7 @@ table {
 
 .article-page .article-content ul>li.comment a {
     font-size: 11px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-weight: 500;
     text-transform: uppercase;
@@ -4120,7 +4121,7 @@ table {
 
 .blogs h2>a {
     font-size: 20px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     color: #202020;
     font-weight: 500;
 }
@@ -4158,7 +4159,7 @@ table {
 
 .article-content .post span {
     font-size: 11px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #000000;
     font-weight: 400;
 }
@@ -4170,7 +4171,7 @@ table {
 
 .article-content .post li.comment a {
     font-size: 11px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
     font-weight: 400;
 }
@@ -4201,7 +4202,7 @@ table {
 .blogs .blogs-item ul li.comment a {
     padding-left: 0;
     font-size: 11px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #000000;
     font-weight: 400;
     text-transform: uppercase;
@@ -4222,7 +4223,7 @@ table {
 
 .blogs .article-content .article-content-inner a {
     font-size: 26px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     color: #a07936;
     font-weight: 400;
     text-transform: capitalize;
@@ -4242,7 +4243,7 @@ table {
 
 .blogs .article-content .post-action a {
     font-size: 12px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #8f8f8f;
     font-weight: 700;
     text-transform: uppercase;
@@ -4262,7 +4263,7 @@ table {
 .article-content .date {
     text-align: center;
     font-size: 18px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #a07936;
     font-weight: 600;
     text-transform: uppercase;
@@ -4371,7 +4372,7 @@ table {
 
 .blogs .blogs-item .title-6 a {
     font-size: 12px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     color: #202020;
     font-weight: 600;
     text-transform: uppercase;
@@ -4443,7 +4444,7 @@ form.comment-form {
 #comments .post {
     margin-bottom: 10px;
     font-size: 11px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     color: #202020;
     text-transform: uppercase;
@@ -4454,7 +4455,7 @@ form.comment-form {
     line-height: 36px;
     text-align: center;
     color: #202020;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-weight: 500;
     margin: 0;
 }
@@ -4470,7 +4471,7 @@ form.comment-form {
     display: block;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
 }
 
 #comment-form .general-title {
@@ -4484,7 +4485,7 @@ form.comment-form {
 
 .search-page form.search-form {
     width: 100%;
-    position: relative
+    position: relative;
 }
 
 .search-page .element.no_full_width {
@@ -4602,7 +4603,7 @@ form.comment-form {
     *display: inline;
     zoom: 1;
     text-transform: capitalize;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #808080;
     font-weight: 300;
     padding: 2px;
@@ -4621,7 +4622,7 @@ form.comment-form {
 
 .selector-wrapper label,
 .quantity-wrapper label {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #323232;
     font-weight: 600;
     margin-bottom: 5px;
@@ -4640,7 +4641,7 @@ form.comment-form {
 
 .custom-style-select-box-inner {
     border: none;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     color: #000000;
     text-transform: capitalize;
@@ -4870,7 +4871,7 @@ form.comment-form {
 
 .selector-wrapper label,
 .quantity-wrapper label {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #323232;
     font-weight: 500;
     margin-bottom: 5px;
@@ -5000,7 +5001,7 @@ form.comment-form {
 
 #product-information .options .quantity-wrapper input#quantity {
     border: 1px solid #dedede;
-    font-family: 'Tinos';
+    font-family: "Tinos";
     font-size: 14px;
     color: #828282;
     text-transform: capitalize;
@@ -5095,7 +5096,7 @@ form.comment-form {
 #product-information div.detail-price span.price {
     font-size: 50px;
     line-height: 50px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #202020;
 }
 
@@ -5109,7 +5110,7 @@ form.comment-form {
 
 #product-information .wls a {
     color: #808080;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     padding: 10px;
 }
 
@@ -5134,7 +5135,7 @@ form.comment-form {
     padding: 5px 30px;
     text-transform: uppercase;
     font-size: 14px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #1e1e1e;
     font-weight: 700;
     font-style: italic;
@@ -5215,7 +5216,7 @@ form.comment-form {
 }
 
 .panel-title>a {
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #a07936;
@@ -5227,7 +5228,7 @@ form.comment-form {
 .panel-body p,
 .panel-body ul,
 .panel-body ol {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     color: #000000;
     line-height: 17px;
@@ -5281,7 +5282,7 @@ form.comment-form {
 .spr-header-title,
 .spr-review-header-title {
     font-size: 24px !important;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     color: #202020;
     font-weight: 500;
     text-transform: capitalize;
@@ -5301,7 +5302,7 @@ form.comment-form {
 
 #shopify-product-reviews .spr-review-reportreview {
     font-size: 15px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     color: #1e1e1e;
 }
@@ -5323,7 +5324,7 @@ form.comment-form {
 }
 
 #product-info-right #tabs_detail h5 {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     margin-bottom: 0;
     margin-top: 0;
 }
@@ -5612,7 +5613,7 @@ form.comment-form {
 #product-info-right #tabs_detail>li a {
     font-size: 15px;
     text-transform: uppercase;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
 #tabs_detail h6 {
@@ -5769,7 +5770,7 @@ h3#quick-shop-title {
 }
 
 #quick-shop-relative {
-    display: none
+    display: none;
 }
 
 #quick-shop-variants-container .selector-wrapper {
@@ -5899,7 +5900,7 @@ h3#quick-shop-title {
 
 .newsletter-popup h4 {
     font-size: 80px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #a07936;
     font-weight: 700;
     margin-top: 105px;
@@ -5907,7 +5908,7 @@ h3#quick-shop-title {
 
 .newsletter-popup form p {
     font-size: 15px;
-    font-family: 'Belleza', sans-serif;
+    font-family: "Belleza", sans-serif;
     color: #010101;
     font-weight: 500;
     margin-bottom: 15px;
@@ -5952,7 +5953,7 @@ h3#quick-shop-title {
 
 #popup-hide label {
     font-size: 12px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #505050;
     font-weight: 500;
 }
@@ -6034,7 +6035,7 @@ ul#price-table {
     font-size: 90px;
     color: #232323;
     display: block;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     line-height: 60px;
     padding: 40px 0 30px;
 }
@@ -6054,7 +6055,7 @@ ul#price-table {
     font-weight: 700;
     font-size: 12px;
     text-transform: uppercase;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     -webkit-transition: all 0.4s ease-out;
     -moz-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
@@ -6152,7 +6153,7 @@ ul#price-table {
     font-weight: 700;
 }
 
-@media all and (-ms-high-contrast:none) {
+@media all and (-ms-high-contrast: none) {
     .element.col-md-6 {
         width: 24.75%;
     }
@@ -6309,7 +6310,7 @@ ul#price-table {
     outline: none\9;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
     .qty-wrapper .qty-down i.fa {
         padding: 13px 16px;
         background: #eaeaea;
@@ -6655,7 +6656,7 @@ ul#price-table {
 }
 
 #tags-load:before {
-    content: '';
+    content: "";
     background-color: #f7f7f7;
     position: absolute;
     width: 100%;
@@ -6666,7 +6667,6 @@ ul#price-table {
     filter: alpha(opacity=0.7);
     opacity: 0.7;
 }
-
 
 .top-navigation .navigation .nav .nav-item.dropdown .dropdown-menu {
     display: block !important;
@@ -6687,7 +6687,7 @@ ul#price-table {
     margin-left: 25px;
 }
 
-@media(min-width: 1200px) {
+@media (min-width: 1200px) {
     .top-navigation .navigation .nav .nav-item.dropdown .dropdown-menu>.dropdown>.dropdown-menu {
         -ms-transform: scale(1, 0);
         /* IE 9 */
@@ -6713,10 +6713,9 @@ ul#price-table {
     .nav-item.dropdown>.dropdown-menu {
         margin-left: -60px;
     }
-
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
     .nav-item.dropdown>.dropdown-menu {
         margin-left: -60px;
     }
