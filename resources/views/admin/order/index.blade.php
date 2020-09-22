@@ -17,7 +17,6 @@
                   <thead>
                     <tr>
                       <th>User</th>
-                      <th>Discount</th>
                       <th>Total</th>
                       <th>Status</th>
                       <th>Name</th>
@@ -32,8 +31,7 @@
                       @foreach ($orders as $item)
                       <tr>
                         <td>{{ $item['user_id'] }}</td>
-                        <td>{{ $item['discount'] }}</td>
-                        <td>{{ $item['total'] }}</td>
+                        <td>${{ number_format($item['total']) }}</td>
                         @if ($item['status'] == 0)
                         <td><span class="badge badge-pill badge-success">OK</span></td>
                         @else

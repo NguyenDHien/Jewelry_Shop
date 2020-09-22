@@ -4,7 +4,7 @@
 <div class="card shadow mb-4">
     <div class="card-header">
         <h4>
-            <strong class="card-title">Create category</strong>
+            <strong class="card-title">Create order</strong>
         </h4>
     </div>
     <div class="card-body">

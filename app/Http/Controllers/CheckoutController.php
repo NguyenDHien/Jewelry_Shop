@@ -13,6 +13,10 @@ class CheckoutController extends Controller
 {
     public function index()
     {
+        $cart = new cart();
+        if (count($cart->items) == 0) {
+            return redirect()->back()->with('error', 'bạn cần có sản phẩm trong giỏ hàng!');
+        }
         return view('checkout');
     }
     public function submit(Request $req, cart $cart)
@@ -31,7 +35,11 @@ class CheckoutController extends Controller
                 'name' => $req->name,
                 'order' => $add,
                 'total' => $total_price,
-                'items' => $cart->items
+                'items' => $cart->items,
+                'address' => $req->address,
+                'phone' => $req->phone,
+                'city' => $req->city,
+                'email' => $req->email
             ], function ($mail) use ($req) {
                 $mail->to($req->email, $req->name);
                 $mail->from('hienrider@gmail.com');

@@ -21,7 +21,7 @@ class Order extends Model
         # code...
         $add = $this->create([
             'user_id' => $id,
-            'address' => request()->address,
+            'address' => request()->address . ', ' . request()->district . ', ' . request()->city,
             'total' => $price,
             'name' => request()->name,
             'email' => request()->email,
