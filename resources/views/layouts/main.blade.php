@@ -59,14 +59,29 @@
 			  <ul class="text-right">
 				<li class="customer-links hidden-xs">
 					@if (Auth::check())
+					@if (Auth::user()->role == 1)
 					<ul id="accounts" class="list-inline">
 						<li class="my-account">
-							<a href="{{ route('admin') }}">{{ Auth::user()->name }}</a>
+							<a href="{{ route('admin') }}">ADMIN</a>
+						</li>
+						<li class="my-account">
+							<a href="{{ route('account') }}">{{ Auth::user()->name }}</a>
 						</li>  
 						<li class="register">
 							<a href="{{ route('admin.logout') }}" id="customer_register_link">Logout</a>
 						</li> 
 					</ul>
+					@else
+					<ul id="accounts" class="list-inline">
+						<li class="my-account">
+							<a href="{{ route('account') }}">{{ Auth::user()->name }}</a>
+						</li>  
+						<li class="register">
+							<a href="{{ route('admin.logout') }}" id="customer_register_link">Logout</a>
+						</li> 
+					</ul>
+					@endif
+					
 					@else
 					<ul id="accounts" class="list-inline">
 						<li class="login">    
@@ -704,4 +719,5 @@
 			});
 	}
 </script>
+
 </body>

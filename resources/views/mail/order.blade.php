@@ -1,9 +1,12 @@
     <h2>Chúc mừng bạn {{ $name }} đã đặt hàng thành công!</h2>
     <br>
-    <p style="font-size: 15px">Thông tin đơn hàng của bạn:</p>
-    <p style="font-size: 15px">Mã đơn hàng: {{ $order->id }}</p>
-    <p style="font-size: 15px">Ngày đặt hàng: {{ $order->created_at }}</p>
-    <p style="font-size: 15px">Chi tiết sản phẩm:</p>
+    <p style="font-size: 17px; font-weight: bold">Thông tin đơn hàng của bạn:</p>
+    <p style="font-size: 15px">- Mã đơn hàng: {{ $order->id }}</p>
+    <p style="font-size: 15px">- Ngày đặt hàng: {{ $order->created_at }}</p>
+    <p style="font-size: 15px">- Địa chỉ: {{ $order->address }}</p>
+    <p style="font-size: 15px">- SĐT: {{ $order->phone }}</p>
+    <br>
+    <p style="font-size: 17px; font-weight: bold"">Chi tiết sản phẩm:</p>
     <table border="1" cellspacing = '0' cellpadding = "10">
         <thead>
             <tr style="border-top:1px solid #adadad; border-bottom: 1px solid #adadad; ">

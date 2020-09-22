@@ -54,16 +54,17 @@
                                     </li>
 
                                     <li class="clearfix"></li>
-                                    <li id="addressff">
-                                    <label class="control-label" for="first_name">Phường xã</label>
-                                    <input name="address2" id="addressff" class="form-control" type="text">
-                                    </li>
+                                    <li>
+                                        <select style="width: 44.8%" name="calc_shipping_provinces" required="">
+                                            <option value="">Tỉnh / Thành phố</option>
+                                          </select>
+                                          <select style="width: 44.8%" name="calc_shipping_district" required="">
+                                            <option value="">Quận / Huyện</option>
+                                          </select>
+                                          <input class="billing_address_1" name="city" type="hidden" value="">
+                                          <input class="billing_address_2" name="district" type="hidden" value="">
+                                    </li><br>
 
-                                    <li class="clearfix"></li>
-                                    <li id="addressff">
-                                    <label class="control-label" for="first_name">Tỉnh/TP <span class="req">*</span></label>
-                                    <input name="address3" id="addressff" class="form-control" type="text" required>
-                                    </li>
                                     <div class="form-group mb-3">
                                         <label for="validationTextarea">Note</label>
                                         <textarea name="note" class="form-control" id="validationTextarea"></textarea>
@@ -110,4 +111,6 @@
         </div>
     </div>
 </div>
+<script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js' type="text/javascript"></script>
+<script src="{{ url('resources') }}/js/js.js" type="text/javascript" ></script>
 @endsection

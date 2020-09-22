@@ -30,12 +30,16 @@ Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getList
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::post('/contact', 'HomeController@p_contact');
 
+Route::get('/checkout', 'CheckoutController@index')->name('checkout')->middleware('auth');
+Route::post('/checkout', 'CheckoutController@submit')->name('checkout')->middleware('auth');
+
+Route::get('/account', 'AccountController@index')->name('account')->middleware('auth');
+
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Category
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/logout', 'AdminController@logout')->name('admin.logout');
-    Route::get('/checkout', 'CheckoutController@index')->name('checkout');
-    Route::post('/checkout', 'CheckoutController@submit')->name('checkout');
 
 
     Route::group(['prefix' => 'category'], function () {
@@ -103,8 +107,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/delete/{id}', 'productDetailController@delete')->name('product_detail.delete');
     });
     // users
-
-
+    Route::group(['prefix' => 'User'], function () {
+        Route::get('/', 'UserController@index')->name('user');
+        Route::get('/create', 'UserController@create')->name('user.create');
+        Route::post('/create', 'UserController@p_create');
+        Route::get('/edit/{id}', 'UserController@edit')->name('user.edit');
+        Route::post('/edit/{id}', 'UserController@p_edit');
+        Route::get('/delete/{id}', 'UserController@delete')->name('user.delete');
+    });
+    //role
+    Route::group(['prefix' => 'role'], function () {
+        Route::get('/', 'RoleController@index')->name('role');
+        Route::get('/create', 'RoleController@create')->name('role.create');
+        Route::post('/create', 'RoleController@p_create');
+        Route::get('/edit/{id}', 'RoleController@edit')->name('role.edit');
+        Route::post('/edit/{id}', 'RoleController@p_edit');
+        Route::get('/delete/{id}', 'RoleController@delete')->name('role.delete');
+    });
 });
 // cart
 Route::group(['prefix' => 'cart'], function () {

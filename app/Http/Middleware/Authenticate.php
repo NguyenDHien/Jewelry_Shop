@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Providers\RouteServiceProvider;
+use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\Auth;
 
 class Authenticate extends Middleware
 {
@@ -12,10 +15,25 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
-    protected function redirectTo($request)
+    // protected function redirectTo($request)
+    // {
+    //     if (!$request->expectsJson()) {
+    //         return route('admin.login');
+    //     }
+    // }
+    public function handle($request, Closure $next)
     {
-        if (!$request->expectsJson()) {
-            return route('admin.login');
+        // chua login
+        if (!Auth::check()) {
+            return redirect()->route('admin.login');
         }
+        // if (Auth::check()) {
+        //     return redirect()->intended(RouteServiceProvider::HOME);
+        // }
+        $user = Auth::user();
+        $route = $request->route()->getName();
+        $user->can($route);
+
+        return $next($request);
     }
 }

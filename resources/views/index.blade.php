@@ -421,7 +421,7 @@
 @endsection
 @section('popupIndex')
 <div class="newsletter-popup" style="display: none;">
-    {{-- <form action="http://codespot.us5.list-manage.com/subscribe/post?u=ed73bc2d2f8ae97778246702e&amp;id=c63b4d644d" method="post" name="mc-embedded-subscribe-form" target="_blank">
+    <form action="http://codespot.us5.list-manage.com/subscribe/post?u=ed73bc2d2f8ae97778246702e&amp;id=c63b4d644d" method="post" name="mc-embedded-subscribe-form" target="_blank">
         <h4>-50% Deal</h4>
         <p class="tagline">
             subscribe for newsletter and get the item for 50% off
@@ -430,7 +430,7 @@
             <input class="form-control" type="email" name="EMAIL" placeholder="YOUR EMAIL">
             <button class="btn" type="submit"><i class="fa fa-paper-plane"></i></button>
         </div>
-    </form> --}}
+    </form>
     <div id="popup-hide">
         <input type="checkbox" id="mc-popup-hide" value="1" checked="checked"><label for="mc-popup-hide">Never show this message again</label>
     </div>
