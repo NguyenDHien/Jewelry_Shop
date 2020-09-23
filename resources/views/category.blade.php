@@ -11,7 +11,7 @@
                         <div class="col-md-24">
                             <a href="index.html" class="homepage-link" title="Back to the frontpage">Home</a>
                             <span>/</span>
-                            <span class="page-title">Collection Left Sidebar</span>
+                            <span class="page-title">{{ $cate->name }}</span>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="row">
                         <div id="collection-content">
                             <div id="page-header">
-                                <h1 id="page-title">Collection Left Sidebar</h1>
+                                <h1 id="page-title">{{ $cate->name }}</h1>
                             </div>
                             <div class="collection-warper col-sm-24 clearfix">
                                 <div class="collection-panner">
@@ -62,100 +62,66 @@
                                                         Color
                                                     </p>
                                                     <ul>
+                                                        @foreach ($colorAll as $item)
                                                         <li class="swatch-tag"><span
-                                                                style="background-color: red; background-image: url({{ url('resources') }}/assets/images/red.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Red"><a
-                                                                    title="Narrow selection to products matching tag Red"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: green; background-image: url({{ url('resources') }}/assets/images/green.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Green"><a
-                                                                    title="Narrow selection to products matching tag Green"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: black; background-image: url({{ url('resources') }}/assets/images/black.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Black"><a
-                                                                    title="Narrow selection to products matching tag Black"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: gray; background-image: url({{ url('resources') }}/assets/images/gray.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Gray"><a
-                                                                    title="Narrow selection to products matching tag Gray"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: white; background-image: url({{ url('resources') }}/assets/images/white.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="White"><a
-                                                                    title="Narrow selection to products matching tag White"
-                                                                    href="#"></a></span></li>
+                                                            style="background-color: {{ $item['hex_color'] }};"
+                                                            class="btooltip" data-toggle="tooltip"
+                                                            data-placement="top" title=""
+                                                            data-original-title="{{ $item['name'] }}"><a
+                                                                title="Narrow selection to products matching tag {{ $item['name'] }}"
+                                                                href="#"></a></span></li>
+                                                        @endforeach
+                                                        
+                                                        
                                                     </ul>
                                                 </div>
-                                                <!-- tags groupd 3 -->
+                                                <!-- price filter -->
                                                 <div class="tag-group" id="coll-filter-3">
                                                     <p class="title">
                                                         Price
                                                     </p>
-                                                    <ul>
-                                                        <li><a title="Narrow selection to products matching tag Under $100"
-                                                                href="#"><span class="fe-checkbox"></span> Under
-                                                                $100</a></li>
-                                                        <li><a title="Narrow selection to products matching tag $100 - $200"
-                                                                href="#"><span class="fe-checkbox"></span> $100 -
-                                                                $200</a></li>
-                                                        <li><a title="Narrow selection to products matching tag Above $200"
-                                                                href="#"><span class="fe-checkbox"></span> Above
-                                                                $200</a></li>
-                                                    </ul>
+                                                    <div class="container-range">
+                                                        <div class="row">
+                                                          <div class="range-width">
+                                                            <div id="slider-range"></div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="row slider-labels">
+                                                          <div class="col-xs-6 caption">
+                                                            <strong>Min:</strong> <span id="slider-range-value1"></span>
+                                                          </div>
+                                                          <div class="col-xs-6 text-right caption">
+                                                            <strong>Max:</strong> <span id="slider-range-value2"></span>
+                                                          </div>
+                                                        </div>
+                                                        <div class="row">
+                                                          <div class="range-width">
+                                                            {{-- <form action="{{ route('search') }}"> --}}
+                                                              <input type="hidden" id="min-value" name="from" >
+                                                              <input type="hidden" id="max-value" name="to">
+                                                              {{-- <br>
+                                                              <button class="btn" onclick="filterPrice()">Filter</button> --}}
+                                                            </form>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      
                                                 </div>
-                                                <!-- tags groupd 3 -->
+
                                             </div>
                                         </div>
+                                        {{-- cate list --}}
                                         <div class="home-collection-wrapper sb-wrapper clearfix">
                                             <h6 class="sb-title">Product Categories</h6>
                                             <ul class="list-unstyled sb-content list-styled">
+                                                @foreach ($cates5 as $item)
                                                 <li>
-                                                    <a href="collection.html"><span><i class="fa fa-circle"></i>
-                                                            Bracelets</span><span class="collection-count">
-                                                            (8)</span></a>
+                                                    <a href="{{ route('getListView', [$id = $item['id'],$slug = $item['slug']]) }}"><span><i class="fa fa-circle"></i> {{ $item->name }}</span></a>
                                                 </li>
-                                                <li>
-                                                    <a href="collection.html"><span><i class="fa fa-circle"></i>
-                                                            Earrings</span><span class="collection-count">
-                                                            (8)</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="collection.html"><span><i class="fa fa-circle"></i>
-                                                            Necklaces</span><span class="collection-count">
-                                                            (8)</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="collection.html"><span><i class="fa fa-circle"></i>
-                                                            Rings</span><span class="collection-count">
-                                                            (8)</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="collection-left.html"><span><i
-                                                                class="fa fa-circle"></i> Sample Collection - Left
-                                                            Slidebar</span><span class="collection-count">
-                                                            (9)</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="collection-right.html"><span><i
-                                                                class="fa fa-circle"></i> Sample Collection - Right
-                                                            Slidebar</span><span class="collection-count">
-                                                            (7)</span></a>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </div>
+                                        {{-- best sale --}}
                                         <div class="deal-product-wrapper sb-wrapper clearfix">
                                             <div class="group_deal_products">
                                                 <div class="">
@@ -163,148 +129,34 @@
                                                         <h6 class="sb-title">Specials</h6>
                                                         <div class="home_deal_fp_wrapper sb-content">
                                                             <div id="home_deal_fp">
-                                                                <div class="element full_width fadeInUp animated"
-                                                                    data-animate="fadeInUp" data-delay="0">
+                                                                @foreach ($prodSale as $item)
+                                                                <div class="element full_width fadeInUp animated" data-animate="fadeInUp" data-delay="0">
                                                                     <form action="#" method="post">
-                                                                        <ul
-                                                                            class="row-container list-unstyled clearfix">
+                                                                        <ul class="row-container list-unstyled clearfix">
                                                                             <li class="row-left">
-                                                                                <a href="product.html"
-                                                                                    class="container_item">
-                                                                                    <img src="{{ url('resources') }}/assets/images/1_small.jpg"
-                                                                                        class="img-responsive"
-                                                                                        alt="Curabitur cursus dignis">
-                                                                                </a>
+                                                                            <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
+                                                                            <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}" class="img-responsive" alt="Curabitur cursus dignis">
+                                                                            </a>
                                                                             </li>
-                                                                            <li
-                                                                                class="row-right parent-fly animMix">
-                                                                                <a class="title-5"
-                                                                                    href="product.html">Curabitur
-                                                                                    cursus dignis</a>
-                                                                                <div class="product-price">
-                                                                                    <span
-                                                                                        class="price_sale">$259.00</span>
-                                                                                    <span class="dash">/</span>
-                                                                                    <del class="price_compare">
-                                                                                        $300.00</del>
-                                                                                </div>
-                                                                                <div class="effect-ajax-cart">
-                                                                                    <input name="quantity" value="1"
-                                                                                        type="hidden">
-                                                                                    <button class="select-option"
-                                                                                        type="button"
-                                                                                        onclick="window.location.href='product.html'">Select
-                                                                                        Option</button>
-                                                                                </div>
+                                                                            <li class="row-right parent-fly animMix">
+                                                                            <a class="title-5" href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}">{{ $item->name }}</a>
+                                                                            <div class="product-price">
+                                                                                @if ($item['discount'] > 0)
+                                                                                <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
+                                                                                <del class="price_compare"> ${{ $item['price'] }}</del>
+                                                                                @else
+                                                                                <span class="price">${{ $item['price'] }}</span>
+                                                                                @endif
+                                                                            </div>
+                                                                            <div class="effect-ajax-cart">
+                                                                                <input name="quantity" value="1" type="hidden">
+                                                                                <button class="select-option" type="button" onclick="window.location.href='{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}'">Detail</button>
+                                                                            </div>
                                                                             </li>
                                                                         </ul>
                                                                     </form>
                                                                 </div>
-                                                                <div class="element full_width fadeInUp animated"
-                                                                    data-animate="fadeInUp" data-delay="200">
-                                                                    <form action="#" method="post">
-                                                                        <ul
-                                                                            class="row-container list-unstyled clearfix">
-                                                                            <li class="row-left">
-                                                                                <a href="product.html"
-                                                                                    class="container_item">
-                                                                                    <img src="{{ url('resources') }}/assets/images/2_119a31f2-2054-4483-93a3-841310e6bdfb_small.jpg"
-                                                                                        class="img-responsive"
-                                                                                        alt="Curabitur cursus dignis">
-                                                                                </a>
-                                                                            </li>
-                                                                            <li
-                                                                                class="row-right parent-fly animMix">
-                                                                                <a class="title-5"
-                                                                                    href="product.html">Curabitur
-                                                                                    cursus dignis</a>
-                                                                                <div class="product-price">
-                                                                                    <span class="price">
-                                                                                        $200.00 </span>
-                                                                                </div>
-
-                                                                                <div class="effect-ajax-cart">
-                                                                                    <input name="quantity" value="1"
-                                                                                        type="hidden">
-                                                                                    <button class="add-to-cart"
-                                                                                        type="submit" name="add">Add
-                                                                                        to Cart</button>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </form>
-                                                                </div>
-                                                                <div class="element full_width fadeInUp animated"
-                                                                    data-animate="fadeInUp" data-delay="400">
-                                                                    <form action="#" method="post">
-                                                                        <ul
-                                                                            class="row-container list-unstyled clearfix">
-                                                                            <li class="row-left">
-                                                                                <a href="product.html"
-                                                                                    class="container_item">
-                                                                                    <img src="{{ url('resources') }}/assets/images/6_03a522d6-f36a-4f59-a815-bbade4d87a6e_small.jpg"
-                                                                                        class="img-responsive"
-                                                                                        alt="Donec aliquam ante non">
-                                                                                </a>
-                                                                            </li>
-                                                                            <li
-                                                                                class="row-right parent-fly animMix">
-                                                                                <a class="title-5"
-                                                                                    href="product.html">Donec
-                                                                                    aliquam ante non</a>
-                                                                                <div class="product-price">
-                                                                                    <span
-                                                                                        class="price_sale">$250.00</span>
-                                                                                    <span class="dash">/</span>
-                                                                                    <del class="price_compare">
-                                                                                        $300.00</del>
-                                                                                </div>
-                                                                                <div class="effect-ajax-cart">
-                                                                                    <input name="quantity" value="1"
-                                                                                        type="hidden">
-                                                                                    <button class="select-option"
-                                                                                        type="button"
-                                                                                        onclick="window.location.href='product.html'">Select
-                                                                                        Option</button>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </form>
-                                                                </div>
-                                                                <div class="element full_width fadeInUp animated"
-                                                                    data-animate="fadeInUp" data-delay="600">
-                                                                    <form action="#" method="post">
-                                                                        <ul
-                                                                            class="row-container list-unstyled clearfix">
-                                                                            <li class="row-left">
-                                                                                <a href="product.html"
-                                                                                    class="container_item">
-                                                                                    <img src="{{ url('resources') }}/assets/images/4_0fe2529b-f7ae-4ed5-a8ff-4fae623757f9_small.jpg"
-                                                                                        class="img-responsive"
-                                                                                        alt="Donec condime fermentum">
-                                                                                </a>
-                                                                            </li>
-                                                                            <li
-                                                                                class="row-right parent-fly animMix">
-                                                                                <a class="title-5"
-                                                                                    href="product.html">Donec
-                                                                                    condime fermentum</a>
-                                                                                <div class="product-price">
-                                                                                    <span class="price">
-                                                                                        $200.00 </span>
-                                                                                </div>
-                                                                                <div class="effect-ajax-cart">
-                                                                                    <input name="quantity" value="1"
-                                                                                        type="hidden">
-                                                                                    <button class="select-option"
-                                                                                        type="button"
-                                                                                        onclick="window.location.href='product.html'">Select
-                                                                                        Option</button>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </form>
-                                                                </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
                                                     </div>
@@ -323,44 +175,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="sb-wrapper left-sample-block">
-                                            <h6 class="sb-title">Product Vendors</h6>
-                                            <ul class="list-unstyled sb-content list-styled">
-                                                <li>
-                                                    <i class="fa fa-circle"></i><a href="#" title="Vendor 1">Vendor
-                                                        1</a>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-circle"></i><a href="#" title="Vendor 2">Vendor
-                                                        2</a>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-circle"></i><a href="#" title="Vendor 3">Vendor
-                                                        3</a>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-circle"></i><a href="#" title="Vendor 4">Vendor
-                                                        4</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="sb-wrapper left-sample-block">
-                                            <h6 class="sb-title">Product Types</h6>
-                                            <ul class="list-unstyled sb-content list-styled">
-                                                <li>
-                                                    <i class="fa fa-circle"></i><a href="#"
-                                                        title="Dressing">Dressing</a>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-circle"></i><a href="#"
-                                                        title="Hoodies Wear">Hoodies Wear</a>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-circle"></i><a href="#"
-                                                        title="Sweaters Wear">Sweaters Wear</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+
                                         <div class="sb-item slidebar-banner">
                                             <h6 class="sb-title">Promotion</h6>
                                             <div class="">
@@ -432,12 +247,12 @@
                                     <div id="sandBox-wrapper" class="group-product-item row collection-full">
                                         <ul id="sandBox" class="list-unstyled">
                                             @foreach ($cate->prods as $item)
-                                            <li class="element first no_full_width"
-                                            data-alpha="Curabitur cursus dignis" data-price="25900">
+                                            <li class="element first no_full_width element-items"
+                                            data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
                                                 <ul class="row-container list-unstyled clearfix">
                                                     <li class="row-left">
-                                                        <a href="product.html" class="container_item">
-                                                            <img src="{{ url('resources') }}/assets/images/1_grande.jpg"
+                                                        <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
+                                                            <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}"
                                                                 class="img-responsive getImg"
                                                                 alt="Curabitur cursus dignis">
                                                             @if ($item['discount'] > 0)
@@ -474,10 +289,10 @@
                                                         <div class="product-content-right">
                                                             <div class="product-price">
                                                                 @if ($item['discount'] > 0)
-                                                                    <span class="price_sale">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
+                                                                    <span class="price_sale price-final">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
                                                                     <del class="price_compare"> ${{ $item['price'] }}</del>
                                                                     @else
-                                                                    <span class="price">${{ $item['price'] }}</span>
+                                                                    <span class="price price-final">${{ $item['price'] }}</span>
                                                                     @endif
                                                             </div>
                                                         </div>
@@ -516,5 +331,6 @@
         </div>
     </div>
 </div>
+<script src="{{ url('resources') }}/js/range-input.js" type="text/javascript"></script>
 
 @endsection

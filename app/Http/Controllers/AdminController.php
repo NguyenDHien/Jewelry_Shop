@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -16,11 +17,14 @@ class AdminController extends Controller
     }
     public function login()
     {
+        if (!session()->has('url.intended')) {
+            session()->put('url.intended', url()->previous());
+        }
         $check_login = Auth::check();
-        session(['link' => url()->previous()]);
+        // session(['link' => url()->previous()]);
         if ($check_login) {
             # code...
-            return redirect()->back();
+            return redirect()->intended()->with('success', 'Bạn đã đăng nhập');
         }
         return view('admin.account.login');
         # code...
@@ -35,7 +39,7 @@ class AdminController extends Controller
         $remember = true;
         $check_login = Auth::attempt($data, $remember);
         if ($check_login) {
-            return redirect(session('link'))->with('success', 'Đăng kí thành công!');
+            return redirect()->intended()->with('success', 'Đăng nhập thành công!');
         }
         return redirect()->back()->with('error', 'Đăng nhập thất bại');
     }

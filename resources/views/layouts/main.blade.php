@@ -208,28 +208,15 @@
 											<ul class="sub-mega-menu">
 												<li>
 												<ul>
-													<li class="list-title">Collection Links</li>
+													<li class="list-title">Danh mục sản phẩm</li>
+													@foreach ($cates5 as $item)
 													<li class="list-unstyled li-sub-mega">
-													<a href="#">Dolorem Sed </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-														<a href="#">Dolorem Sed </a>
+														<a href="{{ route('getListView', [$id = $item['id'],$slug = $item['slug']]) }}">{{ $item->name }}</a>
 														</li>
-														<li class="list-unstyled li-sub-mega">
-															<a href="#">Dolorem Sed </a>
-															</li>
-															
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Proident Nulla </a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Phasellus Leo <span class="megamenu-label hot-label">Hot</span>
-													</a>
-													</li>
-													<li class="list-unstyled li-sub-mega">
-													<a href="#">Tristique Amet <span class="megamenu-label feature-label">Featured</span>
-													</a>
-													</li>
+													@endforeach
+													
+													
+													
 												</ul>
 												</li>
 												<li>

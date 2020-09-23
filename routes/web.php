@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +39,12 @@ Route::get('/account', 'AccountController@index')->name('account')->middleware('
 Route::get('/logout', 'AdminController@logout')->name('logout');
 
 Route::get('/admin/error', 'AdminController@error')->name('admin.error');
+
+// Route::filter('auth', function () {
+//     if (Auth::guest()) {
+//         return Redirect::guest('login');
+//     }
+// });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // Category

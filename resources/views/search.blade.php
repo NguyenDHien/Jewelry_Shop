@@ -12,7 +12,7 @@
                         <div class="col-md-24">
                             <a href="{{ route('home') }}" class="homepage-link" title="Back to the frontpage">Home</a>
                             <span>/</span>
-                            <span class="page-title">Collection Left Sidebar</span>
+                            <span class="page-title">Search</span>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <div class="row">
                         <div id="collection-content">
                             <div id="page-header">
-                                <h1 id="page-title">Collection Left Sidebar</h1>
+                                <h1 id="page-title">Search</h1>
                             </div>
                             <div class="collection-warper col-sm-24 clearfix">
                                 <div class="collection-panner">

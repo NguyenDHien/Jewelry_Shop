@@ -23,13 +23,9 @@ class Authenticate extends Middleware
     // }
     public function handle($request, Closure $next, $guard = null)
     {
-        // chua login
         if (!Auth::check()) {
             return redirect()->route('admin.login');
         }
-        // if (Auth::check()) {
-        //     return redirect()->intended(RouteServiceProvider::HOME);
-        // }
         $user = Auth::user();
         $route = $request->route()->getName();
         if ($user->cant($route)) {
