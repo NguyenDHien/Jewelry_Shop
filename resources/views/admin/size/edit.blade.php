@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('body')
-<a href="{{ route('size') }}" class="btn mb-2 btn-secondary">Back<span></a>
+<a href="{{ route('admin.size') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
     <div class="card-header">
         <h4>

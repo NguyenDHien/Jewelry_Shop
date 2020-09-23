@@ -23,9 +23,9 @@ class OrderController extends Controller
     {
         $add = Order::them();
         if ($add) {
-            return redirect()->route('order')->with('success', 'Thêm mới thành công!');
+            return redirect()->route('admin.order')->with('success', 'Thêm mới thành công!');
         }
-        return redirect()->route('order')->with('error', 'Thêm mới thất bại');
+        return redirect()->route('admin.order')->with('error', 'Thêm mới thất bại');
     }
     public function edit($id)
     {
@@ -37,16 +37,16 @@ class OrderController extends Controller
         $sua = Order::sua($id);
         if ($sua) {
             # code...
-            return redirect()->route('order')->with('success', 'Sửa đổi thành công!');
+            return redirect()->route('admin.order')->with('success', 'Sửa đổi thành công!');
         }
-        return redirect()->route('order')->with('error', 'Sửa đổi thất bại');
+        return redirect()->route('admin.order')->with('error', 'Sửa đổi thất bại');
     }
     public function delete($id)
     {
         $xoa = Order::xoa($id);
         if ($xoa) {
-            return redirect()->route('order')->with('success', 'Xoá thành công!');
+            return redirect()->route('admin.order')->with('success', 'Xoá thành công!');
         }
-        return redirect()->route('order')->with('error', 'Xoá thất bại');
+        return redirect()->route('admin.order')->with('error', 'Xoá thất bại');
     }
 }

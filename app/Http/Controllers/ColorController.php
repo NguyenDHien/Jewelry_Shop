@@ -24,9 +24,9 @@ class ColorController extends Controller
     {
         $add = color::them();
         if ($add) {
-            return redirect()->route('color')->with('success', 'Thêm mới thành công!');
+            return redirect()->route('admin.color')->with('success', 'Thêm mới thành công!');
         }
-        return redirect()->route('color')->with('error', 'Thêm mới thất bại');
+        return redirect()->route('admin.color')->with('error', 'Thêm mới thất bại');
     }
     public function edit($id)
     {
@@ -39,16 +39,16 @@ class ColorController extends Controller
         $sua = color::sua($id);
         if ($sua) {
             # code...
-            return redirect()->route('color')->with('success', 'Sửa đổi thành công!');
+            return redirect()->route('admin.color')->with('success', 'Sửa đổi thành công!');
         }
-        return redirect()->route('color')->with('error', 'Sửa đổi thất bại');
+        return redirect()->route('admin.color')->with('error', 'Sửa đổi thất bại');
     }
     public function delete($id)
     {
         $xoa = color::xoa($id);
         if ($xoa > 0) {
-            return redirect()->route('color')->with('error', 'Xoá thất bại');
+            return redirect()->route('admin.color')->with('error', 'Xoá thất bại');
         }
-        return redirect()->route('color')->with('success', 'Xoá thành công!');
+        return redirect()->route('admin.color')->with('success', 'Xoá thành công!');
     }
 }

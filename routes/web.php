@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/login', 'AdminController@login')->name('admin.login');
+Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login', 'AdminController@p_login');
 
 Route::get('/search', 'HomeController@search')->name('search');
 
-Route::get('/register', 'AdminController@register')->name('admin.register');
+Route::get('/register', 'AdminController@register')->name('register');
 Route::post('/register', 'AdminController@p_register');
 
 Route::get('/collection', 'HomeController@collection')->name('collection');
@@ -34,13 +34,11 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout')->middlewar
 Route::post('/checkout', 'CheckoutController@submit')->name('checkout')->middleware('auth');
 
 Route::get('/account', 'AccountController@index')->name('account')->middleware('auth');
+Route::get('/logout', 'AdminController@logout')->name('logout');
 
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // Category
     Route::get('/', 'AdminController@index')->name('admin');
-    Route::get('/logout', 'AdminController@logout')->name('admin.logout');
-
 
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', 'CategoryController@index')->name('cate');

@@ -140,12 +140,12 @@
                       </a>
                       <ul class="collapse list-unstyled pl-4 w-100" id="category">
                           <li class="nav-item">
-                              <a class="nav-link pl-3" href="{{ route('cate') }}"><span
+                              <a class="nav-link pl-3" href="{{ route('admin.cate') }}"><span
                                       class="ml-1 item-text">List</span>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link pl-3" href="{{ route('cate.create') }}"><span
+                              <a class="nav-link pl-3" href="{{ route('admin.cate.create') }}"><span
                                       class="ml-1 item-text">Create</span></a>
                           </li>
                       </ul>
@@ -159,12 +159,12 @@
                       </a>
                       <ul class="collapse list-unstyled pl-4 w-100" id="color">
                           <li class="nav-item">
-                              <a class="nav-link pl-3" href="{{ route('color') }}"><span
+                              <a class="nav-link pl-3" href="{{ route('admin.color') }}"><span
                                       class="ml-1 item-text">List</span>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link pl-3" href="{{ route('color.create') }}"><span
+                              <a class="nav-link pl-3" href="{{ route('admin.color.create') }}"><span
                                       class="ml-1 item-text">Create</span></a>
                           </li>
                       </ul>
@@ -178,12 +178,12 @@
                   </a>
                   <ul class="collapse list-unstyled pl-4 w-100" id="size">
                       <li class="nav-item">
-                          <a class="nav-link pl-3" href="{{ route('size') }}"><span
+                          <a class="nav-link pl-3" href="{{ route('admin.size') }}"><span
                                   class="ml-1 item-text">List</span>
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link pl-3" href="{{ route('size.create') }}"><span
+                          <a class="nav-link pl-3" href="{{ route('admin.size.create') }}"><span
                                   class="ml-1 item-text">Create</span></a>
                       </li>
                   </ul>
@@ -197,12 +197,12 @@
                   </a>
                   <ul class="collapse list-unstyled pl-4 w-100" id="product">
                       <li class="nav-item">
-                          <a class="nav-link pl-3" href="{{ route('product') }}"><span
+                          <a class="nav-link pl-3" href="{{ route('admin.product') }}"><span
                                   class="ml-1 item-text">List</span>
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link pl-3" href="{{ route('product.create') }}"><span
+                          <a class="nav-link pl-3" href="{{ route('admin.product.create') }}"><span
                                   class="ml-1 item-text">Create</span></a>
                       </li>
                   </ul>
@@ -216,12 +216,12 @@
                   </a>
                   <ul class="collapse list-unstyled pl-4 w-100" id="product_detail">
                       <li class="nav-item">
-                          <a class="nav-link pl-3" href="{{ route('product_detail') }}"><span
+                          <a class="nav-link pl-3" href="{{ route('admin.product_detail') }}"><span
                                   class="ml-1 item-text">List</span>
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link pl-3" href="{{ route('product_detail.create') }}"><span
+                          <a class="nav-link pl-3" href="{{ route('admin.product_detail.create') }}"><span
                                   class="ml-1 item-text">Create</span></a>
                       </li>
                   </ul>
@@ -234,12 +234,12 @@
                     </a>
                     <ul class="collapse list-unstyled pl-4 w-100" id="image">
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('image') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.image') }}"><span
                                     class="ml-1 item-text">List</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('image.create') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.image.create') }}"><span
                                     class="ml-1 item-text">Create</span></a>
                         </li>
                     </ul>
@@ -253,12 +253,12 @@
                     </a>
                     <ul class="collapse list-unstyled pl-4 w-100" id="order">
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('order') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.order') }}"><span
                                     class="ml-1 item-text">List</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('order.create') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.order.create') }}"><span
                                     class="ml-1 item-text">Create</span></a>
                         </li>
                     </ul>
@@ -272,12 +272,12 @@
                     </a>
                     <ul class="collapse list-unstyled pl-4 w-100" id="role">
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('role') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.role') }}"><span
                                     class="ml-1 item-text">List</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('role.create') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.role.create') }}"><span
                                     class="ml-1 item-text">Create</span></a>
                         </li>
                     </ul>
@@ -291,12 +291,12 @@
                     </a>
                     <ul class="collapse list-unstyled pl-4 w-100" id="user">
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('user') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.user') }}"><span
                                     class="ml-1 item-text">List</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-3" href="{{ route('user.create') }}"><span
+                            <a class="nav-link pl-3" href="{{ route('admin.user.create') }}"><span
                                     class="ml-1 item-text">Create</span></a>
                         </li>
                     </ul>

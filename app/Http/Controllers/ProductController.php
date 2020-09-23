@@ -26,9 +26,9 @@ class ProductController extends Controller
     {
         $add = product::them();
         if ($add) {
-            return redirect()->route('product')->with('success', 'Thêm mới thành công!');
+            return redirect()->route('admin.product')->with('success', 'Thêm mới thành công!');
         }
-        return redirect()->route('product')->with('error', 'Thêm mới thất bại');
+        return redirect()->route('admin.product')->with('error', 'Thêm mới thất bại');
     }
     public function edit($id)
     {
@@ -40,16 +40,16 @@ class ProductController extends Controller
     {
         $sua = product::sua($id);
         if ($sua) {
-            return redirect()->route('product')->with('success', 'Sửa đổi thành công!');
+            return redirect()->route('admin.product')->with('success', 'Sửa đổi thành công!');
         }
-        return redirect()->route('product')->with('error', 'Sửa đổi thất bại');
+        return redirect()->route('admin.product')->with('error', 'Sửa đổi thất bại');
     }
     public function delete($id)
     {
         $xoa = product::xoa($id);
         if ($xoa > 0) {
-            return redirect()->route('product')->with('error', 'Xoá thất bại');
+            return redirect()->route('admin.product')->with('error', 'Xoá thất bại');
         }
-        return redirect()->route('product')->with('success', 'Xoá thành công!');
+        return redirect()->route('admin.product')->with('success', 'Xoá thành công!');
     }
 }

@@ -22,9 +22,9 @@ class SizeController extends Controller
     {
         $add = size::them();
         if ($add) {
-            return redirect()->route('size')->with('success', 'Thêm mới thành công!');
+            return redirect()->route('admin.size')->with('success', 'Thêm mới thành công!');
         }
-        return redirect()->route('size')->with('error', 'Thêm mới thất bại');
+        return redirect()->route('admin.size')->with('error', 'Thêm mới thất bại');
     }
     public function edit($id)
     {
@@ -36,16 +36,16 @@ class SizeController extends Controller
         $sua = size::sua($id);
         if ($sua) {
             # code...
-            return redirect()->route('size')->with('success', 'Sửa đổi thành công!');
+            return redirect()->route('admin.size')->with('success', 'Sửa đổi thành công!');
         }
-        return redirect()->route('size')->with('error', 'Sửa đổi thất bại');
+        return redirect()->route('admin.size')->with('error', 'Sửa đổi thất bại');
     }
     public function delete($id)
     {
         $xoa = size::xoa($id);
         if ($xoa > 0) {
-            return redirect()->route('size')->with('error', 'Xoá thất bại');
+            return redirect()->route('admin.size')->with('error', 'Xoá thất bại');
         }
-        return redirect()->route('size')->with('success', 'Xoá thành công!');
+        return redirect()->route('admin.size')->with('success', 'Xoá thành công!');
     }
 }

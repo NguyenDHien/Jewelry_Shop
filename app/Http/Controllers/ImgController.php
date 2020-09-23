@@ -26,9 +26,9 @@ class ImgController extends Controller
     {
         $add = image::add();
         if ($add) {
-            return redirect()->route('image')->with('success', 'Thêm mới thành công!');
+            return redirect()->route('admin.image')->with('success', 'Thêm mới thành công!');
         }
-        return redirect()->route('image')->with('error', 'Thêm mới thất bại');
+        return redirect()->route('admin.image')->with('error', 'Thêm mới thất bại');
     }
     public function edit($id)
     {
@@ -41,13 +41,13 @@ class ImgController extends Controller
 
         $img = image::sua($id);
         if ($img) {
-            return redirect()->route('image')->with('success', 'Sửa đổi thành công!');
+            return redirect()->route('admin.image')->with('success', 'Sửa đổi thành công!');
         }
-        return redirect()->route('image')->with('error', 'Sửa đổi thất bại');
+        return redirect()->route('admin.image')->with('error', 'Sửa đổi thất bại');
     }
     public function delete($id)
     {
         image::destroy($id);
-        return redirect()->route('image')->with('success', 'Xoá thành công!');
+        return redirect()->route('admin.image')->with('success', 'Xoá thành công!');
     }
 }

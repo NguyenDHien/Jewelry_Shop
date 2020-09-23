@@ -2,7 +2,7 @@
 @section('body')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<a href="{{ route('image') }}" class="btn mb-2 btn-secondary">Back<span></a>
+<a href="{{ route('admin.image') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
     <div class="card-header">
         <h4>

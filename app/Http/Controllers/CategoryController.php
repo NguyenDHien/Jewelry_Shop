@@ -24,9 +24,9 @@ class CategoryController extends Controller
     {
         $add = Category::them();
         if ($add) {
-            return redirect()->route('cate')->with('success', 'Thêm mới thành công!');
+            return redirect()->route('admin.cate')->with('success', 'Thêm mới thành công!');
         }
-        return redirect()->route('cate')->with('error', 'Thêm mới thất bại');
+        return redirect()->route('admin.cate')->with('error', 'Thêm mới thất bại');
     }
     public function edit($id)
     {
@@ -39,16 +39,16 @@ class CategoryController extends Controller
         $sua = Category::sua($id);
         if ($sua) {
             # code...
-            return redirect()->route('cate')->with('success', 'Sửa đổi thành công!');
+            return redirect()->route('admin.cate')->with('success', 'Sửa đổi thành công!');
         }
-        return redirect()->route('cate')->with('error', 'Sửa đổi thất bại');
+        return redirect()->route('admin.cate')->with('error', 'Sửa đổi thất bại');
     }
     public function delete($id)
     {
         $xoa = Category::xoa($id);
         if ($xoa > 0) {
-            return redirect()->route('cate')->with('error', 'Xoá thất bại');
+            return redirect()->route('admin.cate')->with('error', 'Xoá thất bại');
         }
-        return redirect()->route('cate')->with('success', 'Xoá thành công!');
+        return redirect()->route('admin.cate')->with('success', 'Xoá thành công!');
     }
 }

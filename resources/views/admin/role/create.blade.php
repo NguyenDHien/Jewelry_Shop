@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('body')
-<a href="{{ route('role') }}" class="btn mb-2 btn-secondary">Back<span></a>
+<a href="{{ route('admin.role') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
     <div class="card-header">
         <h4>
@@ -18,26 +18,45 @@
                 <input type="text" id="simpleinput" name="name" class="form-control" required>
                 <div class="invalid-feedback"> Please choose a name. </div>
             </div>
-            <div class="form-group mb-3">
+            <br>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Check all" class="custom-control-input" id="checkAll">
+                <label class="custom-control-label" for="checkAll">Check all</label>
+              </div>
+              <br>
+              <table class="table table-hover datatables" id="dataTable-1">
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($routes as $key => $item)
+                    <tr>
+                        <td>
+                            <p style="display: none">{{ $item }}</p>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="route[]" value="{{ $item }}" class="custom-control-input" id="customCheck{{ $key }}">
+                                <label class="custom-control-label" for="customCheck{{ $key }}">{{ $item }}</label>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                  
+                </tbody>
+              </table>
+            {{-- <div class="form-group mb-3">
                 <label for="simpleinput">Roles</label>
+                @foreach ($routes as $key => $item)
+
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="route[]" value="admin.index" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Check this first custom checkbox</label>
+                    <input type="checkbox" name="route[]" value="{{ $item }}" class="custom-control-input" id="customCheck{{ $key }}">
+                    <label class="custom-control-label" for="customCheck{{ $key }}">{{ $item }}</label>
                   </div>
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="route[]" value="role.index" class="custom-control-input" id="customCheck2">
-                    <label class="custom-control-label" for="customCheck2">Check this first custom checkbox</label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="route[]" value="cate.index" class="custom-control-input" id="customCheck3">
-                    <label class="custom-control-label" for="customCheck3">Check this first custom checkbox</label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="route[]" value="color.index" class="custom-control-input" id="customCheck4">
-                    <label class="custom-control-label" for="customCheck4">Check this first custom checkbox</label>
-                  </div>
+                @endforeach
+                
                 <div class="invalid-feedback"> Please choose a role. </div>
-            </div>
+            </div> --}}
 
             <button class="btn btn-primary" type="submit">Submit</button>
             </div>
@@ -175,5 +194,9 @@
             </div>
         </div>
     </div>
-
+<script>
+    $("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+</script>
 @endsection

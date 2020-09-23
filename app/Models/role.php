@@ -18,4 +18,14 @@ class role extends Model
         ]);
         return $add;
     }
+    public function scopeSua($query, $id)
+    {
+        $query = $query->find($id);
+        $routes = json_encode(request()->route);
+        $query = $query->update([
+            'name' => request()->name,
+            'permissions' => $routes
+        ]);
+        return $query;
+    }
 }

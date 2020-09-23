@@ -3,7 +3,7 @@
 
         <h2 class="page-title">Basic table</h2>
         <p> Tables with built-in bootstrap styles </p>
-        <a class="btn mb-2 btn-success" href="{{ route('size.create') }}" style="color: black">Create<span class="fe fe-plus fe-15 ml-2"></span></a>
+        <a class="btn mb-2 btn-success" href="{{ route('admin.size.create') }}" style="color: black">Create<span class="fe fe-plus fe-15 ml-2"></span></a>
 
         <div class="row">
           <!-- simple table -->
@@ -33,8 +33,8 @@
                               <span class="text-muted sr-only">Action</span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dr1">
-                              <a class="dropdown-item" href="{{ route('size.edit', [$id = $item['id']]) }}">Edit</a>
-                              <a class="dropdown-item" href="{{ route('size.delete', [$id = $item['id']]) }}">Remove</a>
+                              <a class="dropdown-item" href="{{ route('admin.size.edit', [$id = $item['id']]) }}">Edit</a>
+                              <a class="dropdown-item" href="{{ route('admin.size.delete', [$id = $item['id']]) }}">Remove</a>
                             </div>
                           </div>
                         </td>

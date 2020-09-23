@@ -32,9 +32,9 @@ class ProductDetailController extends Controller
     {
         $add = productDetail::add();
         if ($add) {
-            return redirect()->route('product_detail')->with('success', 'Thêm mới thành công!');
+            return redirect()->route('admin.product_detail')->with('success', 'Thêm mới thành công!');
         }
-        return redirect()->route('product_detail')->with('error', 'Thêm mới thành công!');
+        return redirect()->route('admin.product_detail')->with('error', 'Thêm mới thành công!');
     }
     public function edit($id)
     {
@@ -48,16 +48,16 @@ class ProductDetailController extends Controller
     {
         $sua = productDetail::sua($id);
         if ($sua) {
-            return redirect()->route('product_detail')->with('success', 'Sửa đổi thành công!');
+            return redirect()->route('admin.product_detail')->with('success', 'Sửa đổi thành công!');
         }
-        return redirect()->route('product_detail')->with('error', 'Sửa đổi thành công!');
+        return redirect()->route('admin.product_detail')->with('error', 'Sửa đổi thành công!');
     }
     public function delete($id)
     {
         $xoa = productDetail::xoa($id);
         if ($xoa) {
-            return redirect()->route('product_detail')->with('success', 'Xoá thành công!');
+            return redirect()->route('admin.product_detail')->with('success', 'Xoá thành công!');
         }
-        return redirect()->route('product_detail')->with('error', 'Xoá thất bại');
+        return redirect()->route('admin.product_detail')->with('error', 'Xoá thất bại');
     }
 }

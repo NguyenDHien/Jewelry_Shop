@@ -62,13 +62,13 @@
 					@if (Auth::user()->role == 1)
 					<ul id="accounts" class="list-inline">
 						<li class="my-account">
-							<a href="{{ route('admin') }}">ADMIN</a>
+							<a href="{{ route('admin.admin') }}">ADMIN</a>
 						</li>
 						<li class="my-account">
 							<a href="{{ route('account') }}">{{ Auth::user()->name }}</a>
 						</li>  
 						<li class="register">
-							<a href="{{ route('admin.logout') }}" id="customer_register_link">Logout</a>
+							<a href="{{ route('logout') }}" id="customer_register_link">Logout</a>
 						</li> 
 					</ul>
 					@else
@@ -77,7 +77,7 @@
 							<a href="{{ route('account') }}">{{ Auth::user()->name }}</a>
 						</li>  
 						<li class="register">
-							<a href="{{ route('admin.logout') }}" id="customer_register_link">Logout</a>
+							<a href="{{ route('logout') }}" id="customer_register_link">Logout</a>
 						</li> 
 					</ul>
 					@endif
@@ -86,7 +86,7 @@
 					<ul id="accounts" class="list-inline">
 						<li class="login">    
 							<span id="loginButton">
-								<a href="{{ route('admin.login') }}">Login</a>
+								<a href="{{ route('login') }}">Login</a>
 								
 							</span>
 							{{-- <!-- Customer Account Login -->
@@ -117,7 +117,7 @@
 						</li>
 						<li>/</li>   
 						<li class="register">
-							<a href="{{ route('admin.register') }}" id="customer_register_link">Create an account</a>
+							<a href="{{ route('register') }}" id="customer_register_link">Create an account</a>
 						</li> 
 					</ul>
 					@endif

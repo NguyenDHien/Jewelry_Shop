@@ -25,9 +25,9 @@ class UserController extends Controller
     // {
     //     $add = color::them();
     //     if ($add) {
-    //         return redirect()->route('color')->with('success', 'Thêm mới thành công!');
+    //         return redirect()->route('admin.color')->with('success', 'Thêm mới thành công!');
     //     }
-    //     return redirect()->route('color')->with('error', 'Thêm mới thất bại');
+    //     return redirect()->route('admin.color')->with('error', 'Thêm mới thất bại');
     // }
     public function edit($id)
     {
@@ -50,8 +50,8 @@ class UserController extends Controller
     {
         // $xoa = color::xoa($id);
         // if ($xoa > 0) {
-        //     return redirect()->route('color')->with('error', 'Xoá thất bại');
+        //     return redirect()->route('admin.color')->with('error', 'Xoá thất bại');
         // }
-        // return redirect()->route('color')->with('success', 'Xoá thành công!');
+        // return redirect()->route('admin.color')->with('success', 'Xoá thành công!');
     }
 }

@@ -1,14 +1,11 @@
 @extends('layouts.admin')
-@section('title', 'User edit')
-
 @section('body')
-<a href="{{ route('admin.user') }}" class="btn mb-2 btn-secondary">Back<span></a>
+<a href="{{ route('admin.role') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
     <div class="card-header">
         <h4>
-            <strong class="card-title">Edit user</strong>
+            <strong class="card-title">Create role</strong>
         </h4>
-      
     </div>
     <div class="card-body">
         
@@ -16,36 +13,65 @@
             @csrf
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-12">
-                <div class="form-group mb-3">
-                    <label for="simpleinput">Name</label>
-                    <input type="text" id="simpleinput" value="{{ $user['name'] }}"  name="name" class="form-control" required>
-                    <div class="invalid-feedback"> Please choose a name. </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="simpleinput">Email</label>
-                    <input type="text" id="simpleinput" value="{{ $user['email'] }}"  name="email" class="form-control" required>
-                    <div class="invalid-feedback"> Please choose a name. </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="simpleinput">Phone</label>
-                    <input type="text" id="simpleinput" value="{{ $user['phone'] }}"  name="address" class="form-control" required>
-                    <div class="invalid-feedback"> Please choose a name. </div>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="simpleinput">Roles</label>
-                    @foreach ($roles as $item)
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="role[]" value="{{ $item->id }}" class="custom-control-input" id="customCheck{{ $item->id }}">
-                        <label class="custom-control-label" for="customCheck{{ $item->id }}">{{ $item->name }}</label>
-                      </div>
-                    @endforeach
+            <div class="form-group mb-3">
+                <label for="simpleinput">Name</label>
+                <input type="text" id="simpleinput" value="{{ $model->name }}" name="name" class="form-control" required>
+                <div class="invalid-feedback"> Please choose a name. </div>
+            </div>
+            <br>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" value="Check all" class="custom-control-input" id="checkAll">
+                <label class="custom-control-label" for="checkAll">Check all</label>
+              </div>
+              <br>
+              <table class="table table-hover datatables" id="dataTable-1">
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($routes as $key => $item)
+                    @if (in_array($item, $permissions))
+                    <tr>
+                        <td>
+                            <p style="display: none">{{ $item }}</p>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="route[]" value="{{ $item }}" class="custom-control-input" checked id="customCheck{{ $key }}">
+                                <label class="custom-control-label" for="customCheck{{ $key }}">{{ $item }}</label>
+                            </div>
+                        </td>
+                    </tr>
+                    @else
+                    <tr>
+                        <td>
+                            <p style="display: none">{{ $item }}</p>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="route[]" value="{{ $item }}" class="custom-control-input" id="customCheck{{ $key }}">
+                                <label class="custom-control-label" for="customCheck{{ $key }}">{{ $item }}</label>
+                            </div>
+                        </td>
+                    </tr>
+                    @endif
                     
-                    <div class="invalid-feedback"> Please choose a role. </div>
-                </div>
+                    @endforeach
+                  
+                </tbody>
+              </table>
+            {{-- <div class="form-group mb-3">
+                <label for="simpleinput">Roles</label>
+                @foreach ($routes as $key => $item)
 
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name="route[]" value="{{ $item }}" class="custom-control-input" id="customCheck{{ $key }}">
+                    <label class="custom-control-label" for="customCheck{{ $key }}">{{ $item }}</label>
+                  </div>
+                @endforeach
+                
+                <div class="invalid-feedback"> Please choose a role. </div>
+            </div> --}}
+
+            <button class="btn btn-primary" type="submit">Submit</button>
             </div>
         </div>
         </form>
@@ -181,5 +207,9 @@
             </div>
         </div>
     </div>
-
+<script>
+    $("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+</script>
 @endsection
