@@ -30,11 +30,13 @@ Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getList
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::post('/contact', 'HomeController@p_contact');
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout')->middleware('auth');
-Route::post('/checkout', 'CheckoutController@submit')->name('checkout')->middleware('auth');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+Route::post('/checkout', 'CheckoutController@submit')->name('checkout');
 
 Route::get('/account', 'AccountController@index')->name('account')->middleware('auth');
 Route::get('/logout', 'AdminController@logout')->name('logout');
+
+Route::get('/admin/error', 'AdminController@error')->name('admin.error');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // Category
@@ -43,45 +45,45 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', 'CategoryController@index')->name('cate');
         Route::get('/create', 'CategoryController@create')->name('cate.create');
-        Route::post('/create', 'CategoryController@p_create');
+        Route::post('/create', 'CategoryController@p_create')->name('cate.create');
         Route::get('/edit/{id}', 'CategoryController@edit')->name('cate.edit');
-        Route::post('/edit/{id}', 'CategoryController@p_edit');
+        Route::post('/edit/{id}', 'CategoryController@p_edit')->name('cate.edit');
         Route::get('/delete/{id}', 'CategoryController@delete')->name('cate.delete');
     });
     // color
     Route::group(['prefix' => 'color'], function () {
         Route::get('/', 'ColorController@index')->name('color');
         Route::get('/create', 'ColorController@create')->name('color.create');
-        Route::post('/create', 'ColorController@p_create');
+        Route::post('/create', 'ColorController@p_create')->name('color.create');
         Route::get('/edit/{id}', 'ColorController@edit')->name('color.edit');
-        Route::post('/edit/{id}', 'ColorController@p_edit');
+        Route::post('/edit/{id}', 'ColorController@p_edit')->name('color.edit');
         Route::get('/delete/{id}', 'ColorController@delete')->name('color.delete');
     });
     // size
     Route::group(['prefix' => 'size'], function () {
         Route::get('/', 'SizeController@index')->name('size');
         Route::get('/create', 'SizeController@create')->name('size.create');
-        Route::post('/create', 'SizeController@p_create');
+        Route::post('/create', 'SizeController@p_create')->name('size.create');
         Route::get('/edit/{id}', 'SizeController@edit')->name('size.edit');
-        Route::post('/edit/{id}', 'SizeController@p_edit');
+        Route::post('/edit/{id}', 'SizeController@p_edit')->name('size.edit');
         Route::get('/delete/{id}', 'SizeController@delete')->name('size.delete');
     });
     // img
     Route::group(['prefix' => 'image'], function () {
         Route::get('/', 'ImgController@index')->name('image');
         Route::get('/create', 'ImgController@create')->name('image.create');
-        Route::post('/create', 'ImgController@p_create');
+        Route::post('/create', 'ImgController@p_create')->name('image.create');
         Route::get('/edit/{id}', 'ImgController@edit')->name('image.edit');
-        Route::post('/edit/{id}', 'ImgController@p_edit');
+        Route::post('/edit/{id}', 'ImgController@p_edit')->name('image.edit');
         Route::get('/delete/{id}', 'ImgController@delete')->name('image.delete');
     });
     // order
     Route::group(['prefix' => 'order'], function () {
         Route::get('/', 'OrderController@index')->name('order');
         Route::get('/create', 'OrderController@create')->name('order.create');
-        Route::post('/create', 'OrderController@p_create');
+        Route::post('/create', 'OrderController@p_create')->name('order.create');
         Route::get('/edit/{id}', 'OrderController@edit')->name('order.edit');
-        Route::post('/edit/{id}', 'OrderController@p_edit');
+        Route::post('/edit/{id}', 'OrderController@p_edit')->name('order.edit');
         Route::get('/delete/{id}', 'OrderController@delete')->name('order.delete');
     });
     // order_detail
@@ -90,36 +92,36 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::group(['prefix' => 'product'], function () {
         Route::get('/', 'ProductController@index')->name('product');
         Route::get('/create', 'ProductController@create')->name('product.create');
-        Route::post('/create', 'ProductController@p_create');
+        Route::post('/create', 'ProductController@p_create')->name('product.create');
         Route::get('/edit/{id}', 'ProductController@edit')->name('product.edit');
-        Route::post('/edit/{id}', 'ProductController@p_edit');
+        Route::post('/edit/{id}', 'ProductController@p_edit')->name('product.edit');
         Route::get('/delete/{id}', 'ProductController@delete')->name('product.delete');
     });
     // product_detail
     Route::group(['prefix' => 'product_detail'], function () {
         Route::get('/', 'productDetailController@index')->name('product_detail');
         Route::get('/create', 'productDetailController@create')->name('product_detail.create');
-        Route::post('/create', 'productDetailController@p_create');
+        Route::post('/create', 'productDetailController@p_create')->name('product_detail.create');
         Route::get('/edit/{id}', 'productDetailController@edit')->name('product_detail.edit');
-        Route::post('/edit/{id}', 'productDetailController@p_edit');
+        Route::post('/edit/{id}', 'productDetailController@p_edit')->name('product_detail.edit');
         Route::get('/delete/{id}', 'productDetailController@delete')->name('product_detail.delete');
     });
     // users
     Route::group(['prefix' => 'User'], function () {
         Route::get('/', 'UserController@index')->name('user');
         Route::get('/create', 'UserController@create')->name('user.create');
-        Route::post('/create', 'UserController@p_create');
+        Route::post('/create', 'UserController@p_create')->name('user.create');
         Route::get('/edit/{id}', 'UserController@edit')->name('user.edit');
-        Route::post('/edit/{id}', 'UserController@p_edit');
+        Route::post('/edit/{id}', 'UserController@p_edit')->name('user.edit');
         Route::get('/delete/{id}', 'UserController@delete')->name('user.delete');
     });
     //role
     Route::group(['prefix' => 'role'], function () {
         Route::get('/', 'RoleController@index')->name('role');
         Route::get('/create', 'RoleController@create')->name('role.create');
-        Route::post('/create', 'RoleController@p_create');
+        Route::post('/create', 'RoleController@p_create')->name('role.create');
         Route::get('/edit/{id}', 'RoleController@edit')->name('role.edit');
-        Route::post('/edit/{id}', 'RoleController@p_edit');
+        Route::post('/edit/{id}', 'RoleController@p_edit')->name('role.edit');
         Route::get('/delete/{id}', 'RoleController@delete')->name('role.delete');
     });
 });

@@ -11,7 +11,11 @@ class role extends Model
 
     public function scopeThem($query)
     {
-        $routes = json_encode(request()->route);
+        $arr = ["account"];
+        if (!empty(request()->route)) {
+            $arr = array_merge($arr, request()->route);
+        }
+        $routes = json_encode($arr);
         $add = $this->create([
             'name' => request()->name,
             'permissions' => $routes
@@ -21,6 +25,7 @@ class role extends Model
     public function scopeSua($query, $id)
     {
         $query = $query->find($id);
+        array_push(request()->route, 'account');
         $routes = json_encode(request()->route);
         $query = $query->update([
             'name' => request()->name,

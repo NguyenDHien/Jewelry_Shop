@@ -59,7 +59,8 @@
 			  <ul class="text-right">
 				<li class="customer-links hidden-xs">
 					@if (Auth::check())
-					@if (Auth::user()->role == 1)
+					
+					@if (Auth::user()->can('admin.admin'))
 					<ul id="accounts" class="list-inline">
 						<li class="my-account">
 							<a href="{{ route('admin.admin') }}">ADMIN</a>

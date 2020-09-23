@@ -226,7 +226,7 @@
                       </li>
                   </ul>
                   {{-- image --}}
-                  <li class="nav-item dropdown">
+                  {{-- <li class="nav-item dropdown">
                     <a href="#image" data-toggle="collapse" aria-expanded="false"
                         class="dropdown-toggle nav-link">
                         <i class="fe fe-box fe-16"></i>
@@ -243,7 +243,7 @@
                                     class="ml-1 item-text">Create</span></a>
                         </li>
                     </ul>
-                  </li>
+                  </li> --}}
                   {{-- order --}}
                   <li class="nav-item dropdown">
                     <a href="#order" data-toggle="collapse" aria-expanded="false"

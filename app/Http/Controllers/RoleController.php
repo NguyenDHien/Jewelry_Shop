@@ -41,6 +41,7 @@ class RoleController extends Controller
     }
     public function edit($id)
     {
+        $permissions = [];
         $model = role::find($id);
         $permissions = json_decode($model->permissions);
         $all = Route::getRoutes();
@@ -57,6 +58,7 @@ class RoleController extends Controller
     }
     public function p_edit($id, Request $request)
     {
+        dd(request()->route);
         $sua = role::sua($id);
         if ($sua) {
             # code...

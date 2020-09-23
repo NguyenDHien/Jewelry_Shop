@@ -13,6 +13,9 @@ class CheckoutController extends Controller
 {
     public function index()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
         $cart = new cart();
         if (count($cart->items) == 0) {
             return redirect()->back()->with('error', 'bạn cần có sản phẩm trong giỏ hàng!');

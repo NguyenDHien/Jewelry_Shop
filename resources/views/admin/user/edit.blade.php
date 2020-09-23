@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="simpleinput">Phone</label>
-                    <input type="text" id="simpleinput" value="{{ $user['phone'] }}"  name="address" class="form-control" required>
+                    <input type="text" id="simpleinput" value="{{ $user['phone'] }}"  name="phone" class="form-control" required>
                     <div class="invalid-feedback"> Please choose a name. </div>
                 </div>
 

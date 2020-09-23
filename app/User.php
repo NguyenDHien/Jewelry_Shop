@@ -48,6 +48,8 @@ class User extends Authenticatable
             ];
             $remember = true;
             $check_login = Auth::attempt($data, $remember);
+            userRole::where('user_id', $add->id)->delete();
+            userRole::create(['user_id' => $add->id, 'role_id' => '0']);
             return $check_login;
         }
         return $add;
@@ -80,8 +82,8 @@ class User extends Authenticatable
         $query = $query->find($id);
         $query->update([
             'name' => request()->name,
-            'email' => request()->name,
-            'phone' => request()->name,
+            'email' => request()->email,
+            'phone' => request()->phone,
             'password' => request()->password ? bcrypt(request()->password) : $query->password,
         ]);
         if (is_array(request()->role)) {

@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function login()
     {
         $check_login = Auth::check();
-        // session(['link' => url()->previous()]);
+        session(['link' => url()->previous()]);
         if ($check_login) {
             # code...
             return redirect()->back();
@@ -35,8 +35,7 @@ class AdminController extends Controller
         $remember = true;
         $check_login = Auth::attempt($data, $remember);
         if ($check_login) {
-            # code...
-            return redirect()->intended('defaultpage');
+            return redirect(session('link'))->with('success', 'Đăng kí thành công!');
         }
         return redirect()->back()->with('error', 'Đăng nhập thất bại');
     }
@@ -65,6 +64,11 @@ class AdminController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->back();
+    }
+    public function error()
+    {
+        $code = request()->code;
+        return view('admin.error');
     }
 }

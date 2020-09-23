@@ -21,7 +21,7 @@ class Authenticate extends Middleware
     //         return route('admin.login');
     //     }
     // }
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
         // chua login
         if (!Auth::check()) {
@@ -32,8 +32,9 @@ class Authenticate extends Middleware
         // }
         $user = Auth::user();
         $route = $request->route()->getName();
-        $user->can($route);
-
+        if ($user->cant($route)) {
+            return redirect()->route('admin.error', ['code' => 403]);
+        }
         return $next($request);
     }
 }
