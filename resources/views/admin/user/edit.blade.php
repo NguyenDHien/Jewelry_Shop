@@ -34,12 +34,30 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" id="simpleinput" name="password" class="form-control">
+                    <div class="invalid-feedback"> Please choose a name. </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="confirm_password">Confirm password</label>
+                    <input id="confirm_password" type="password" id="simpleinput" name="confirm_password" class="form-control">
+                    <div class="invalid-feedback"> Please choose a name. </div>
+                </div>
+                <div class="form-group mb-3">
                     <label for="simpleinput">Roles</label>
                     @foreach ($roles as $item)
+                    @if (in_array($item->id,$perArray))
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="role[]" value="{{ $item->id }}" class="custom-control-input" checked id="customCheck{{ $item->id }}">
+                        <label class="custom-control-label" for="customCheck{{ $item->id }}">{{ $item->name }}</label>
+                      </div>
+                    @else
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" name="role[]" value="{{ $item->id }}" class="custom-control-input" id="customCheck{{ $item->id }}">
                         <label class="custom-control-label" for="customCheck{{ $item->id }}">{{ $item->name }}</label>
                       </div>
+                    @endif
+                    
                     @endforeach
                     
                     <div class="invalid-feedback"> Please choose a role. </div>
@@ -181,5 +199,19 @@
             </div>
         </div>
     </div>
-
+    <script>
+        var password = document.getElementById("password")
+        var confirm_password = document.getElementById("confirm_password");
+    
+    function validatePassword(){
+      if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+      } else {
+        confirm_password.setCustomValidity('');
+      }
+    }
+    
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+    </script>
 @endsection

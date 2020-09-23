@@ -31,20 +31,23 @@ class UserController extends Controller
     // }
     public function edit($id)
     {
+        $perArray = [];
+        $per = userRole::where('user_id', $id)->get();
+        foreach ($per as $item) {
+            array_push($perArray, $item->role_id);
+        }
         $user = User::find($id);
         $roles = role::all();
-        return view('admin.user.edit', compact('user', 'roles'));
+        return view('admin.user.edit', compact('user', 'roles', 'perArray'));
     }
     public function p_edit($id, Request $request)
     {
-        $user = User::find($id);
-        $user->update($request->only('name', 'email', 'phone'));
-        if (is_array($request->role)) {
-
-            foreach ($request->role as $role_id) {
-                userRole::create(['user_id' => $user->id, 'role_id' => $role_id]);
-            }
+        $sua = User::sua($id);
+        if ($sua) {
+            # code...
+            return redirect()->route('admin.user')->with('success', 'Sửa đổi thành công!');
         }
+        return redirect()->route('admin.user')->with('error', 'Sửa đổi thất bại');
     }
     public function delete($id)
     {

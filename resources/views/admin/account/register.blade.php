@@ -50,7 +50,7 @@
                                     </li>
                                     <li class="clearfix"></li>
                                     <li id="passwordf" class="">
-                                    <label class="control-label" for="password">Confirm Password <span class="req">*</span></label>
+                                    <label class="control-label" for="confirm_password">Confirm Password <span class="req">*</span></label>
                                     <input id="confirm_password" class="form-control password" type="password" required>
                                     </li>
                                     <li class="clearfix"></li>

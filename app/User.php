@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Order;
 use App\Models\role;
+use App\Models\userRole;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -73,5 +74,21 @@ class User extends Authenticatable
     public function getRoles()
     {
         return $this->belongsToMany(role::class, 'user_roles', 'user_id', 'role_id');
+    }
+    public function scopeSua($query, $id)
+    {
+        $query = $query->find($id);
+        $query->update([
+            'name' => request()->name,
+            'email' => request()->name,
+            'phone' => request()->name,
+            'password' => request()->password ? bcrypt(request()->password) : $query->password,
+        ]);
+        if (is_array(request()->role)) {
+            userRole::where('user_id', $id)->delete();
+            foreach (request()->role as $role_id) {
+                userRole::create(['user_id' => $id, 'role_id' => $role_id]);
+            }
+        }
     }
 }
