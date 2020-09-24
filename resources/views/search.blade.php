@@ -44,10 +44,10 @@
                                                     </p>
                                                     <ul>
                                                         <li><a  title="Narrow selection to products matching tag S"
-                                                                href="{{ route('collection', ['gender' => 'male']) }}" style="width: 70px"><span class="fe-checkbox" ></span> Male</a>
+                                                                href="{{ route('search', ['search_str' => request()->search_str, 'gender' => 'male']) }}" style="width: 70px"><span class="fe-checkbox" ></span> Male</a>
                                                         </li>
                                                         <li><a  title="Narrow selection to products matching tag M"
-                                                            href="{{ route('collection', ['gender' => 'female']) }}" style="width: 70px"><span class="fe-checkbox"></span> Female</a>
+                                                            href="{{ route('search', ['search_str' => request()->search_str, 'gender' => 'female']) }}" style="width: 70px"><span class="fe-checkbox"></span> Female</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -65,7 +65,7 @@
                                                                 data-placement="top" title=""
                                                                 onclick="filterFunc('color','{{ $item->name }}')"
                                                                 data-original-title="{{ $item->name }}">
-                                                                <a href="{{ route('collection', ['color' => $item->name]) }}" title="Narrow selection to products matching tag {{ $item->name }}"></a>
+                                                                <a href="{{ route('search', ['search_str' => request()->search_str,'color' => $item->name]) }}" title="Narrow selection to products matching tag {{ $item->name }}"></a>
                                                             </span>
                                                         </li>
                                                         @endforeach

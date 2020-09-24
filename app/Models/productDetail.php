@@ -15,10 +15,6 @@ class productDetail extends Model
         return $this->hasOne(product::class, 'id', 'product_id');
     }
 
-    public function color()
-    {
-        return $this->hasOne(color::class, 'id', 'color_id');
-    }
 
     public function size()
     {

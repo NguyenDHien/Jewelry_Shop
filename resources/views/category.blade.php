@@ -43,13 +43,13 @@
                                                     </p>
                                                     <ul>
                                                         <li><a  title="Narrow selection to products matching tag S"
-                                                                href="{{ route('collection', ['gender' => 'male']) }}" style="width: 70px"><span class="fe-checkbox" ></span> Male</a>
+                                                                href="{{ route('getListView', [$id = request()->id, $slug = request()->slug, 'gender' => 'male']) }}" style="width: 70px"><span class="fe-checkbox" ></span> Male</a>
                                                         </li>
                                                         <li><a  title="Narrow selection to products matching tag M"
-                                                            href="{{ route('collection', ['gender' => 'female']) }}" style="width: 70px"><span class="fe-checkbox"></span> Female</a>
+                                                            href="{{ route('getListView', [$id = request()->id, $slug = request()->slug, 'gender' => 'female']) }}" style="width: 70px"><span class="fe-checkbox"></span> Female</a>
                                                         </li>
                                                     </ul>
-                                                </div>
+                                                </div>  
                                                 <!-- Color -->
                                                 <div class="tag-group" id="coll-filter-2">
                                                     <p class="title">
@@ -64,7 +64,7 @@
                                                                 data-placement="top" title=""
                                                                 onclick="filterFunc('color','{{ $item->name }}')"
                                                                 data-original-title="{{ $item->name }}">
-                                                                <a href="{{ route('collection', ['color' => $item->name]) }}" title="Narrow selection to products matching tag {{ $item->name }}"></a>
+                                                                <a href="{{ route('getListView', [$id = request()->id, $slug = request()->slug, 'color' => $item->name]) }}" title="Narrow selection to products matching tag {{ $item->name }}"></a>
                                                             </span>
                                                         </li>
                                                         @endforeach
@@ -240,7 +240,7 @@
                                     </div>
                                     <div id="sandBox-wrapper" class="group-product-item row collection-full">
                                         <ul id="sandBox" class="list-unstyled list-prod-parent">
-                                            @foreach ( $cate->prods as $item)
+                                            @foreach ( $prod as $item)
                                             <li class="element first no_full_width element-items prod-normal"
                                             data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
                                                 <ul class="row-container list-unstyled clearfix"
@@ -314,7 +314,7 @@
                                                 </ul>
                                             </li>
                                             @endforeach
-                                            @foreach ( $cate->prods_est as $item)
+                                            @foreach ( $prod_est as $item)
                                             <li class="element first no_full_width element-items prod-est dp-none"
                                             data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
                                                 <ul class="row-container list-unstyled clearfix"

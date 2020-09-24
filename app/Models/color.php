@@ -10,10 +10,10 @@ class color extends Model
     protected $table = 'color';
     protected $fillable = ['name', 'hex_color'];
 
-    public function prodDs()
+    public function prod()
     {
         # code...
-        return $this->hasMany(productDetail::class, 'color_id', 'id');
+        return $this->hasMany(product::class, 'color_id', 'id');
     }
 
     public function scopeThem()

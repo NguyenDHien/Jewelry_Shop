@@ -63,22 +63,7 @@
                                                     <form action="{{ route('cart.add') }}" method="get" class="variants" id="product-actions">
                                                         <input type="hidden" name="id" value="{{ $prod['id'] }}">
                                                         <div id="product-actions-1293235843" class="options clearfix">													
-                                                            <div class="swatch color clearfix">
-                                                                <div class="header">
-                                                                    Color
-                                                                </div>
 
-                                                                @foreach ($prod->prodDs as $item) 
-                                                                    <div data-value="{{ $item->color->name }}" class="swatch-element color {{ $item->color->name }} available">
-                                                                        <div class="tooltip">
-                                                                            {{ $item->color->name }}
-                                                                        </div>
-                                                                        <input id="swatch-0-{{ $item->color->name }}" name="color" checked value="{{ $item->color->name }}" type="radio">
-                                                                        <label for="swatch-0-{{ $item->color->name }}" style="background-color: {{ $item->color->hex_color }}">
-                                                                        </label>
-                                                                    </div>
-                                                                @endforeach															
-                                                            </div>
                                                             <div class="swatch clearfix">
                                                                 <div class="header">
                                                                     Size
