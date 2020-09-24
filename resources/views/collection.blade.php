@@ -405,16 +405,4 @@
 </div>
 <script src="{{ url('resources') }}/js/range-input.js" type="text/javascript"></script>
 <script src="{{ url('resources') }}/js/sort.js" type="text/javascript"></script>
-<script src="{{ url('resources') }}/js/filter.js" type="text/javascript"></script>
-<script>
-    function filterFunc(type, param) {
-        var list = $(".prod-normal");   
-        for (var i = 0, l = list.length; i < l; i++) {
-            $(list[i]).addClass('dp-none');
-            if ($(list[i]).data(type) == param) {
-                $(list[i]).removeClass('dp-none');
-            }
-        }
-}
-</script>
 @endsection

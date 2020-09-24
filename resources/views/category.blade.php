@@ -36,42 +36,38 @@
                                             <!-- filter tags group -->
                                             <div class="filter-tag-group">
                                                 <h6 class="sb-title">Filter</h6>
-                                                <!-- tags groupd 1 -->
+                                                <!-- gender -->
                                                 <div class="tag-group" id="coll-filter-1">
                                                     <p class="title">
-                                                        Size
+                                                        Gender
                                                     </p>
                                                     <ul>
-                                                        <li><a title="Narrow selection to products matching tag S"
-                                                                href="#"><span class="fe-checkbox"></span> S</a>
+                                                        <li><a  title="Narrow selection to products matching tag S"
+                                                                href="{{ route('collection', ['gender' => 'male']) }}" style="width: 70px"><span class="fe-checkbox" ></span> Male</a>
                                                         </li>
-                                                        <li><a title="Narrow selection to products matching tag M"
-                                                                href="#"><span class="fe-checkbox"></span> M</a>
-                                                        </li>
-                                                        <li><a title="Narrow selection to products matching tag L"
-                                                                href="#"><span class="fe-checkbox"></span> L</a>
-                                                        </li>
-                                                        <li><a title="Narrow selection to products matching tag XL"
-                                                                href="#"><span class="fe-checkbox"></span> XL</a>
+                                                        <li><a  title="Narrow selection to products matching tag M"
+                                                            href="{{ route('collection', ['gender' => 'female']) }}" style="width: 70px"><span class="fe-checkbox"></span> Female</a>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <!-- tags groupd 2 -->
+                                                <!-- Color -->
                                                 <div class="tag-group" id="coll-filter-2">
                                                     <p class="title">
                                                         Color
                                                     </p>
                                                     <ul>
                                                         @foreach ($colorAll as $item)
-                                                        <li class="swatch-tag"><span
-                                                            style="background-color: {{ $item['hex_color'] }};"
-                                                            class="btooltip" data-toggle="tooltip"
-                                                            data-placement="top" title=""
-                                                            data-original-title="{{ $item['name'] }}"><a
-                                                                title="Narrow selection to products matching tag {{ $item['name'] }}"
-                                                                href="#"></a></span></li>
+                                                        <li class="swatch-tag">
+                                                            <span
+                                                                style="background-color: {{ $item->hex_color }};"
+                                                                class="btooltip filterColor" data-toggle="tooltip"
+                                                                data-placement="top" title=""
+                                                                onclick="filterFunc('color','{{ $item->name }}')"
+                                                                data-original-title="{{ $item->name }}">
+                                                                <a href="{{ route('collection', ['color' => $item->name]) }}" title="Narrow selection to products matching tag {{ $item->name }}"></a>
+                                                            </span>
+                                                        </li>
                                                         @endforeach
-                                                        
                                                         
                                                     </ul>
                                                 </div>
