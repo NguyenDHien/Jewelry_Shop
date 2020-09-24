@@ -30,7 +30,8 @@ class cart
                 'price' => $priceFinal,
                 'quantity' => $quantity,
                 'color' => $color,
-                'size' => $size
+                'size' => $size,
+                'sold_count' => $prod->sold_count
             ];
             $this->items[$prod->id] = $item;
         }

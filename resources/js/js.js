@@ -4,7 +4,6 @@
 //     var expandImg = document.getElementById("main-img");
 //     expandImg.src = imgs.src;
 // }
-console.log('js.js');
 //<![CDATA[
 if (address_2 = localStorage.getItem('address_2_saved')) {
     $('select[name="calc_shipping_district"] option').each(function () {

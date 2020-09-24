@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\cart;
 use App\Models\Order;
 use App\Models\orderDetail;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -33,6 +34,7 @@ class CheckoutController extends Controller
                 $quantity = $item['quantity'];
                 $price = $item['price'];
                 orderDetail::them($order_id, $prod_id, $quantity, $price);
+                $prod = product::sold($prod_id);
             }
             Mail::send('mail.order', [
                 'name' => $req->name,

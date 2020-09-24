@@ -18,7 +18,11 @@ class category extends Model
         # code...
         return $this->hasMany(product::class, 'category_id', 'id');
     }
-
+    public function prods_est()
+    {
+        # code...
+        return $this->hasMany(product::class, 'category_id', 'id')->orderBy('sold_count', 'DESC');;
+    }
     public function scopeThem($query)
     {
         # code...

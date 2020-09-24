@@ -59,6 +59,15 @@ class product extends Model
         ]);
         return $add;
     }
+    public function scopeSold($query, $id)
+    {
+        $query = $query->find($id);
+        $sold_count = $query->sold_count++;
+        $query = $query->update([
+            'sold_count' => $sold_count,
+        ]);
+        return $query;
+    }
     public function scopeSua($query, $id)
     {
         $query = $query->find($id);

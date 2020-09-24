@@ -22,7 +22,8 @@ class HomeController extends Controller
     {
         # code...
         $prod = product::all();
-        return view('collection', compact('prod'));
+        $prod_est = product::orderBy('sold_count', 'DESC')->get();
+        return view('collection', compact('prod', 'prod_est'));
     }
 
     public function getListView($id, $slug)
@@ -48,8 +49,9 @@ class HomeController extends Controller
         if (!request()->search_str) {
             return redirect()->route('collection');
         }
-        $prodSearch = product::search()->paginate(16);
-        return view('search', compact('prodSearch'));
+        $prodSearch = product::search()->get();
+        $prod_est = product::search()->orderBy('sold_count', 'DESC')->get();
+        return view('search', compact('prodSearch', 'prod_est'));
     }
     public function contact()
     {

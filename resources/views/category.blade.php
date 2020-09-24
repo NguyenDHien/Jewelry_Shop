@@ -220,36 +220,35 @@
                                                     </div>
                                                     <div id="sortBox" class="control-container dropdown-menu">
                                                         <ul id="sortForm"
-                                                            class="list-unstyled option-set text-left list-styled"
-                                                            data-option-key="sortBy">
-                                                            <li class="sort" data-option-value="manual">Featured
-                                                            </li>
-                                                            <li class="sort" data-option-value="price-ascending"
-                                                                data-order="asc">Price: Low to High</li>
-                                                            <li class="sort" data-option-value="price-descending"
-                                                                data-order="desc">Price: High to Low</li>
-                                                            <li class="sort" data-option-value="title-ascending"
-                                                                data-order="asc">A-Z</li>
-                                                            <li class="sort" data-option-value="title-descending"
-                                                                data-order="desc">Z-A</li>
-                                                            <li class="sort" data-option-value="created-ascending"
-                                                                data-order="asc">Oldest to Newest</li>
-                                                            <li class="sort" data-option-value="created-descending"
-                                                                data-order="desc">Newest to Oldest</li>
-                                                            <li class="sort" data-option-value="best-selling">Best
-                                                                Selling</li>
-                                                        </ul>
+                                                        class="list-unstyled option-set text-left list-styled"
+                                                        data-option-key="sortBy">
+                                                        <li class="sort" onclick="sortLtH()" data-option-value="price-ascending"
+                                                            data-order="asc">Price: Low to High</li>
+                                                        <li class="sort" onclick="sortHtL()"  data-option-value="price-descending"
+                                                            data-order="desc">Price: High to Low</li>
+                                                        <li class="sort" id="sortAtZ" data-option-value="title-ascending"
+                                                            data-order="asc">A-Z</li>
+                                                        <li class="sort" id="sortZtA" data-option-value="title-descending"
+                                                            data-order="desc">Z-A</li>
+                                                        <li class="sort" id="sortOtN" data-option-value="created-ascending"
+                                                            data-order="asc">Oldest to Newest</li>
+                                                        <li class="sort" id="sortNtO" data-option-value="created-descending"
+                                                            data-order="desc">Newest to Oldest</li>
+                                                        <li class="sort" id="sortBs" data-option-value="best-selling">Best
+                                                            Selling</li>
+                                                    </ul>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div id="sandBox-wrapper" class="group-product-item row collection-full">
-                                        <ul id="sandBox" class="list-unstyled">
-                                            @foreach ($cate->prods as $item)
-                                            <li class="element first no_full_width element-items"
+                                        <ul id="sandBox" class="list-unstyled list-prod-parent">
+                                            @foreach ( $cate->prods as $item)
+                                            <li class="element first no_full_width element-items prod-normal"
                                             data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
-                                                <ul class="row-container list-unstyled clearfix">
+                                                <ul class="row-container list-unstyled clearfix"
+                                                data-sort='{{ (int)($item['price']-($item['price']*$item['discount'])/100) }}'>
                                                     <li class="row-left">
                                                         <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
                                                             <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}"
@@ -318,7 +317,80 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            
+                                            @endforeach
+                                            @foreach ( $cate->prods_est as $item)
+                                            <li class="element first no_full_width element-items prod-est dp-none"
+                                            data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
+                                                <ul class="row-container list-unstyled clearfix"
+                                                data-sort='{{ (int)($item['price']-($item['price']*$item['discount'])/100) }}'>
+                                                    <li class="row-left">
+                                                        <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}" class="container_item">
+                                                            <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}"
+                                                                class="img-responsive getImg"
+                                                                alt="Curabitur cursus dignis">
+                                                            @if ($item['discount'] > 0)
+                                                            <span class="sale_banner">
+                                                                <span class="sale_text">Sale</span>
+                                                            </span>
+                                                            @endif
+                                                        </a>
+                                                        <div class="hbw">
+                                                            <span class="hoverBorderWrapper"></span>
+                                                        </div>
+                                                    </li>
+                                                    <li class="row-right parent-fly animMix">
+                                                        <div class="product-content-left">
+                                                            <a class="title-5" href="product.html">{{ $item['name'] }}</a>
+                                                            <span class="spr-badge" id="spr_badge_129323821155"
+                                                                data-rating="0.0">
+                                                                <span class="spr-starrating spr-badge-starrating"><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i><i
+                                                                        class="spr-icon spr-icon-star-empty"
+                                                                        style=""></i></span>
+                                                                <span class="spr-badge-caption">
+                                                                    No reviews </span>
+                                                            </span>
+                                                        </div>
+                                                        
+                                                        <div class="product-content-right">
+                                                            <div class="product-price">
+                                                                @if ($item['discount'] > 0)
+                                                                    <span class="price_sale price-final">${{ (int)($item['price']-($item['price']*$item['discount'])/100) }}</span>
+                                                                    <del class="price_compare"> ${{ $item['price'] }}</del>
+                                                                    @else
+                                                                    <span class="price price-final">${{ $item['price'] }}</span>
+                                                                    @endif
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-mode-description getDes">
+                                                            {{ $item['description'] }}
+                                                        </div>
+                                                        <div class="hover-appear">
+                                                            
+                                                            <div onclick="getProdDetail({{ $item['id'] }})" class="product-ajax-qs hidden-xs hidden-sm ">
+                                                                <div data-handle="curabitur-cursus-dignis"
+                                                                    data-target="#quick-shop-modal"
+                                                                    class="quick_shop quick-view-handle" data-toggle="modal">
+                                                                    <i id="quich-view-i" class="fa fa-eye"
+                                                                        title="Quick view"></i><span
+                                                                        class="list-mode">Quick View</span>
+
+                                                                </div>
+                                                            </div>
+                                                            <a class="wish-list" href="account.html"
+                                                                title="wish list"><i class="fa fa-heart"></i><span
+                                                                    class="list-mode">Add to Wishlist</span></a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -332,5 +404,6 @@
     </div>
 </div>
 <script src="{{ url('resources') }}/js/range-input.js" type="text/javascript"></script>
+<script src="{{ url('resources') }}/js/sort.js" type="text/javascript"></script>
 
 @endsection

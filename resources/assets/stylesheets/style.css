@@ -223,7 +223,6 @@ body.loading .modalLoading {
 
 .cart-link .cart-mini-overflow::-webkit-scrollbar {
     width: 7px;
-
 }
 
 /* .cart-mini-overflow::-webkit-scrollbar-track {
@@ -237,14 +236,13 @@ body.loading .modalLoading {
 }
 
 .cart-link .cart-mini-overflow::-webkit-scrollbar-thumb:hover {
-    background: #A07936;
+    background: #a07936;
 }
 
 .cart-link .cart-mini-overflow:hover {
     overflow-y: scroll;
     padding-right: 7px;
 }
-
 
 .checkout-page .cart-mini-overflow {
     overflow: hidden;
@@ -256,7 +254,6 @@ body.loading .modalLoading {
 
 .checkout-page .cart-mini-overflow::-webkit-scrollbar {
     width: 7px;
-
 }
 
 /* .cart-mini-overflow::-webkit-scrollbar-track {
@@ -270,7 +267,7 @@ body.loading .modalLoading {
 }
 
 .checkout-page .cart-mini-overflow::-webkit-scrollbar-thumb:hover {
-    background: #A07936;
+    background: #a07936;
 }
 
 .checkout-page .cart-mini-overflow:hover {
@@ -299,10 +296,14 @@ body.loading .modalLoading {
 .text-checkout p {
     font-size: 30px;
     letter-spacing: 1px;
-    font-family: 'Bebas Neue', cursive;
+    font-family: "Bebas Neue", cursive;
 }
 
 .text-checkout p:nth-child(2) {
     letter-spacing: 0px;
     font-family: droid-serif, serif;
+}
+
+.dp-none {
+    display: none !important;
 }
