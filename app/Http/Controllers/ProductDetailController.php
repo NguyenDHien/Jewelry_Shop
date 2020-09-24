@@ -14,18 +14,16 @@ class ProductDetailController extends Controller
     {
 
         $prods = product::all();
-        $colors = color::all();
         $sizes = size::all();
         $prodDs = productDetail::all();
-        return view('admin.productDetail.index', compact('prodDs', 'prods', 'colors', 'sizes'));
+        return view('admin.productDetail.index', compact('prodDs', 'prods', 'sizes'));
     }
 
     public function create()
     {
-        $colors = color::all();
         $sizes = size::all();
         $prods = product::all();
-        return view('admin.productDetail.create', compact('colors', 'sizes', 'prods'));
+        return view('admin.productDetail.create', compact('sizes', 'prods'));
     }
 
     public function p_create(ProductRequest $request)
@@ -38,11 +36,10 @@ class ProductDetailController extends Controller
     }
     public function edit($id)
     {
-        $colors = color::all();
         $sizes = size::all();
         $prods = product::all();
         $prodD = productDetail::find($id);
-        return view('admin.productDetail.edit', compact('colors', 'sizes', 'prods', 'prodD'));
+        return view('admin.productDetail.edit', compact('sizes', 'prods', 'prodD'));
     }
     public function p_edit($id, ProductRequest $request)
     {

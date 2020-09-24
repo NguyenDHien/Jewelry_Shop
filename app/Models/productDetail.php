@@ -8,7 +8,7 @@ class productDetail extends Model
 {
     //
     protected $table = 'product_detail';
-    protected $fillable = ['product_id', 'color_id', 'size_id', 'image', 'discount', 'status'];
+    protected $fillable = ['product_id', 'size_id', 'image', 'status'];
 
     public function prod()
     {
@@ -35,9 +35,7 @@ class productDetail extends Model
         }
         $add = $this->create([
             'product_id' => request()->product_id,
-            'color_id' => request()->color_id,
             'size_id' => request()->size_id,
-            'discount' => request()->discount,
             'status' => request()->status,
             'image' => $img_name,
         ]);
@@ -55,9 +53,7 @@ class productDetail extends Model
         }
         $query = $query->update([
             'product_id' => request()->product_id,
-            'color_id' => request()->color_id,
             'size_id' => request()->size_id,
-            'discount' => request()->discount,
             'status' => request()->status,
             'image' => $img_name,
         ]);

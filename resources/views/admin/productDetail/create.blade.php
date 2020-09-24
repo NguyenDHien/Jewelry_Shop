@@ -22,16 +22,6 @@
                 @endforeach
             </select>
             
-            <br>
-            {{--  --}}
-            <p class="mb-2"><strong>Color</strong></p>
-            <select class="form-control select2" name="color_id" id="simple-select2" required>
-                @foreach ($colors as $item)
-                <option value="{{ $item['id'] }}">{{ $item['name'] }}
-                    <div class="color-box" style="background-color: {{ $item['hex_color'] }};"></div>
-                </option>
-                @endforeach
-            </select>
             
             <br>
             {{--  --}}
@@ -57,10 +47,7 @@
                 <label class="custom-control-label" for="customRadio3">Out of stock</label>
             </div>
             <br>
-            <div class="form-group mb-3">
-                <label for="discount">Discount</label>
-                <input class="form-control floatInput" value="0" id="discount" type="text" name="discount" >
-            </div>
+
             <div class="form-group mb-3">
                 <label for="customFile">Custom file input</label>
                 <div class="custom-file">

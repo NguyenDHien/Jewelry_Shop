@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\color;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,10 +21,24 @@ class HomeController extends Controller
     }
     public function collection()
     {
-        # code...
-        $prod = product::all();
-        $prod_est = product::orderBy('sold_count', 'DESC')->get();
-        return view('collection', compact('prod', 'prod_est'));
+        if (request()->color) {
+            $color = request()->color;
+            $getColor = color::where('name', $color)->first();
+            $prod = product::where('color_id', $getColor->id)->get();
+            $prod_est = product::orderBy('sold_count', 'DESC')->where('color_id', $getColor->id)->get();
+            return view('collection', compact('prod', 'prod_est'));
+        }
+        if (request()->gender) {
+            $gender = (request()->gender == 'male') ? 0 : 1;
+            $prod = product::where('sex', $gender)->get();
+            $prod_est = product::orderBy('sold_count', 'DESC')->where('sex', $gender)->get();
+            return view('collection', compact('prod', 'prod_est'));
+        }
+        if (!request()->gender && !request()->color) {
+            $prod = product::all();
+            $prod_est = product::orderBy('sold_count', 'DESC')->get();
+            return view('collection', compact('prod', 'prod_est'));
+        }
     }
 
     public function getListView($id, $slug)

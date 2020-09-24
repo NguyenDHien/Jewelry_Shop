@@ -47,6 +47,44 @@
                 </div>
                 @endif
                 
+                @if ($prod['sex'] == 0)
+                {{--  --}}
+                <p class="mb-2"><strong>Sex</strong></p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" value="0" id="customRadio3" name="sex" class="custom-control-input" checked>
+                    <label class="custom-control-label" for="customRadio3">Male</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" value="1" id="customRadio4" name="sex" class="custom-control-input" >
+                    <label class="custom-control-label" for="customRadio4">Female</label>
+                </div>
+                @else
+                {{--  --}}
+                <p class="mb-2"><strong>Sex</strong></p>
+                <div class="custom-control custom-radio">
+                    <input type="radio" value="0" id="customRadio3" name="sex" class="custom-control-input" >
+                    <label class="custom-control-label" for="customRadio3">Male</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" value="1" id="customRadio4" name="sex" class="custom-control-input" checked>
+                    <label class="custom-control-label" for="customRadio4">Female</label>
+                </div>
+                @endif
+                
+
+                {{--  --}}
+                <p class="mb-2"><strong>Color</strong></p>
+                <select class="form-control select2" name="color_id" id="simple-select2" required>
+                    @foreach ($colors as $item)
+                    @if ( $item['id'] == $prod['color_id'])
+                    <option value="{{ $item['id'] }}" selected >{{ $item['name'] }}</option>
+                    @else
+                    <option value="{{ $item['id'] }}">{{ $item['name'] }}
+                    </option>
+                    @endif
+                    @endforeach
+                </select>
+
                 {{--  --}}
                 <div class="form-group mb-3">
                     <label for="custom-money">Price</label>
@@ -62,8 +100,9 @@
                     @foreach ($cates as $item)
                     @if ($prod['category_id'] == $item['id'])
                     <option value="{{ $item['id'] }}" selected>{{ $item['name'] }}</option>
-                    @endif
+                    @else
                     <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                    @endif
                     @endforeach
                 </select>
                 <div class="form-group mb-3">

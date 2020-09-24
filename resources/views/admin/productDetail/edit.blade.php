@@ -25,19 +25,7 @@
                     <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                     @endforeach
                 </select>
-                <br>
-                {{--  --}}
-                <p class="mb-2"><strong>Color</strong></p>
-                <select class="form-control select2" name="color_id" id="simple-select2" required>
-                    @foreach ($colors as $item)
-                    @if ( $item['id'] == $prodD['color_id'])
-                    <option value="{{ $item['id'] }}" selected>{{ $item['name'] }}</option>
-                    @endif
-                    <option value="{{ $item['id'] }}">{{ $item['name'] }}
-                        <div class="color-box" style="background-color: {{ $item['hex_color'] }};"></div>
-                    </option>
-                    @endforeach
-                </select>
+
                 <br>
                 {{--  --}}
                 <p class="mb-2"><strong>Size</strong></p>
@@ -45,8 +33,9 @@
                     @foreach ($sizes as $item)
                     @if ( $item['id'] == $prodD['size_id'])
                     <option value="{{ $item['id'] }}" selected>{{ $item['name'] }}</option>
-                    @endif
+                    @else
                     <option value="{{ $item['id'] }}">{{ $item['name'] }}: {{ $item['param'] }}</option>
+                    @endif
                     @endforeach
                 </select>
                 <br>
@@ -93,11 +82,7 @@
                     <label class="custom-control-label" for="customRadio2">Out of stock</label>
                 </div>
                 @endif
-                
-                <div class="form-group mb-3">
-                    <label for="example-number ">Discount</label>
-                    <input class="form-control floatInput" id="example-number" value="{{ $prodD['discount'] }}" type="text" name="discount" >
-                </div>
+
                 <div class="form-group mb-3">
                     <label for="customFile">Custom file input</label>
                     <div class="custom-file">

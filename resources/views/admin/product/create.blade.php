@@ -24,6 +24,7 @@
                 <input type="text" id="simpleinput" name="name" class="form-control" required>
                 <div class="invalid-feedback"> Please choose a name. </div>
             </div>
+            {{--  --}}
             <p class="mb-2"><strong>Status</strong></p>
             <div class="custom-control custom-radio">
                 <input type="radio" value="0" id="customRadio1" name="status" class="custom-control-input" checked>
@@ -33,6 +34,29 @@
                 <input type="radio" value="1" id="customRadio2" name="status" class="custom-control-input" >
                 <label class="custom-control-label" for="customRadio2">Hide</label>
             </div>
+
+            <br>
+            {{--  --}}
+            <p class="mb-2"><strong>Sex</strong></p>
+            <div class="custom-control custom-radio">
+                <input type="radio" value="0" id="customRadio3" name="sex" class="custom-control-input" checked>
+                <label class="custom-control-label" for="customRadio3">Male</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" value="1" id="customRadio4" name="sex" class="custom-control-input" >
+                <label class="custom-control-label" for="customRadio4">Female</label>
+            </div>
+            <br>
+            {{--  --}}
+            <p class="mb-2"><strong>Color</strong></p>
+            <select class="form-control select2" name="color_id" id="simple-select2" required>
+                @foreach ($colors as $item)
+                <option value="{{ $item['id'] }}">{{ $item['name'] }}
+                    <div class="color-box" style="background-color: {{ $item['hex_color'] }};"></div>
+                </option>
+                @endforeach
+            </select>
+            <br>
             {{--  --}}
             <div class="form-group mb-3">
                 <label for="custom-money">Price</label>

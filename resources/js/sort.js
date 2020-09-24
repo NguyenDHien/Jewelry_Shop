@@ -56,6 +56,12 @@ function sortUnorderedList(ul, sortDescending) {
         lis[i].innerHTML = vals[i];
 }
 
+
+function filterColors(params) {
+    if ($(".element-items").data('color') == params) {
+        console.log('ok');
+    }
+}
 window.onload = function () {
 
     var desc = false;
@@ -79,8 +85,7 @@ window.onload = function () {
 
     var liss = document.getElementsByClassName("prod-normal");
     const list_item = [];
-    const list_data_price = [];
-    for (var i = 0, l = liss.length; i < l; i++) {
+    for (var i = 0,  l = liss.length; i < l; i++) {
         list_item.push(liss[i].innerHTML);
     }
     list_item.reverse();

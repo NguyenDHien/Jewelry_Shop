@@ -20,7 +20,9 @@
                       <th>Name</th>
                       <th>Discount</th>
                       <th>Price</th>
+                      <th>Color</th>
                       <th>Image</th>
+                      <th>Sex</th>
                       <th>Category</th>
                       <th>Status</th>
                       <th>Description</th>
@@ -34,8 +36,17 @@
                         <td class="word-break">{{ $item['name'] }}</td>
                         <td>{{ $item['discount'] }}</td>
                         <td>{{ $item['price'] }}</td>
+                        <td>{{ $item->color->name }} ({{ $item->color->hex_color }})</td>
                         <td><img width="100px-" src="{{ url('public/uploads/prods').'/'.$item['image'] }}" alt=""></td>
+
+                        @if ($item['sex'] == 0)
+                        <td><span class="badge badge-pill badge-primary">MALE</span></td>
+                        @else
+                        <td><span class="badge badge-pill badge-danger">FEMALE</span></td>
+                        @endif
+
                         <td>{{ $item->cate->name }}</td>
+
                         @if ($item['status'] == 0)
                         <td><span class="badge badge-pill badge-success">OK</span></td>
                         @else

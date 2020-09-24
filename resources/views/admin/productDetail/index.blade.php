@@ -19,9 +19,7 @@
                       <th>Image</th>
                       <th>Product code</th>
                       <th>Name</th>
-                      <th>Color</th>
                       <th>Size</th>
-                      <th>Discount</th>
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
@@ -32,9 +30,7 @@
                         <td><img width="100px-" src="{{ url('public/uploads/prods').'/'.$item['image'] }}" alt=""></td>
                         <td>{{ $item->prod->product_code }}</td>
                         <td>{{ $item->prod->name }}</td>
-                        <td>{{ $item->color->name }} ({{ $item->color->hex_color }})</td>
                         <td>{{ $item->size->name }} ({{ $item->size->param }})</td>
-                        <td>{{ $item['discount'] }}</td>
 
                         @if ($item['status'] == 0)
                         <td><span class="badge badge-pill badge-success">OK</span></td>

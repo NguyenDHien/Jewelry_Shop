@@ -9,7 +9,7 @@ class product extends Model
 {
     //
     protected $table = 'product';
-    protected $fillable = ['product_code', 'name', 'discount', 'price', 'category_id', 'status', 'description', 'image'];
+    protected $fillable = ['product_code', 'name', 'discount', 'sex', 'price', 'color_id', 'category_id', 'status', 'description', 'image'];
 
     public function img()
     {
@@ -22,6 +22,10 @@ class product extends Model
     public function prodDs()
     {
         return $this->hasMany(productDetail::class, 'product_id', 'id');
+    }
+    public function color()
+    {
+        return $this->hasOne(color::class, 'id', 'color_id');
     }
     public function scopeGetAttr($query, $attr, $id)
     {
@@ -50,11 +54,13 @@ class product extends Model
         $add = $this->create([
             'product_code' => request()->product_code,
             'name' => request()->name,
+            'sex' => request()->sex,
             'price' => request()->price,
             'discount' => request()->discount,
             'status' => request()->status,
             'category_id' => request()->category_id,
             'description' => request()->description,
+            'color_id' => request()->color_id,
             'image' => $img_name,
         ]);
         return $add;
@@ -81,10 +87,12 @@ class product extends Model
             'product_code' => request()->product_code,
             'name' => request()->name,
             'price' => request()->price,
+            'sex' => request()->sex,
             'discount' => request()->discount,
             'status' => request()->status,
             'category_id' => request()->category_id,
             'description' => request()->description,
+            'color_id' => request()->color_id,
             'image' => $img_name,
         ]);
 

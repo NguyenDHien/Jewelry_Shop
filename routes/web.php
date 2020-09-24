@@ -27,6 +27,9 @@ Route::post('/register', 'AdminController@p_register');
 
 Route::get('/collection', 'HomeController@collection')->name('collection');
 
+// Route::get('/collection/{color}-{gender}', 'HomeController@collection')->name('collection');
+
+
 Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getListView');
 
 Route::get('/contact', 'HomeController@contact')->name('contact');

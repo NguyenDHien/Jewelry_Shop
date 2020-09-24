@@ -37,69 +37,42 @@
                                             <!-- filter tags group -->
                                             <div class="filter-tag-group">
                                                 <h6 class="sb-title">Filter</h6>
-                                                <!-- tags groupd 1 -->
+                                                <!-- gender -->
                                                 <div class="tag-group" id="coll-filter-1">
                                                     <p class="title">
-                                                        Size
+                                                        Gender
                                                     </p>
                                                     <ul>
-                                                        <li><a title="Narrow selection to products matching tag S"
-                                                                href="#"><span class="fe-checkbox"></span> S</a>
+                                                        <li><a  title="Narrow selection to products matching tag S"
+                                                                href="{{ route('collection', ['gender' => 'male']) }}" style="width: 70px"><span class="fe-checkbox" ></span> Male</a>
                                                         </li>
-                                                        <li><a title="Narrow selection to products matching tag M"
-                                                                href="#"><span class="fe-checkbox"></span> M</a>
-                                                        </li>
-                                                        <li><a title="Narrow selection to products matching tag L"
-                                                                href="#"><span class="fe-checkbox"></span> L</a>
-                                                        </li>
-                                                        <li><a title="Narrow selection to products matching tag XL"
-                                                                href="#"><span class="fe-checkbox"></span> XL</a>
+                                                        <li><a  title="Narrow selection to products matching tag M"
+                                                            href="{{ route('collection', ['gender' => 'female']) }}" style="width: 70px"><span class="fe-checkbox"></span> Female</a>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <!-- tags groupd 2 -->
+                                                <!-- Color -->
                                                 <div class="tag-group" id="coll-filter-2">
                                                     <p class="title">
                                                         Color
                                                     </p>
                                                     <ul>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: red; background-image: url({{ url('resources') }}/assets/images/red.png);"
-                                                                class="btooltip" data-toggle="tooltip"
+                                                        @foreach ($colorAll as $item)
+                                                        <li class="swatch-tag">
+                                                            <span
+                                                                style="background-color: {{ $item->hex_color }};"
+                                                                class="btooltip filterColor" data-toggle="tooltip"
                                                                 data-placement="top" title=""
-                                                                data-original-title="Red"><a
-                                                                    title="Narrow selection to products matching tag Red"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: green; background-image: url({{ url('resources') }}/assets/images/green.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Green"><a
-                                                                    title="Narrow selection to products matching tag Green"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: black; background-image: url({{ url('resources') }}/assets/images/black.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Black"><a
-                                                                    title="Narrow selection to products matching tag Black"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: gray; background-image: url({{ url('resources') }}/assets/images/gray.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="Gray"><a
-                                                                    title="Narrow selection to products matching tag Gray"
-                                                                    href="#"></a></span></li>
-                                                        <li class="swatch-tag"><span
-                                                                style="background-color: white; background-image: url({{ url('resources') }}/assets/images/white.png);"
-                                                                class="btooltip" data-toggle="tooltip"
-                                                                data-placement="top" title=""
-                                                                data-original-title="White"><a
-                                                                    title="Narrow selection to products matching tag White"
-                                                                    href="#"></a></span></li>
+                                                                onclick="filterFunc('color','{{ $item->name }}')"
+                                                                data-original-title="{{ $item->name }}">
+                                                                <a href="{{ route('collection', ['color' => $item->name]) }}" title="Narrow selection to products matching tag {{ $item->name }}"></a>
+                                                            </span>
+                                                        </li>
+                                                        @endforeach
+                                                        
                                                     </ul>
                                                 </div>
+                                                
                                                 <!-- price filter -->
                                                 <div class="tag-group" id="coll-filter-3">
                                                     <p class="title">
@@ -271,7 +244,8 @@
                                         <ul id="sandBox" class="list-unstyled list-prod-parent">
                                             @foreach ( $prod as $item)
                                             <li class="element first no_full_width element-items prod-normal"
-                                            data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
+                                            data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}"
+                                            data-color={{ $item->color->name }} data-sex={{ $item->sex }}>
                                                 <ul class="row-container list-unstyled clearfix"
                                                 data-sort='{{ (int)($item['price']-($item['price']*$item['discount'])/100) }}'>
                                                     <li class="row-left">
@@ -345,7 +319,8 @@
                                             @endforeach
                                             @foreach ( $prod_est as $item)
                                             <li class="element first no_full_width element-items prod-est dp-none"
-                                            data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}">
+                                            data-alpha="Curabitur cursus dignis" data-price="{{ $item['price'] }}"
+                                            data-color={{ $item->color->name }} data-sex={{ $item->sex }}>
                                                 <ul class="row-container list-unstyled clearfix"
                                                 data-sort='{{ (int)($item['price']-($item['price']*$item['discount'])/100) }}'>
                                                     <li class="row-left">
@@ -430,5 +405,16 @@
 </div>
 <script src="{{ url('resources') }}/js/range-input.js" type="text/javascript"></script>
 <script src="{{ url('resources') }}/js/sort.js" type="text/javascript"></script>
-
+<script src="{{ url('resources') }}/js/filter.js" type="text/javascript"></script>
+<script>
+    function filterFunc(type, param) {
+        var list = $(".prod-normal");   
+        for (var i = 0, l = list.length; i < l; i++) {
+            $(list[i]).addClass('dp-none');
+            if ($(list[i]).data(type) == param) {
+                $(list[i]).removeClass('dp-none');
+            }
+        }
+}
+</script>
 @endsection
