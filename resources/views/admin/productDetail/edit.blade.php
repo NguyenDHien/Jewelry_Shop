@@ -32,7 +32,7 @@
                 <select class="form-control select2" name="size_id" id="simple-select2" required>
                     @foreach ($sizes as $item)
                     @if ( $item['id'] == $prodD['size_id'])
-                    <option value="{{ $item['id'] }}" selected>{{ $item['name'] }}</option>
+                    <option value="{{ $item['id'] }}" selected>{{ $item['name'] }}: {{ $item['param'] }}</option>
                     @else
                     <option value="{{ $item['id'] }}">{{ $item['name'] }}: {{ $item['param'] }}</option>
                     @endif

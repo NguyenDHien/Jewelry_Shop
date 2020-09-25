@@ -45,7 +45,7 @@
                                         </address>
                                         </li>
                                         <li>
-                                        <button class="btn btn-1" id="view_address" onclick="window.location='address.html'">Manager Address (1)</button>
+                                        <button class="btn btn-1" id="view_address" onclick="window.location='{{ route('address') }}'">Manager Address (1)</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -77,10 +77,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $i = 1;
+                                        @endphp
                                         @foreach (Auth::user()->orders as $item)
                                         <tr class="odd ">
                                             <td>
-                                                <a href="#" title="">#{{ $item->id }}</a>
+                                                <a href="#" title="">#{{ $i }}</a>
                                             </td>
                                             <td>
                                                 <span class="note">{{ $item->created_at }}</span>
@@ -95,6 +98,9 @@
                                                 <span class="total">${{ $item->total }}</span>
                                             </td>
                                         </tr>
+                                        @php
+                                            $i++;
+                                        @endphp
                                         @endforeach
                                     </tbody>
                                     </table>

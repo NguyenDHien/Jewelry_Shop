@@ -25,13 +25,12 @@ class ProductRequest extends FormRequest
     {
         return [
             //
-            'image' => 'required|file|mimes:jpeg,jpg,gif,png',
+            'image' => 'file|mimes:jpeg,jpg,gif,png',
         ];
     }
     public function messages()
     {
         return [
-            'image.required' => 'Bạn cần chọn ảnh',
             'image.mimes' => 'Bạn cần chọn đúng định dạng ảnh',
             'image.file' => 'Bạn cần chọn file'
         ];

@@ -27,9 +27,6 @@ Route::post('/register', 'AdminController@p_register');
 
 Route::get('/collection', 'HomeController@collection')->name('collection');
 
-// Route::get('/collection/{color}-{gender}', 'HomeController@collection')->name('collection');
-
-
 Route::get('/danh-muc/{id}-{slug}', 'HomeController@getListView')->name('getListView');
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
@@ -41,13 +38,11 @@ Route::post('/checkout', 'CheckoutController@submit')->name('checkout');
 Route::get('/account', 'AccountController@index')->name('account')->middleware('auth');
 Route::get('/logout', 'AdminController@logout')->name('logout');
 
-Route::get('/admin/error', 'AdminController@error')->name('admin.error');
+Route::get('/address', 'AccountController@address')->name('address');
+Route::post('/address', 'AccountController@u_address')->name('address.update');
 
-// Route::filter('auth', function () {
-//     if (Auth::guest()) {
-//         return Redirect::guest('login');
-//     }
-// });
+
+Route::get('/admin/error', 'AdminController@error')->name('admin.error');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // Category

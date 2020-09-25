@@ -574,7 +574,7 @@
 										</div>
 									</div>
 									<div id="quick-shop-variants-container" class="variants-wrapper">
-										<div class="selector-wrapper">
+										{{-- <div class="selector-wrapper">
 											<label for="#quick-shop-variants-1293238211-option-0">Color</label>
 											<div class="wrapper">
 												<select class="single-option-selector color-select" name="color" id="#quick-shop-variants-1293238211-option-0" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
@@ -582,7 +582,8 @@
 												
 												<i class="fa fa-caret-down"></i>
 											</div>
-										</div>
+										</div> --}}
+										<br>
 										<div class="selector-wrapper">
 											<label for="#quick-shop-variants-1293238211-option-1">Size</label>
 											<div class="wrapper">
@@ -594,6 +595,7 @@
 											</div>
 										</div>
 									</div>
+									<br>
 									<div class="others-bottom">
 										<input id="quick-shop-add" class="btn small add-to-cart" type="submit" value="Add to Cart" style="opacity: 1;">
 									</div>

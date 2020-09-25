@@ -15,7 +15,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'phone', 'name', 'email', 'password',
+        'phone', 'name', 'email', 'password', 'address',
     ];
 
     protected $hidden = [
@@ -92,5 +92,16 @@ class User extends Authenticatable
                 userRole::create(['user_id' => $id, 'role_id' => $role_id]);
             }
         }
+    }
+    public function scopeEditAddress($query, $id)
+    {
+        $query = $query->find($id);
+        $query->update([
+            'name' => request()->name,
+            'email' => request()->email,
+            'phone' => request()->phone,
+            'address' => request()->address . ', ' . request()->district . ', ' . request()->city,
+        ]);
+        return $query;
     }
 }

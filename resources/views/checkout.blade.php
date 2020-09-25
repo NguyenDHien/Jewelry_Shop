@@ -96,7 +96,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>{{ $item['sold_count'] }}</p>
                                 @endforeach
                                 </div>
                                     <div class="text-checkout">
