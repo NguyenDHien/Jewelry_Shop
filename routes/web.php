@@ -20,7 +20,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'AdminController@login')->name('login');
 Route::post('/login', 'AdminController@p_login');
 
-Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/search-result', 'HomeController@search')->name('search');
+Route::get('/search', 'HomeController@searchBar')->name('search.bar');
 
 Route::get('/register', 'AdminController@register')->name('register');
 Route::post('/register', 'AdminController@p_register');
@@ -40,7 +41,6 @@ Route::get('/logout', 'AdminController@logout')->name('logout');
 
 Route::get('/address', 'AccountController@address')->name('address');
 Route::post('/address', 'AccountController@u_address')->name('address.update');
-
 
 Route::get('/admin/error', 'AdminController@error')->name('admin.error');
 

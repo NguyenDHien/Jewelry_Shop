@@ -174,7 +174,8 @@ body.loading .modalLoading {
     border-radius: 2px;
 }
 
-.noUi-target.noUi-connect {}
+.noUi-target.noUi-connect {
+}
 
 /* Handles and cursors;
    */
@@ -306,4 +307,51 @@ body.loading .modalLoading {
 
 .dp-none {
     display: none !important;
+}
+.search-icon-hover:hover {
+    color: #a07936 !important;
+}
+.search-bar-container {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar-container .search-bar-title {
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+.search-bar-container .container #searchletter form input {
+    width: 640px;
+    height: 60px;
+    font-size: 20px !important;
+    color: #a07936;
+}
+.search-bar-container .container #searchletter form input:focus {
+    border: 2px solid #a07936;
+}
+.search-bar-container .container #searchletter .unpadding-top button {
+    height: 60px;
+    padding: 3px 20px 0px;
+    border: 2px solid #a07936;
+    overflow: hidden;
+}
+.search-bar-container .container #searchletter .unpadding-top {
+    overflow: hidden;
+}
+.search-bar-container .container #searchletter .group_input {
+    width: 640px;
+    height: 70px;
+}
+.search-bar-container .container #searchletter .unpadding-top button:hover {
+    background-color: #8b6a30;
+    transition: 0.3s;
+    transform: scale(1.4);
+}
+/* .search-bar-container .container #searchletter .unpadding-top button:hover i.fa {
+    color: #a07936;
+} */
+.search-bar-container .container #searchletter .unpadding-top button i.fa {
+    font-size: 22px;
 }

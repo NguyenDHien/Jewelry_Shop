@@ -99,6 +99,10 @@ class HomeController extends Controller
             return view('search', compact('prodSearch', 'prod_est'));
         }
     }
+    public function searchBar()
+    {
+        return view('searchBar');
+    }
     public function contact()
     {
         return view('contact');

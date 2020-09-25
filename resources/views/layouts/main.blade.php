@@ -252,15 +252,14 @@
 					</li>		  
 					<li class="top-search hidden-xs">
 						<div class="header-search">
-							<a href="#">
-							<span data-toggle="dropdown">
-							<i class="fa fa-search"></i>
+							<a href="{{ route('search.bar') }}">
+							
+							<i class="fa fa-search search-icon-hover"></i>
 							<i class="sub-dropdown1"></i>
 							<i class="sub-dropdown"></i>
-							</span>
+							
 							</a>
 							<form id="header-search" class="search-form dropdown-menu" action="{{ route('search') }}" method="get">
-
 								<input type="text" name="search_str" value="" accesskey="4" autocomplete="off" placeholder="Search something...">
 								<button type="submit" class="btn">Search</button>
 							</form>
