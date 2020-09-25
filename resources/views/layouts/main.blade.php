@@ -167,26 +167,45 @@
 											</span>
 										</div>
 										</li>
+										@if (Auth::check())
 										<li class="is-mobile-login">
-										<div class="btn-group">
-											<div class="dropdown-toggle" data-toggle="dropdown">
-												<i class="fa fa-user"></i>
+											<div class="btn-group">
+												<div class="dropdown-toggle" data-toggle="dropdown">
+													<i class="fa fa-user"></i>
+												</div>
+												<ul class="customer dropdown-menu">
+													<li class="logout">
+													<a href="{{ route('account') }}">{{ Auth::user()->name }}</a>
+													</li>
+													<li class="account last">
+													<a href="{{ route('logout') }}">Logout</a>
+													</li>
+												</ul>
 											</div>
-											<ul class="customer dropdown-menu">
-												<li class="logout">
-												<a href="#">Login</a>
-												</li>
-												<li class="account last">
-												<a href="register.html">Register</a>
-												</li>
-											</ul>
-										</div>
-										</li>
+											</li>
+										@else
+										<li class="is-mobile-login">
+											<div class="btn-group">
+												<div class="dropdown-toggle" data-toggle="dropdown">
+													<i class="fa fa-user"></i>
+												</div>
+												<ul class="customer dropdown-menu">
+													<li class="logout">
+													<a href="{{ route('login') }}">Login</a>
+													</li>
+													<li class="account last">
+													<a href="{{ route('register') }}">Register</a>
+													</li>
+												</ul>
+											</div>
+											</li>
+										@endif
+										
 										<li class="is-mobile-wl">
 										<a href="#"><i class="fa fa-heart"></i></a>
 										</li>
 										<li class="is-mobile-cart">
-										<a href="#"><i class="fa fa-shopping-cart"></i></a>
+										<a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i></a>
 										</li>
 									</ul>
 								</div>
