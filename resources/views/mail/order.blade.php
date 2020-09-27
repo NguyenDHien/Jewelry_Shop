@@ -13,6 +13,7 @@
                 <th style="width: 50px">STT</th>
                 <th style="width: 140px">Tên</th>
                 <th style="width: 100px">Giá</th>
+                <th style="width: 50px">Size</th>
                 <th style="width: 50px">SL</th>
                 <th style="width: 100px">Thành tiền</th>
             </tr>
@@ -25,6 +26,7 @@
                 <td style="text-align: center">{{ $n }}</td>
                 <td>{{ $item['name'] }}</td>
                 <td>${{ $item['price'] }}</td>
+                <td style="text-align: center">{{ $item['size'] }}</td>
                 <td style="text-align: center">{{ $item['quantity'] }}</td>
                 <td>${{ $item['price']*$item['quantity'] }}</td>
             </tr>
@@ -32,7 +34,7 @@
             @endforeach
             <tr>
                 <td style="font-size: 20px; font-weight: bold;" colspan="3">Tổng tiền:</td>
-                <td style="font-size: 20px; font-weight: bold; text-align: center" colspan="2">${{ $total }}</td>
+                <td style="font-size: 20px; font-weight: bold; text-align: center" colspan="3">${{ $total }}</td>
             </tr>
         </tbody>
     </table>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use App\Models\color;
+use App\Models\newsletter;
 use App\Models\product;
+use App\Models\wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -16,7 +18,7 @@ class HomeController extends Controller
     {
         # code...
         $prod = product::orderBy('id', 'DESC')->limit(6)->get();
-        $prod_est = product::orderBy('sold_count', 'DESC')->limit(5)->get();
+        $prod_est = product::orderBy('id', 'DESC')->limit(5)->get();
         return view('index', compact('prod', 'prod_est'));
     }
     public function collection()
@@ -115,9 +117,15 @@ class HomeController extends Controller
             'content' => $req->content
         ], function ($mail) use ($req) {
             $mail->to('hienrider@gmail.com', $req->name);
-            $mail->from($req->email);
+            $mail->from(request()->email);
             $mail->subject('Test mail');
         });
+        dd(request()->email);
         return redirect()->back()->with('success', 'Gửi mail thành công');
+    }
+    public function newsletter()
+    {
+        $add = newsletter::them();
+        return redirect()->back();
     }
 }

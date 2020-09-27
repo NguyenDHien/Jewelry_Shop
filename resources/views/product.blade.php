@@ -27,21 +27,23 @@
                                 <div id="product" class="content clearfix">      										
                                     <div id="product-image" class="product-image row no_full_width col-sm-12">           
                                         <div class="image featured fadeInUp not-animated" data-animate="fadeInUp"> 
-                                            <img src="{{ url('public') }}/uploads/prods/{{ $prod['image'] }}" alt="Donec condime fermentum">
+                                            <img src="{{ url('public') }}/uploads/prods/{{ $prod['image'] }}" alt="{{ $prod['name'] }}">
                                         </div>
                                         <div id="gallery_main" class="product-image-thumb thumbs mobile_full_width ">
                                             <ul style="opacity: 0; display: block;" class="slide-product-image owl-carousel owl-theme">
                                                 <li class="image">
                                                     <a href="{{ url('public') }}/uploads/prods/{{ $prod['image'] }}" class="cloud-zoom-gallery active">
-                                                        <img src="{{ url('public') }}/uploads/prods/{{ $prod['image'] }}" alt="Donec condime fermentum">
+                                                        <img src="{{ url('public') }}/uploads/prods/{{ $prod['image'] }}" alt="{{ $prod['name'] }}">
                                                     </a>
                                                 </li>
                                                 @foreach ($prod->prodDs as $item)
+                                                @if ($item['image'])
                                                 <li class="image">
                                                     <a href="{{ url('public') }}/uploads/prods/{{ $item['image'] }}" class="cloud-zoom-gallery">
-                                                        <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}" alt="Donec condime fermentum">
+                                                        <img src="{{ url('public') }}/uploads/prods/{{ $item['image'] }}" alt="{{ $prod['name'] }}">
                                                     </a>
                                                 </li>
+                                                @endif
                                                 @endforeach
                                             </ul>
                                         </div>  											
@@ -64,20 +66,19 @@
                                                         <input type="hidden" name="id" value="{{ $prod['id'] }}">
                                                         <div id="product-actions-1293235843" class="options clearfix">													
 
-                                                            <div class="swatch clearfix">
-                                                                <div class="header">
-                                                                    Size
+                                                            {{-- Size --}}
+                                                            <div class="selector-wrapper" style="margin-bottom: 60px">
+                                                                <label for="prodD-size-selector">Size</label>
+                                                                <div class="size-selector">
+                                                                    <select class="single-option-selector size-select" name="size" id="prodD-size-selector" style="width: 80%;z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
+                                                                        @foreach ($sizeAll as $item)
+                                                                            <option class="color-op" value="{{ $item->name }}">{{ $item->name }} ({{ $item->param }})</option>
+                                                                        @endforeach
+                                                                    </select>
                                                                 </div>
-                                                                @foreach ($prod->prodDs as $item)
-                                                                <div data-value="{{ $item->size->name }}" class="swatch-element {{ $item->size->name }} available">
-                                                                    <input id="swatch-1-{{ $item->size->name }}" name="size" checked value="{{ $item->size->name }}" type="radio">
-                                                                    <label for="swatch-1-{{ $item->size->name }}">
-                                                                        {{ $item->size->name }} 
-                                                                    </label>
-                                                                </div>
-                                                                @endforeach
                                                             </div>
-                                                            
+
+                                                            {{-- Quantity --}}
                                                             <div class="quantity-wrapper clearfix">
                                                                 <label class="wrapper-title">Quantity</label>
                                                                 <div class="wrapper">
@@ -94,6 +95,7 @@
                                                                     </span>
                                                                 </div>
                                                             </div>
+                                                            {{-- Price --}}
                                                             <div id="purchase-1293235843">
                                                                 <div class="detail-price" itemprop="price">
                                                                     @if ($prod['discount'] > 0)
@@ -127,7 +129,8 @@
                                                     </li>
                                                 </ul>             
                                                 <div id="pop-one" style="display: none;">
-                                                    <img src="assets/images/mspecs_image.jpg" alt="">
+                                                    <img src="{{ url('resources') }}/assets/images/do-size-nhan.jpg" alt="">
+                                                    <img src="{{ url('resources') }}/assets/images/do-size-nhan-share-link.png" alt="">
                                                 </div>
                                                 <div id="pop-two" style="display: none;">
                                                     <h5>Returns Policy</h5>
@@ -141,7 +144,7 @@
                                                     </p>
                                                 </div>
                                                 <div id="pop-three" style="display: none;">
-                                                    <img src="assets/images/size_chart_image.jpg" alt="">
+                                                    <img src="{{ url('resources') }}/assets/images/a_bang_sizen_nhan.jpg" alt="">
                                                 </div>                
                                             </div>
                                         </div>

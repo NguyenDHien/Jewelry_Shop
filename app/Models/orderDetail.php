@@ -8,21 +8,22 @@ class orderDetail extends Model
 {
     //
     protected $table = 'order_detail';
-    protected $fillable = ['order_id', 'product_id', 'quantity', 'price'];
+    protected $fillable = ['size', 'order_id', 'product_id', 'quantity', 'price'];
 
     public function user()
     {
         return $this->hasOne(productDetail::class, 'size_id', 'id');
     }
 
-    public function scopeThem($query, $order_id, $prod_id, $quantity, $price)
+    public function scopeThem($query, $order_id, $prod_id, $quantity, $price, $size)
     {
         # code...
         $add = $this->create([
             'order_id' => $order_id,
             'product_id' => $prod_id,
             'quantity' => $quantity,
-            'price' => $price
+            'price' => $price,
+            'size' => $size
         ]);
 
         return $add;

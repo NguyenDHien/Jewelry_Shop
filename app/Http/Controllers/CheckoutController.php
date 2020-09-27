@@ -33,7 +33,8 @@ class CheckoutController extends Controller
             foreach ($cart->items as $prod_id => $item) {
                 $quantity = $item['quantity'];
                 $price = $item['price'];
-                orderDetail::them($order_id, $prod_id, $quantity, $price);
+                $size = $item['size'];
+                orderDetail::them($order_id, $prod_id, $quantity, $price, $size);
                 $prod = product::sold($prod_id);
             }
             Mail::send('mail.order', [

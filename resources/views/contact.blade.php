@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Checkout')
+@section('title', 'Contact')
 @section('body')
 <div id="content-wrapper-parent">
     <div id="content-wrapper">   
@@ -22,7 +22,7 @@
                     <div class="group-contact clearfix">
                         <div class="container">
                             <div class="row">
-                                <div class="left-block col-md-12">
+                                {{-- <div class="left-block col-md-12">
                                     <form method="post" class="contact-form" accept-charset="UTF-8">
                                         @csrf
                                         <input type="hidden" value="contact" name="form_type"><input type="hidden" name="utf8" value="✓">
@@ -50,7 +50,7 @@
                                             </li>
                                         </ul>
                                     </form>
-                                </div>
+                                </div> --}}
                                 <div class="right-block contact-content col-md-12">
                                     <h6 class="sb-title"><i class="fa fa-home"></i> Contact Information</h6>
                                     <ul class="right-content">
@@ -58,12 +58,13 @@
                                         <h6>Office Address</h6>
                                         </li>
                                         <li class="address">
-                                        <p>
-                                            249 Ung Van Khiem Street, Binh Thanh Dist, HCM city
-                                        </p>
+                                            Tòa Nhà HTC, 238 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội
+                                            <span></span>
                                         </li>
-                                        <li class="phone">+84 0123456xxx</li>
-                                        <li class="email"><i class="fa fa-envelope"></i> support@themeforshop.com</li>
+                                        <br>
+                                        <li class="phone"><i class="fa fa-phone"></i><a href="tel:02437554010" title="024 3755 4010">024 3755 4010</a></li>
+                                        <br>
+                                        <li class="email"><i class="fa fa-envelope"></i> <a href="mailto:tuyensinh@bachkhoa-aptech.edu.vn" title="tuyensinh@bachkhoa-aptech.edu.vn">tuyensinh@bachkhoa-aptech.edu.vn</a></li>
                                     </ul>
                                     <ul class="right-content">
                                         <li class="title">
@@ -77,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="contact_map_wrapper">
+                        {{-- <div id="contact_map_wrapper">
                             <div id="contact_map" class="map"></div>
                             <script>
                             jQuery(document).ready(function($) {
@@ -98,7 +99,7 @@
                                 }
                             });
                             </script>
-                        </div>
+                        </div> --}}
                     </div>
                 </div> 
             </section>        

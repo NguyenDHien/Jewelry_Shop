@@ -260,9 +260,14 @@
 										</div>
 										</li>
 										<li class="nav-item">
-										<a href="{{ route('contact') }}">
-										<span>Contact</span>
-										</a>
+											<a href="{{ route('contact') }}">
+												<span>Contact</span>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="{{ route('wishlist') }}">
+												<span>Wish list</span>
+											</a>
 										</li>
 									</ul>
 								</div>
@@ -310,7 +315,7 @@
 												<div class="col-md-16 cart-right">
 													<div class="cart-title">
 														<a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}">{{ $item['name'] }}</a>
-                                                        <span class="cart_attr_prod">{{ $item['color'] }} / {{ $item['size'] }}</span>
+                                                        <span class="cart_attr_prod">size: {{ $item['size'] }}</span>
 													
 													</div>
 													<div class="cart-price">
@@ -411,10 +416,10 @@
 			<div id="widget-newsletter">
 				<div class="container">            
 				  <div class="newsletter col-md-24">
-					<form action="http://codespot.us5.list-manage.com/subscribe/post?u=ed73bc2d2f8ae97778246702e&amp;id=c63b4d644d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+					<form action="{{ route('newsletter') }}" method="get" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
 					  <span class="news-desc">We promise only send the good things</span>
 					  <div class="group_input">
-						<input class="form-control" type="email" placeholder="Your Email Address" name="Email" id="email-input">
+						<input class="form-control" type="email" placeholder="Your Email Address" name="email" id="email-input">
 						<div class="unpadding-top"><button class="btn btn-1" type="submit"><i class="fa fa-paper-plane"></i></button></div>
 					  </div>              
 					</form>
@@ -605,10 +610,11 @@
 										<div class="selector-wrapper">
 											<label for="#quick-shop-variants-1293238211-option-1">Size</label>
 											<div class="wrapper">
-												<select class="single-option-selector size-select" name="size" id="#quick-shop-variants-1293238211-option-1" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
-													
+												<select class="single-option-selector" name="size" id="#quick-shop-variants-1293238211-option-1" style="z-index: 1000; position: absolute; opacity: 1; font-size: 15px;">
+													@foreach ($sizeAll as $item)
+                                                        <option value="{{ $item->name }}">{{ $item->name }} ({{ $item->param }})</option>
+                                                    @endforeach
 												</select>
-												
 												<i class="fa fa-caret-down"></i>
 											</div>
 										</div>
@@ -647,7 +653,6 @@
 				success: function (data) {
 					prodsDetail(id);
 					$('#setId').val(data.id);
-					console.log($('#setId').val())
 					$('#setPriceSale').text(data.price);
 					$('#setPrice').text(data.price);
 					$('#setName').text(data.name);
@@ -682,7 +687,6 @@
 				dataType: "json",
 				success: function (data) {
 					$('.image-remove').remove();
-					$('.color-op').remove();
 
 					$.each(data, function(index) {
 						$('.product-image-thumb').append(`
@@ -690,42 +694,40 @@
 							<img class="image-thumb" onclick="showMainImg(this);" src="{{ url('public') }}/uploads/prods/${data[index].image}" alt=""/>
 						</div>
 						`);
-						getColor(data[index].color_id);
-						getSize(data[index].size_id);
 					});
 					
 					
 				}
 			});
 	}
-	function getColor(id) {
-		$.ajax({
-				type: "get",
-				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/color/${id}`,
-				data: "data",
-				dataType: "json",
-				success: function (data) {
-					console.log(data.name);
-						$('.color-select').append(`
-						<option class="color-op" value="${data.name}">${data.name}</option>
-						`);
-				}
-			});
-	}
-	function getSize(id) {
-		$.ajax({
-				type: "get",
-				url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/size/${id}`,
-				data: "data",
-				dataType: "json",
-				success: function (data) {
-					console.log(data.name);
-						$('.size-select').append(`
-						<option class="color-op" value="${data.name}">${data.name}</option>
-						`);
-				}
-			});
-	}
+	// function getColor(id) {
+	// 	$.ajax({
+	// 			type: "get",
+	// 			url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/color/${id}`,
+	// 			data: "data",
+	// 			dataType: "json",
+	// 			success: function (data) {
+	// 				console.log(data.name);
+	// 					$('.color-select').append(`
+	// 					<option class="color-op" value="${data.name}">${data.name}</option>
+	// 					`);
+	// 			}
+	// 		});
+	// }
+	// function getSize(id) {
+	// 	$.ajax({
+	// 			type: "get",
+	// 			url: `http://localhost:8080/BachKhoaAP/Jewelry_Shop/api/size/${id}`,
+	// 			data: "data",
+	// 			dataType: "json",
+	// 			success: function (data) {
+	// 				console.log(data.name);
+	// 					$('.size-select').append(`
+	// 					<option class="color-op" value="${data.name}">${data.name}</option>
+	// 					`);
+	// 			}
+	// 		});
+	// }
 </script>
 
 </body>

@@ -157,7 +157,7 @@
     
                                                                     </div>
                                                                 </div>
-                                                                <a class="wish-list" href="account.html"
+                                                                <a class="wish-list" href="{{ route('add_wishlist', [$id = $item->id, $user_id = Auth::user()->id]) }}"
                                                                     title="wish list"><i class="fa fa-heart"></i><span
                                                                         class="list-mode">Add to Wishlist</span></a>
                                                             </div>
@@ -346,7 +346,7 @@
 
                                                                 </div>
                                                             </div>
-                                                            <a class="wish-list" href="account.html"
+                                                            <a class="wish-list" href="{{ route('add_wishlist', [$id = $item->id, $user_id = Auth::user()->id]) }}"
                                                                 title="wish list"><i class="fa fa-heart"></i><span
                                                                     class="list-mode">Add to Wishlist</span></a>
                                                         </div>
@@ -421,13 +421,13 @@
 @endsection
 @section('popupIndex')
 <div class="newsletter-popup" style="display: none;">
-    <form action="http://codespot.us5.list-manage.com/subscribe/post?u=ed73bc2d2f8ae97778246702e&amp;id=c63b4d644d" method="post" name="mc-embedded-subscribe-form" target="_blank">
+    <form action="{{ route('newsletter') }}" method="get" name="mc-embedded-subscribe-form" target="_blank">
         <h4>-50% Deal</h4>
         <p class="tagline">
             subscribe for newsletter and get the item for 50% off
         </p>
         <div class="group_input">
-            <input class="form-control" type="email" name="EMAIL" placeholder="YOUR EMAIL">
+            <input class="form-control" type="email" name="email" placeholder="YOUR EMAIL">
             <button class="btn" type="submit"><i class="fa fa-paper-plane"></i></button>
         </div>
     </form>

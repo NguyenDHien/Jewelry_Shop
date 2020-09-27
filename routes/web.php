@@ -44,6 +44,12 @@ Route::post('/address', 'AccountController@u_address')->name('address.update');
 
 Route::get('/admin/error', 'AdminController@error')->name('admin.error');
 
+Route::get('/newsletter', 'HomeController@newsletter')->name('newsletter');
+
+Route::get('/wishlist/{id}/{user_id}', 'WishlistController@add_wishlist')->name('add_wishlist');
+Route::get('/wishlist', 'WishlistController@wishlist')->name('wishlist');
+Route::get('/wishlist/{id}', 'WishlistController@wishlist_delete')->name('wishlist.delete');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // Category
     Route::get('/', 'AdminController@index')->name('admin');

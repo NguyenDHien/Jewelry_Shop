@@ -6,6 +6,7 @@ use App\Models\category;
 use App\Models\color;
 use App\Models\product;
 use App\Models\cart;
+use App\Models\size;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,7 +35,8 @@ class AppServiceProvider extends ServiceProvider
             $cateList = category::all();
             $colorAll = color::all();
             $cart = new cart();
-            $view->with(compact('colorAll', 'cateList', 'prodSale', 'cates5', 'highestPrice', 'cart'));
+            $sizeAll = size::all();
+            $view->with(compact('colorAll', 'cateList', 'prodSale', 'cates5', 'highestPrice', 'cart', 'sizeAll'));
         });
 
         //

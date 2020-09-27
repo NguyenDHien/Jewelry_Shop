@@ -35,7 +35,7 @@ class CartController extends Controller
     {
         $quantity = request()->all();
         $cart->updateItem($quantity);
-        return redirect()->route('admin.cart');
+        return redirect()->route('cart');
     }
     public function deleteAll(Cart $cart)
     {

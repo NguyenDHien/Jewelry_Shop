@@ -113,9 +113,7 @@
                                 <div id="address_pagination"></div>
                               </div>
                             </div>
-                            <div class="clearfix col-md-24">
-                              <button id="new-address" class="btn" onclick="HTML.CustomerAddress.toggleNewForm();return false">Add New Address</button>
-                            </div>
+                            
                             <script type="text/javascript">
                               var HTML = new Object();
                               HTML.CustomerAddress = {

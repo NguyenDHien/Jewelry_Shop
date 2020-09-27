@@ -39,7 +39,7 @@
                                     <li class="clearfix"></li>
                                     <li id="last_namef">
                                     <label class="control-label" for="last_name">Phone Number <span class="req">*</span></label>
-                                    <input name="phone" id="last_name" value="{{ Auth::user()->phone }}" class="form-control" type="number" required>
+                                    <input name="phone" id="last_name" value="{{ Auth::user()->phone }}" class="form-control" type="text" required>
                                     </li>
                                     <li class="clearfix"></li>
                                     <li id="emailf" class="">
@@ -89,6 +89,9 @@
                                         <div class="col-md-16 cart-right">
                                             <div class="cart-title">
                                                 <a href="{{ route('getListView', [$id = $item['id'],$slug = Str::slug($item['name'])]) }}">{{ $item['name'] }}</a>
+                                            </div>
+                                            <div>
+                                                <span style="font-style: italic" class="variant_title">Size: {{ $item['size'] }}</span>
                                             </div>
                                             <div class="cart-price">
                                                 ${{ number_format($item['price']) }}<span class="x"> x </span>{{ ($item['quantity']) }}
