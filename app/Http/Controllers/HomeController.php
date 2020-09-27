@@ -6,8 +6,10 @@ use App\Models\category;
 use App\Models\color;
 use App\Models\newsletter;
 use App\Models\product;
+use App\Models\rating;
 use App\Models\wishlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -71,7 +73,8 @@ class HomeController extends Controller
             $prodSale = product::prodsale();
             $cateProd = category::find($prod->category_id);
             $cates = category::paginate(5);
-            return view('product', compact('prod', 'size', 'cateProd', 'prodSale', 'cates'));
+            $rating = rating::where('product_id', $id)->where('user_id', Auth::user()->id)->first();
+            return view('product', compact('prod', 'size', 'cateProd', 'prodSale', 'cates', 'rating'));
         } else {
             return abort(404);
         }

@@ -46,6 +46,10 @@
     display: none;
 }
 
+.display-none {
+    display: none;
+}
+
 /* When the body has the loading class, we turn
    the scrollbar off with overflow:hidden */
 body.loading .modalLoading {
@@ -174,8 +178,7 @@ body.loading .modalLoading {
     border-radius: 2px;
 }
 
-.noUi-target.noUi-connect {
-}
+.noUi-target.noUi-connect {}
 
 /* Handles and cursors;
    */
@@ -308,9 +311,11 @@ body.loading .modalLoading {
 .dp-none {
     display: none !important;
 }
+
 .search-icon-hover:hover {
     color: #a07936 !important;
 }
+
 .search-bar-container {
     height: 600px;
     display: flex;
@@ -318,40 +323,100 @@ body.loading .modalLoading {
     justify-content: center;
     align-items: center;
 }
+
 .search-bar-container .search-bar-title {
     margin-bottom: 50px;
     font-size: 50px;
 }
+
 .search-bar-container .container #searchletter form input {
     width: 640px;
     height: 60px;
     font-size: 20px !important;
     color: #a07936;
 }
+
 .search-bar-container .container #searchletter form input:focus {
     border: 2px solid #a07936;
 }
+
 .search-bar-container .container #searchletter .unpadding-top button {
     height: 60px;
     padding: 3px 20px 0px;
     border: 2px solid #a07936;
     overflow: hidden;
 }
+
 .search-bar-container .container #searchletter .unpadding-top {
     overflow: hidden;
 }
+
 .search-bar-container .container #searchletter .group_input {
     width: 640px;
     height: 70px;
 }
+
 .search-bar-container .container #searchletter .unpadding-top button:hover {
     background-color: #8b6a30;
     transition: 0.3s;
     transform: scale(1.4);
 }
+
 /* .search-bar-container .container #searchletter .unpadding-top button:hover i.fa {
     color: #a07936;
 } */
 .search-bar-container .container #searchletter .unpadding-top button i.fa {
     font-size: 22px;
+}
+
+.rating {
+    float: left;
+
+}
+
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked)>input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked)>label {
+    float: right;
+    width: 1em;
+    padding: 0 .1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 200%;
+    line-height: 1.2;
+    color: #ddd;
+}
+
+.rating:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rating>input:checked~label {
+    color: #f70;
+}
+
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+    color: #f70;
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked+label:hover~label,
+.rating>input:checked~label:hover,
+.rating>input:checked~label:hover~label,
+.rating>label:hover~input:checked~label {
+    color: #f70;
+}
+
+.rating>label:active {
+    position: relative;
+    transform: scale(1.4);
 }

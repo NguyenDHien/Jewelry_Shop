@@ -24,7 +24,6 @@
             
             
             <br>
-            {{--  --}}
             <p class="mb-2"><strong>Size</strong></p>
             <select class="form-control select2" name="size_id" id="simple-select2" required>
                 @foreach ($sizes as $item)
