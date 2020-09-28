@@ -21,7 +21,6 @@ textarea::-webkit-input-placeholder {
     a:after {
         content: "";
     }
-
     a[href]:after {
         content: none !important;
     }

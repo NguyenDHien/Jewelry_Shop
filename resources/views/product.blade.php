@@ -563,6 +563,73 @@
                                                     
                                                 </div>
                                             </div>
+                                            <div>
+                                                @foreach ($ratingList as $item)
+                                                    <div class="prod-list-reviews">
+                                                        <div class="spr-review-header">
+                                                            <h3 class="spr-review-title">{{ $item->title }}</h3>
+                                                            @if ($item->score == 1)
+                                                            <span
+                                                                class="spr-starratings spr-review-header-starratings"><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i>
+                                                            </span>
+                                                            @endif
+                                                            @if ($item->score == 2)
+                                                            <span
+                                                                class="spr-starratings spr-review-header-starratings"><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i>
+                                                            </span>
+                                                            @endif
+                                                            @if ($item->score == 3)
+                                                            <span
+                                                                class="spr-starratings spr-review-header-starratings"><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i>
+                                                            </span>
+                                                            @endif
+                                                            @if ($item->score == 4)
+                                                            <span
+                                                                class="spr-starratings spr-review-header-starratings"><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star-empty" style=""></i>
+                                                            </span>
+                                                            @endif
+                                                            @if ($item->score == 5)
+                                                            <span
+                                                                class="spr-starratings spr-review-header-starratings"><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i><i
+                                                                class="spr-icon spr-icon-star" style=""></i>
+                                                            </span>
+                                                            @endif
+                                                            <span
+                                                                class="prod-list-reviews-time"><strong>by {{ $item->name }}</strong>
+                                                                on <strong>{{ Str::substr($item->updated_at, 0, 10)  }}</strong></span>
+                                                        </div>
+                                                        <div class="spr-review-content">
+                                                            <p class="spr-review-content-body">
+                                                                {{ $item->content }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                             @endif
                                             
                                         </div>

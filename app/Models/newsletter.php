@@ -12,6 +12,7 @@ class newsletter extends Model
 
     public function scopeThem($query)
     {
+        $add = 0;
         $email = $query->where('email', '=', request()->email)->first();
         if (!$email) {
             $add = $this->create([

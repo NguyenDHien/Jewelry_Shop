@@ -437,7 +437,7 @@ body.loading .modalLoading {
 }
 
 .prod-list-reviews {
-    padding: 30px 10px 10px;
+    padding: 0px 10px 0px;
     text-align: left;
     border-top: 1px solid #ECECEC;
 }
@@ -468,6 +468,14 @@ body.loading .modalLoading {
 .spr-content:hover {
     overflow-y: scroll;
     padding-right: 7px;
+}
+
+.spr-review-title {
+    font-size: 18px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #202020b6;
+    font-weight: 400;
+    text-transform: capitalize;
 }
 
 /* chat */

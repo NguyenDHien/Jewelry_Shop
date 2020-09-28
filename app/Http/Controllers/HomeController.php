@@ -135,6 +135,6 @@ class HomeController extends Controller
     public function newsletter()
     {
         $add = newsletter::them();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Bạn sẽ nhận được thông báo về những khuyến mãi mới nhất của chúng tôi!');
     }
 }
