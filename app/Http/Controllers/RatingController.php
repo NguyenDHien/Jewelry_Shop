@@ -12,4 +12,14 @@ class RatingController extends Controller
         $add = rating::them($id, $user_id);
         return redirect()->back()->with('success', 'Đánh giá thành công!');
     }
+    public function edit_rating($id)
+    {
+        $add = rating::sua($id);
+        return redirect()->back()->with('success', 'Đánh giá thành công!');
+    }
+    public function delete_rating($id)
+    {
+        $add = rating::xoa($id);
+        return redirect()->back()->with('success', 'Đánh giá thành công!');
+    }
 }

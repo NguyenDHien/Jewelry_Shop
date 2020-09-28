@@ -51,6 +51,9 @@ Route::get('/wishlist', 'WishlistController@wishlist')->name('wishlist');
 Route::get('/wishlist/{id}', 'WishlistController@wishlist_delete')->name('wishlist.delete');
 
 Route::get('/rating/{id}/{user_id}', 'RatingController@add_rating')->name('rating.add');
+Route::get('/rating-edit/{id}', 'RatingController@edit_rating')->name('rating.edit');
+Route::get('/rating-delete/{id}', 'RatingController@delete_rating')->name('rating.delete');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // Category

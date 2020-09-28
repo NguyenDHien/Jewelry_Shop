@@ -73,8 +73,13 @@ class HomeController extends Controller
             $prodSale = product::prodsale();
             $cateProd = category::find($prod->category_id);
             $cates = category::paginate(5);
-            $rating = rating::where('product_id', $id)->where('user_id', Auth::user()->id)->first();
-            return view('product', compact('prod', 'size', 'cateProd', 'prodSale', 'cates', 'rating'));
+            $ratingAll = rating::allRating($id);
+            $ratingNumber = rating::numberRating($id);
+            $rating = null;
+            if (Auth::check()) {
+                $rating = rating::where('product_id', $id)->where('user_id', Auth::user()->id)->first();
+            }
+            return view('product', compact('prod', 'size', 'cateProd', 'prodSale', 'cates', 'rating', 'ratingAll', 'ratingNumber'));
         } else {
             return abort(404);
         }

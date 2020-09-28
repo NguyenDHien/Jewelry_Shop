@@ -149,6 +149,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- Review --}}
                                     <div id="shopify-product-reviews" data-id="1293236931">
                                         <style scoped="">
                                             .spr-container {
@@ -162,34 +163,84 @@
                                             }
                                         </style>
                                         <div class="spr-container">
+                                            @if (Auth::check())
                                             <div class="spr-header">
                                                 <h2 class="spr-header-title">Customer Reviews</h2>
-                                                <div class="spr-summary" itemscope=""
-                                                    itemtype="http://data-vocabulary.org/Review-aggregate">
+                                                <div class="spr-summary" itemscope="">
                                                     <meta itemprop="itemreviewed" content="Donec aliquam ante non">
                                                     <meta itemprop="votes" content="1">
-                                                    <span itemprop="rating" itemscope=""
-                                                        itemtype="http://data-vocabulary.org/Rating"
-                                                        class="spr-starrating spr-summary-starrating">
-                                                        <meta itemprop="average" content="4.0">
-                                                        <meta itemprop="best" content="5">
-                                                        <meta itemprop="worst" content="1">
-                                                        <i class="spr-icon spr-icon-star" style=""></i><i
-                                                            class="spr-icon spr-icon-star" style=""></i><i
-                                                            class="spr-icon spr-icon-star" style=""></i><i
-                                                            class="spr-icon spr-icon-star" style=""></i><i
-                                                            class="spr-icon spr-icon-star-empty" style=""></i>
+                                                    @if ((int)$ratingAll == 5)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
                                                     </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 4)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 3)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 2)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 1)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ($ratingNumber == 0)
                                                     <span class="spr-summary-caption">
-                                                        <span class="spr-summary-actions-togglereviews">Based on 1
+                                                        <span class="spr-summary-actions-togglereviews">No review</span>
+                                                    </span>
+                                                    @else
+                                                    <span class="spr-summary-caption">
+                                                        <span class="spr-summary-actions-togglereviews">Based on {{ $ratingNumber }}
                                                             review</span>
                                                     </span>
+                                                    @endif
+                                                    
                                                     @if (!$rating)
                                                     <span class="spr-summary-actions">
                                                         <button class="btn spr-summary-actions-newreview"
                                                             onclick="writeRV()">Write
                                                             a review</button>
                                                     </span>
+                                                    @else
+                                                    <span class="spr-summary-actions" style="margin-left: 10px;">
+                                                        <button onclick="window.location.href='{{ route('rating.delete', [$id = $rating->id]) }}'" class="btn btn-review-delete"
+                                                            ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    </span>
+                                                    <span class="spr-summary-actions" >
+                                                        <button class="btn spr-summary-actions-newreview"
+                                                            onclick="writeRV()">Edit review</button>
+                                                    </span>
+                                                    
                                                     @endif
                                                     
                                                 </div>
@@ -246,7 +297,55 @@
                                                         </fieldset>
                                                     </form>
                                                 </div>
-                                                    @endif
+                                                @else
+                                                <div class="spr-form display-none">
+                                                    <form method="get" action="{{ route('rating.edit', [$id = $rating->id]) }}" class="new-review-form">
+                                                        <h3 class="spr-form-title">Edit your review</h3>
+                                                        <fieldset class="spr-form-contact">
+                                                            <div class="spr-form-contact-name">
+                                                                <label class="spr-form-label" for="review_author_1293236931">Name</label>
+                                                                <input class="spr-form-input spr-form-input-text " value="{{ Auth::user()->name }}"
+                                                                    id="review_author_1293236931" type="text"
+                                                                    name="name" value=""
+                                                                    placeholder="Enter your name">
+                                                            </div>
+                                                        </fieldset>
+                                                        <fieldset class="spr-form-review">
+                                                            <div class="spr-form-review-rating ">
+                                                                <label style="display: block" class="spr-form-label">Rating</label>
+                                                                <div class="spr-form-input spr-starrating rating">
+                                                                <input type="radio" id="star5" name="score" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                                                                <input type="radio" id="star4" name="score" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                                                                <input type="radio" id="star3" name="score" value="3" /><label for="star3" title="Meh">3 stars</label>
+                                                                <input type="radio" id="star2" name="score" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                                                                <input type="radio" id="star1" name="score" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="spr-form-review-body">
+                                                                <label class="spr-form-label"
+                                                                    for="review_body_1293236931">Body of Review
+                                                                    <span
+                                                                        class="spr-form-review-body-charactersremaining">(1500)</span></label>
+                                                                <div class="spr-form-input">
+                                                                    <textarea
+                                                                        class="spr-form-input spr-form-input-textarea "
+                                                                        id="review_body_1293236931"
+                                                                        data-product-id="1293236931"
+                                                                        name="content" rows="10"
+                                                                        
+                                                                        placeholder="Write your comments here">{{ $rating->content }}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <fieldset class="spr-form-actions">
+                                                            <input type="submit"
+                                                                class="spr-button spr-button-primary button button-primary btn btn-primary"
+                                                                value="Submit Review">
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                                @endif
+
                                                 @if ($rating)
                                                 <div class="spr-reviews" id="reviews_1293236931">
                                                     <div class="spr-review" id="spr-review-906174">
@@ -316,8 +415,79 @@
                                                     </div>
                                                 </div>
                                                 @endif
-                                                
                                             </div>
+                                            @else
+                                            <div class="spr-header">
+                                                <h2 class="spr-header-title">Customer Reviews</h2>
+                                                <div class="spr-summary" itemscope="">
+                                                    <meta itemprop="itemreviewed" content="Donec aliquam ante non">
+                                                    <meta itemprop="votes" content="1">
+                                                    @if ((int)$ratingAll == 5)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 4)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 3)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 2)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ((int)$ratingAll == 1)
+                                                    <span itemprop="rating" itemscope="" class="spr-starrating spr-summary-starrating">
+                                                        <i class="spr-icon spr-icon-star"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                        <i class="spr-icon spr-icon-star-empty"></i>
+                                                    </span>
+                                                    @endif
+                                                    @if ($ratingNumber == 0)
+                                                    <span class="spr-summary-caption">
+                                                        <span class="spr-summary-actions-togglereviews">No review</span>
+                                                    </span>
+                                                    @else
+                                                    <span class="spr-summary-caption">
+                                                        <span class="spr-summary-actions-togglereviews">Based on {{ $ratingNumber }}
+                                                            review</span>
+                                                    </span>
+                                                    @endif
+                                                    
+                                                    <span class="spr-summary-actions">
+                                                        <button class="btn spr-summary-actions-newreview"
+                                                            onclick="window.location.href='{{ route('login') }}'">Login
+                                                            to review</button>
+                                                    </span>
+                                                    
+                                                </div>
+                                            </div>
+                                            @endif
+                                            
                                         </div>
                                     </div>
                                 </div>

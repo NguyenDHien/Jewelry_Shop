@@ -420,3 +420,18 @@ body.loading .modalLoading {
     position: relative;
     transform: scale(1.4);
 }
+
+.btn-review-delete {
+    color: white;
+    width: 44px;
+    background-color: red;
+    border: 1px solid red;
+    transition: 0.2s;
+}
+
+.btn-review-delete:hover {
+    border: 1px solid red;
+    color: white;
+    background-color: red;
+    transform: scale(1.1);
+}
