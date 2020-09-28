@@ -309,7 +309,7 @@
 
                                                                 </div>
                                                             </div>
-                                                            <a class="wish-list" href="{{ route('add_wishlist', [$id = $item->id, $user_id = Auth::user()->id]) }}"
+                                                            <a class="wish-list" href="{{ route('add_wishlist', [$id = $item->id]) }}"
                                                                 title="wish list"><i class="fa fa-heart"></i><span
                                                                     class="list-mode">Add to Wishlist</span></a>
                                                         </div>
@@ -384,7 +384,7 @@
 
                                                                 </div>
                                                             </div>
-                                                            <a class="wish-list" href="account.html"
+                                                            <a class="wish-list" href="{{ route('add_wishlist', [$id = $item->id]) }}"
                                                                 title="wish list"><i class="fa fa-heart"></i><span
                                                                     class="list-mode">Add to Wishlist</span></a>
                                                         </div>

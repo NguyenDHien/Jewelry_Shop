@@ -8,14 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class WishlistController extends Controller
 {
-    public function add_wishlist($id, $user_id)
+    public function add_wishlist($id)
     {
-        $add = wishlist::them($id, $user_id);
+        $add = wishlist::them($id);
         return redirect()->back()->with('success', 'Thêm thành công!');
     }
     public function wishlist()
     {
-        $wishlist = wishlist::where('user_id', Auth::user()->id)->get();
+        $wishlist = 0;
+        if (Auth::check()) {
+            $wishlist = wishlist::where('user_id', Auth::user()->id)->get();
+        }
         return view('wishlist', compact('wishlist'));
     }
     public function wishlist_delete($id)

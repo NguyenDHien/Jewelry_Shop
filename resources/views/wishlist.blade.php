@@ -27,6 +27,7 @@
                             <div class="page page-wishlist">
                                 <div class="table-cart">
                                     <div class="wrap-table">
+                                        @if (Auth::check())
                                         @if ($wishlist->count() > 0)
                                         <table class="cart-items haft-border">
                                         <thead>
@@ -88,6 +89,16 @@
                                                     <br>
                                         </div>
                                             @endif
+                                        @else
+                                        <div class="text-center">
+                                            <br>
+                                            <p>Bạn cần đăng nhập để xem danh sách yêu thích của mình</p>
+                                            <br>
+                                            <a style="width: 170px" class="btn" href="{{ route('login') }}">LOGIN</a>
+                                            <br>
+                                        </div>
+                                        @endif
+                                        
                                     </div>
                                 </div>
                             </div>

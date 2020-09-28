@@ -46,14 +46,15 @@ Route::get('/admin/error', 'AdminController@error')->name('admin.error');
 
 Route::get('/newsletter', 'HomeController@newsletter')->name('newsletter');
 
-Route::get('/wishlist/{id}/{user_id}', 'WishlistController@add_wishlist')->name('add_wishlist');
+Route::get('/wishlist-add/{id}', 'WishlistController@add_wishlist')->name('add_wishlist')->middleware('auth');
 Route::get('/wishlist', 'WishlistController@wishlist')->name('wishlist');
-Route::get('/wishlist/{id}', 'WishlistController@wishlist_delete')->name('wishlist.delete');
+Route::get('/wishlist-del/{id}', 'WishlistController@wishlist_delete')->name('wishlist.delete')->middleware('auth');
 
 Route::get('/rating/{id}/{user_id}', 'RatingController@add_rating')->name('rating.add');
 Route::get('/rating-edit/{id}', 'RatingController@edit_rating')->name('rating.edit');
 Route::get('/rating-delete/{id}', 'RatingController@delete_rating')->name('rating.delete');
 
+// Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // Category

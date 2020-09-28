@@ -24,7 +24,7 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, $guard = null)
     {
         if (!Auth::check()) {
-            return redirect()->route('admin.login');
+            return redirect()->route('login');
         }
         $user = Auth::user();
         $route = $request->route()->getName();

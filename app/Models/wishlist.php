@@ -16,14 +16,14 @@ class wishlist extends Model
         return $this->hasOne(product::class, 'id', 'product_id');
     }
 
-    public function scopeThem($query, $id, $user_id)
+    public function scopeThem($query, $id)
     {
         $add = 1;
-        $exist = $query->where('product_id', $id)->where('user_id', $user_id)->first();
+        $exist = $query->where('product_id', $id)->where('user_id', Auth::user()->id)->first();
         if (!$exist) {
             $add = $this->create([
                 'product_id' => $id,
-                'user_id' => $user_id,
+                'user_id' => Auth::user()->id,
             ]);
         }
         return $add;
