@@ -435,3 +435,37 @@ body.loading .modalLoading {
     background-color: red;
     transform: scale(1.1);
 }
+
+.prod-list-reviews {
+    padding: 30px 10px 10px;
+    text-align: left;
+    border-top: 1px solid #ECECEC;
+}
+
+.spr-content {
+    max-height: 1000px;
+    padding-right: 14px;
+}
+
+.spr-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* .cart-mini-overflow::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+} */
+
+.spr-content::-webkit-scrollbar-thumb {
+    background: #a79473;
+    border-radius: 10px;
+}
+
+.spr-content::-webkit-scrollbar-thumb:hover {
+    background: #a07936;
+}
+
+.spr-content:hover {
+    overflow-y: scroll;
+    padding-right: 7px;
+}

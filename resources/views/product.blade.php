@@ -261,7 +261,8 @@
                                                                 <input class="spr-form-input spr-form-input-text " value="{{ Auth::user()->name }}"
                                                                     id="review_author_1293236931" type="text"
                                                                     name="name" value=""
-                                                                    placeholder="Enter your name">
+                                                                    placeholder="Enter your name"
+                                                                    required>
                                                             </div>
                                                         </fieldset>
                                                         <fieldset class="spr-form-review">
@@ -272,8 +273,12 @@
                                                                 <input type="radio" id="star4" name="score" value="4" /><label for="star4" title="Pretty good">4 stars</label>
                                                                 <input type="radio" id="star3" name="score" value="3" /><label for="star3" title="Meh">3 stars</label>
                                                                 <input type="radio" id="star2" name="score" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-                                                                <input type="radio" id="star1" name="score" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                                                <input type="radio" id="star1" name="score" value="1" required/><label for="star1" title="Sucks big time">1 star</label>
                                                                 </div>
+                                                            </div>
+                                                            <div class="spr-form-review-title">
+                                                                <label class="spr-form-label" for="review_title_1293236931">Review Title</label>
+                                                                <input class="spr-form-input spr-form-input-text " id="review_title_1293236931" type="text" name="title" value="{{ $rating->title }}" placeholder="Give your review a title">
                                                             </div>
                                                             <div class="spr-form-review-body">
                                                                 <label class="spr-form-label"
@@ -304,7 +309,7 @@
                                                         <fieldset class="spr-form-contact">
                                                             <div class="spr-form-contact-name">
                                                                 <label class="spr-form-label" for="review_author_1293236931">Name</label>
-                                                                <input class="spr-form-input spr-form-input-text " value="{{ Auth::user()->name }}"
+                                                                <input class="spr-form-input spr-form-input-text" required value="{{ Auth::user()->name }}"
                                                                     id="review_author_1293236931" type="text"
                                                                     name="name" value=""
                                                                     placeholder="Enter your name">
@@ -318,8 +323,12 @@
                                                                 <input type="radio" id="star4" name="score" value="4" /><label for="star4" title="Pretty good">4 stars</label>
                                                                 <input type="radio" id="star3" name="score" value="3" /><label for="star3" title="Meh">3 stars</label>
                                                                 <input type="radio" id="star2" name="score" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-                                                                <input type="radio" id="star1" name="score" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                                                <input type="radio" id="star1" name="score" value="1" required/><label for="star1" title="Sucks big time">1 star</label>
                                                                 </div>
+                                                            </div>
+                                                            <div class="spr-form-review-title">
+                                                                <label class="spr-form-label" for="review_title_1293236931">Review Title</label>
+                                                                <input class="spr-form-input spr-form-input-text" id="review_title_1293236931" type="text" name="title" value="{{ $rating->title }}" placeholder="Give your review a title">
                                                             </div>
                                                             <div class="spr-form-review-body">
                                                                 <label class="spr-form-label"
@@ -332,7 +341,6 @@
                                                                         id="review_body_1293236931"
                                                                         data-product-id="1293236931"
                                                                         name="content" rows="10"
-                                                                        
                                                                         placeholder="Write your comments here">{{ $rating->content }}</textarea>
                                                                 </div>
                                                             </div>
@@ -345,7 +353,7 @@
                                                     </form>
                                                 </div>
                                                 @endif
-
+                                                {{-- your rating --}}
                                                 @if ($rating)
                                                 <div class="spr-reviews" id="reviews_1293236931">
                                                     <div class="spr-review" id="spr-review-906174">
@@ -415,6 +423,75 @@
                                                     </div>
                                                 </div>
                                                 @endif
+
+                                                {{-- list review --}}
+                                                <div>
+                                                    @foreach ($ratingList as $item)
+                                                        <div class="prod-list-reviews">
+                                                            <div class="spr-review-header">
+                                                                <h3 class="spr-review-header-title">{{ $item->title }}</h3>
+                                                                @if ($item->score == 1)
+                                                                <span
+                                                                    class="spr-starratings spr-review-header-starratings"><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i>
+                                                                </span>
+                                                                @endif
+                                                                @if ($item->score == 2)
+                                                                <span
+                                                                    class="spr-starratings spr-review-header-starratings"><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i>
+                                                                </span>
+                                                                @endif
+                                                                @if ($item->score == 3)
+                                                                <span
+                                                                    class="spr-starratings spr-review-header-starratings"><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i>
+                                                                </span>
+                                                                @endif
+                                                                @if ($item->score == 4)
+                                                                <span
+                                                                    class="spr-starratings spr-review-header-starratings"><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star-empty" style=""></i>
+                                                                </span>
+                                                                @endif
+                                                                @if ($item->score == 5)
+                                                                <span
+                                                                    class="spr-starratings spr-review-header-starratings"><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i><i
+                                                                    class="spr-icon spr-icon-star" style=""></i>
+                                                                </span>
+                                                                @endif
+                                                                <span
+                                                                    class="prod-list-reviews-time"><strong>by {{ $item->name }}</strong>
+                                                                    on <strong>{{ Str::substr($item->updated_at, 0, 10)  }}</strong></span>
+                                                            </div>
+                                                            <div class="spr-review-content">
+                                                                <p class="spr-review-content-body">
+                                                                    {{ $item->content }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                             @else
                                             <div class="spr-header">

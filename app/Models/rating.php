@@ -8,7 +8,7 @@ class rating extends Model
 {
 
     protected $table = 'rating';
-    protected $fillable = ['product_id', 'user_id', 'score', 'name', 'content'];
+    protected $fillable = ['product_id', 'user_id', 'score', 'name', 'content', 'title'];
 
     public function scopeAllRating($query, $product_id)
     {
@@ -36,6 +36,8 @@ class rating extends Model
                 'score' => request()->score,
                 'name' => request()->name,
                 'content' => request()->content,
+                'title' => request()->title,
+
             ]);
         }
         return $add;
@@ -47,6 +49,8 @@ class rating extends Model
             'score' => request()->score,
             'name' => request()->name,
             'content' => request()->content,
+            'title' => request()->title,
+
         ]);
 
         return $query;
@@ -56,5 +60,10 @@ class rating extends Model
         $query = $query->find($id);
         $query->delete();
         return 0;
+    }
+    public function scopelistRating($query, $id)
+    {
+        $query = $query->where('product_id', $id)->get();
+        return $query;
     }
 }
