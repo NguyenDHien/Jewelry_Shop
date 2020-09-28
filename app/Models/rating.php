@@ -66,4 +66,9 @@ class rating extends Model
         $query = $query->where('product_id', $id)->get();
         return $query;
     }
+    public function scopeListRatingExcept($query, $id, $user_id)
+    {
+        $query = $query->where([['product_id', $id], ['user_id', '!=', $user_id]])->get();
+        return $query;
+    }
 }

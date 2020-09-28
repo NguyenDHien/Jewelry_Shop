@@ -278,7 +278,7 @@
                                                             </div>
                                                             <div class="spr-form-review-title">
                                                                 <label class="spr-form-label" for="review_title_1293236931">Review Title</label>
-                                                                <input class="spr-form-input spr-form-input-text " id="review_title_1293236931" type="text" name="title" value="{{ $rating->title }}" placeholder="Give your review a title">
+                                                                <input class="spr-form-input spr-form-input-text " id="review_title_1293236931" type="text" name="title" placeholder="Give your review a title">
                                                             </div>
                                                             <div class="spr-form-review-body">
                                                                 <label class="spr-form-label"
@@ -409,12 +409,12 @@
                                                             </span>
                                                             @endif
                                                             
-                                                            <h3 class="spr-review-header-title">{{ $rating->name }}</h3>
+                                                            <h3 class="spr-review-title">{{ $rating->title }}</h3>
                                                             <span
-                                                                class="spr-review-header-byline"><strong>Review</strong>
-                                                                on <strong>{{ Str::substr($rating->updated_at, 0, 10)  }}</strong></span>
+                                                            class="prod-list-reviews-time"><strong>by {{ $rating->name }}</strong>
+                                                            on <strong>{{ Str::substr($item->updated_at, 0, 10)  }}</strong></span>
                                                         </div>
-                                                        <div class="spr-review-content">
+                                                        <div class="spr-review-content" style="margin-top: 10px">
                                                             <p class="spr-review-content-body">
                                                                 {{ $rating->content }}
                                                             </p>
@@ -429,7 +429,7 @@
                                                     @foreach ($ratingList as $item)
                                                         <div class="prod-list-reviews">
                                                             <div class="spr-review-header">
-                                                                <h3 class="spr-review-header-title">{{ $item->title }}</h3>
+                                                                <h3 class="spr-review-title">{{ $item->title }}</h3>
                                                                 @if ($item->score == 1)
                                                                 <span
                                                                     class="spr-starratings spr-review-header-starratings"><i

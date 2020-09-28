@@ -79,6 +79,7 @@ class HomeController extends Controller
             $rating = null;
             if (Auth::check()) {
                 $rating = rating::where('product_id', $id)->where('user_id', Auth::user()->id)->first();
+                $ratingList = rating::listRatingExcept($id, Auth::user()->id);
             }
             return view('product', compact('prod', 'size', 'cateProd', 'prodSale', 'cates', 'rating', 'ratingAll', 'ratingNumber', 'ratingList'));
         } else {

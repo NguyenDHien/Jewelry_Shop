@@ -442,9 +442,14 @@ body.loading .modalLoading {
     border-top: 1px solid #ECECEC;
 }
 
+.spr-header {
+    margin-bottom: 10px;
+}
+
 .spr-content {
     max-height: 1000px;
     padding-right: 14px;
+    overflow-y: scroll;
 }
 
 .spr-content::-webkit-scrollbar {
@@ -465,10 +470,7 @@ body.loading .modalLoading {
     background: #a07936;
 }
 
-.spr-content:hover {
-    overflow-y: scroll;
-    padding-right: 7px;
-}
+.spr-content:hover {}
 
 .spr-review-title {
     font-size: 18px !important;
