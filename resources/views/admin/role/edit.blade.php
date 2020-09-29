@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Role edit')
 @section('body')
 <a href="{{ route('admin.role') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">

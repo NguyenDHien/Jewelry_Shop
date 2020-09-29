@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Product create')
+@section('title', 'Product')
 @section('body')
 
         <h2 class="page-title">Basic table</h2>

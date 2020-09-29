@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Product create')
 @section('body')
 
 <a href="{{ route('admin.product') }}" class="btn mb-2 btn-secondary">Back<span></a>

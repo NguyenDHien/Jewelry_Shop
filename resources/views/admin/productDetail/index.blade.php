@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Product detail')
 @section('body')
 
 

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Product detail edit')
 @section('body')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 

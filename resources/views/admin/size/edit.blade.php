@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Size edit')
 @section('body')
 <a href="{{ route('admin.size') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
