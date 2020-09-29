@@ -66,8 +66,20 @@
                                     </li><br>
 
                                     <div class="form-group mb-3">
-                                        <label for="validationTextarea">Note</label>
+                                        <label class="control-label"  for="validationTextarea">Note</label>
                                         <textarea name="note" class="form-control" id="validationTextarea"></textarea>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label class="control-label" style="margin-bottom: 5px" for="paymentzzz">Payment Methods</label>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" value="0" id="customRadio1" name="payment" class="custom-control-input" checked>
+                                            <label class="custom-control-label" for="customRadio1">Thanh toán khi nhận hàng</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" value="1" id="customRadio2" name="payment" class="custom-control-input" >
+                                            <label class="custom-control-label" for="customRadio2">Thanh toán qua hình thức chuyển khoản</label>
+                                        </div>
+
                                     </div>
                                     <li class="clearfix"></li>
                                     <li class="unpadding-top action-last">

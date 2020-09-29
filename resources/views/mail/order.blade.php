@@ -1,10 +1,16 @@
-    <h2>Chúc mừng bạn {{ $name }} đã đặt hàng thành công!</h2>
+    <h2>Chúc mừng bạn {{ $order->name }} đã đặt hàng thành công!</h2>
     <br>
     <p style="font-size: 17px; font-weight: bold">Thông tin đơn hàng của bạn:</p>
     <p style="font-size: 15px">- Mã đơn hàng: {{ $order->id }}</p>
     <p style="font-size: 15px">- Ngày đặt hàng: {{ $order->created_at }}</p>
     <p style="font-size: 15px">- Địa chỉ: {{ $order->address }}</p>
     <p style="font-size: 15px">- SĐT: {{ $order->phone }}</p>
+    @if ($order->payment == 0)
+    <p style="font-size: 15px">- Phương thức thanh toán: Thanh toán khi nhận hàng (COD)</p>
+    @else
+    <p style="font-size: 15px">- Phương thức thanh toán: Chuyển khoản ngân hàng</p>
+    @endif
+
     <br>
     <p style="font-size: 17px; font-weight: bold"">Chi tiết sản phẩm:</p>
     <table border="1" cellspacing = '0' cellpadding = "10">

@@ -42,10 +42,6 @@ class CheckoutController extends Controller
                 'order' => $add,
                 'total' => $total_price,
                 'items' => $cart->items,
-                'address' => $req->address,
-                'phone' => $req->phone,
-                'city' => $req->city,
-                'email' => $req->email
             ], function ($mail) use ($req) {
                 $mail->to($req->email, $req->name);
                 $mail->from('hienrider@gmail.com');

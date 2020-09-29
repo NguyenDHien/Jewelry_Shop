@@ -60,7 +60,7 @@
                                                     <button class="btn" type="submit">Login</button>
                                                     </li>
                                                     <li>
-                                                    <a class="action" href="javascript:;" onclick="showRecoverPasswordForm()">Forgot your password?</a>
+                                                    <a class="action" href="{{ route('register') }}">Register</a>
                                                     </li>
                                                     <li>
                                                     or <a class="return" href="{{ route('home') }}">Return to store</a>

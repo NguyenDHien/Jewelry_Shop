@@ -8,7 +8,7 @@ class Order extends Model
 {
     //
     protected $table = 'orders';
-    protected $fillable = ['user_id', 'address', 'total', 'status', 'name', 'email', 'phone', 'note'];
+    protected $fillable = ['user_id', 'address', 'total', 'status', 'name', 'email', 'phone', 'note', 'payment'];
 
     public function user()
     {
@@ -27,6 +27,7 @@ class Order extends Model
             'email' => request()->email,
             'phone' => request()->phone,
             'note' => request()->note,
+            'payment' => request()->payment,
         ]);
 
         return $add;
