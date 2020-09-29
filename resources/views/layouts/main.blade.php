@@ -8,8 +8,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-  <link rel="canonical" href="http://demo.themeforshop.com/" />
   <meta name="description" content="" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url('resources') }}/assets/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ url('resources') }}/assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ url('resources') }}/assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="{{ url('resources') }}/assets/favicon/site.webmanifest">
+	<link rel="mask-icon" href="{{ url('resources') }}/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
   <title>@yield('title')</title>
 	<link href="{{ url('resources') }}/assets/stylesheets/font.css" rel='stylesheet' type='text/css'>
 	<link href="{{ url('resources') }}/assets/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"> 
@@ -49,13 +55,39 @@
 	<link rel="stylesheet" href="https://use.typekit.net/ttg5cga.css">
 
 </head>
-<body itemscope="" itemtype="http://schema.org/WebPage" class="templatePage notouch">  
+<body itemscope="" itemtype="http://schema.org/WebPage" class="templatePage notouch">
+<!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v8.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="103807147996359"
+		theme_color="#A07936"
+		logged_in_greeting="Xin chào! Tôi có thể giúp gì được cho bạn?"
+		logged_out_greeting="Xin chào! Tôi có thể giúp gì được cho bạn?">
+      </div>
 	<header id="top" class="clearfix">
 		<!--top-->
 		<div class="container">
 		  <div class="top row">
 			<div class="col-md-6 phone-shopping">
-			  <span>PHONE SHOPING (01) 123 456 UJ</span>
+			  <span>PHONE: 024 3755 4010</span>
 			</div>
 			<div class="col-md-18">
 			  <ul class="text-right">
@@ -638,7 +670,7 @@
 
 
 {{-- chat box --}}
-<div id="body"> 
+{{-- <div id="body"> 
   
 	<div id="chat-circle" class="btn btn-raised">
 			<div id="chat-overlay"></div>
@@ -668,7 +700,7 @@
 	  
 	  
 	  
-	</div>
+	</div> --}}
 {{-- end chat --}}
 
 	@yield('popupIndex')
