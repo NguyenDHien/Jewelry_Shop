@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryRequest extends FormRequest
+class SizeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,13 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:category,name',
-            'slug' => 'unique:category,slug'
+            'name' => 'required|unique:size,name',
         ];
     }
     public function messages()
     {
         return [
-            'slug.unique' => 'Danh mục đã tồn tại',
-            'slug.required' => 'Bạn cần nhập tên'
+            'name.unique' => 'Size đã tồn tại',
         ];
     }
 }

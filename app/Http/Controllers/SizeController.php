@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SizeRequest;
 use App\Models\size;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class SizeController extends Controller
         return view('admin.size.create');
     }
 
-    public function p_create(Request $request)
+    public function p_create(SizeRequest $request)
     {
         $add = size::them();
         if ($add) {

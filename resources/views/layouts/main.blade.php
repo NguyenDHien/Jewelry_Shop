@@ -42,6 +42,8 @@
 	<script src="{{ url('resources') }}/assets/javascripts/jquery.fancybox-buttons.js" type="text/javascript"></script>
 	<script src="{{ url('resources') }}/assets/javascripts/jquery.zoom.js" type="text/javascript"></script>	
 	<script src="{{ url('resources') }}/assets/javascripts/cs.script.js" type="text/javascript"></script>
+    <script src="{{ url('resources') }}/assets/javascripts/jquery.stringtoslug.min.js" type="text/javascript"></script>
+
 	<link href="{{ url('resources') }}/assets/stylesheets/style.css" rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.typekit.net/ttg5cga.css">

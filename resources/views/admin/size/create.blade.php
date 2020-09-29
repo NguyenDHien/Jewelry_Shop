@@ -1,4 +1,6 @@
 @extends('layouts.admin')
+@section('title', 'Size create')
+
 @section('body')
 <a href="{{ route('admin.size') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
@@ -18,6 +20,9 @@
                 <label for="simpleinput">Name</label>
                 <input type="text" id="simpleinput" name="name" class="form-control" required>
                 <div class="invalid-feedback"> Please choose a size. </div>
+                @error('name')
+                <small class="help-block">{{$message}}</small>
+                @enderror
             </div>
             <div class="form-group mb-3">
                 <label for="simpleinput">Parameter</label>

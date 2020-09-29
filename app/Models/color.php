@@ -33,7 +33,7 @@ class color extends Model
     {
         # code...
         $query = $query->find($id);
-        if ($n = $query->prodDs->count() > 0) {
+        if ($n = $query->prod->count() > 0) {
             # code...
             return $n;
         }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -51,7 +51,7 @@ class AdminController extends Controller
         return view('admin.account.register');
         # code...
     }
-    public function p_register()
+    public function p_register(UserRequest $UReq)
     {
         $add = User::dangki();
         $remember = true;

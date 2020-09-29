@@ -1,4 +1,6 @@
 @extends('layouts.admin')
+@section('title', 'Color create')
+
 @section('body')
 <a href="{{ route('admin.color') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
@@ -16,6 +18,9 @@
                 <label for="simpleinput">Name</label>
                 <input type="text" id="simpleinput" name="name" class="form-control" required>
                 <div class="invalid-feedback"> Please choose a name. </div>
+                @error('name')
+                <small class="help-block">{{$message}}</small>
+                @enderror
             </div>
             {{-- <div class="form-group mb-3">
                 <label for="simpleinput">Hex color</label>
@@ -24,6 +29,9 @@
             <div class="form-group mb-3">
                 <label for="example-color">Hex color</label>
                 <input class="form-control" id="example-color" type="color" name="hex_color" value="#828282">
+                @error('hex_color')
+                <small class="help-block">{{$message}}</small>
+                @enderror
               </div>
             <br>
             <button class="btn btn-primary" type="submit">Submit</button>

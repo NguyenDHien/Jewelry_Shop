@@ -34,7 +34,7 @@ class CategoryController extends Controller
         $cate = Category::find($id);
         return view('admin.category.edit', compact('cates', 'cate'));
     }
-    public function p_edit($id, CategoryRequest $request)
+    public function p_edit($id, Request $request)
     {
         $sua = Category::sua($id);
         if ($sua) {

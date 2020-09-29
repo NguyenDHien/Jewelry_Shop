@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ColorRequest;
 use App\Models\color;
 use App\Models\product;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class ColorController extends Controller
         return view('admin.color.create', compact('prods'));
     }
 
-    public function p_create(Request $request)
+    public function p_create(ColorRequest $request)
     {
         $add = color::them();
         if ($add) {

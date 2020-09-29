@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('body')
+
 <a href="{{ route('admin.cate') }}" class="btn mb-2 btn-secondary">Back<span></a>
 <div class="card shadow mb-4">
     <div class="card-header">
@@ -16,9 +17,54 @@
             <div class="col-md-12">
             <div class="form-group mb-3">
                 <label for="simpleinput">Name</label>
-                <input type="text" id="simpleinput" name="name" class="form-control" required>
-                <div class="invalid-feedback"> Please choose a username. </div>
+                <input type="text" id="simpleinputName" name="name"  onkeyup="ChangeToSlug();" class="form-control" required>
+                <input type="hidden" id="slug" name="slug" class="form-control">
+                <div class="invalid-feedback"> Please choose a name. </div>
+                @error('slug')
+                <small class="help-block">{{$message}}</small>
+                @enderror
             </div>
+            <script>
+                function ChangeToSlug()
+                {
+                    var title, slug;
+                
+                    //Lấy text từ thẻ input title 
+                    title = document.getElementById("simpleinputName").value;
+                
+                    //Đổi chữ hoa thành chữ thường
+                    slug = title.toLowerCase();
+                
+                    //Đổi ký tự có dấu thành không dấu
+                    slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                    slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                    slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                    slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                    slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                    slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                    slug = slug.replace(/đ/gi, 'd');
+                    //Xóa các ký tự đặt biệt
+                    slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+                    //Đổi khoảng trắng thành ký tự gạch ngang
+                    slug = slug.replace(/ /gi, "-");
+                    //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                    //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                    slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                    slug = slug.replace(/\-\-\-\-/gi, '-');
+                    slug = slug.replace(/\-\-\-/gi, '-');
+                    slug = slug.replace(/\-\-/gi, '-');
+                    //Xóa các ký tự gạch ngang ở đầu và cuối
+                    slug = '@' + slug + '@';
+                    slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                    //In slug ra textbox có id “slug”
+                    document.getElementById('slug').value = slug;
+                }
+            </script>
+            <script>
+                $(document).ready( function() {
+                    $("#simpleinputName").stringToSlug();
+                    });
+            </script>
             <p class="mb-2"><strong>Status</strong></p>
             <div class="custom-control custom-radio">
                 <input type="radio" value="0" id="customRadio1" name="status" class="custom-control-input" checked>
@@ -189,5 +235,4 @@
             </div>
         </div>
     </div>
-
 @endsection

@@ -37,11 +37,17 @@
                                     <li id="last_namef">
                                     <label class="control-label" for="last_name">Phone Number <span class="req">*</span></label>
                                     <input name="phone" id="last_name" class="form-control " type="number" required>
+                                    @error('phone')
+                                    <small class="help-block">{{$message}}</small>
+                                    @enderror
                                     </li>
                                     <li class="clearfix"></li>
                                     <li id="emailf" class="">
                                     <label class="control-label" for="email">Your Email <span class="req">*</span></label>
                                     <input name="email" id="email" class="form-control " type="email" required>
+                                    @error('email')
+                                    <small class="help-block">{{$message}}</small>
+                                    @enderror
                                     </li>
                                     <li class="clearfix"></li>
                                     <li id="passwordf" class="">

@@ -16,9 +16,11 @@
             <div class="col-md-12">
             <div class="form-group mb-3">
                 <label for="simpleinput">Name</label>
-                <input type="text" id="simpleinput" name="name" value="{{ $cate['name'] }}" class="form-control" required>
+                <input type="text" id="simpleinputName" name="name" value="{{ $cate['name'] }}" class="form-control" required>
                 <div class="invalid-feedback"> Please choose a name. </div>
+
             </div>
+           
             <p class="mb-2"><strong>Status</strong></p>
             @if ($cate['status'] == 0)
             <div class="custom-control custom-radio">
