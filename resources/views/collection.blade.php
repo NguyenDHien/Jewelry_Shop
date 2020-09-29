@@ -27,8 +27,9 @@
                             </div>
                             <div class="collection-warper col-sm-24 clearfix">
                                 <div class="collection-panner">
-                                    <img src="{{ url('resources') }}/{{ url('resources') }}/assets/images/collection_banner.jpg" class="img-responsive" alt="">
+                                    <img src="{{ url('resources') }}/assets/images/collection_banner.jpg" class="img-responsive" alt="">
                                 </div>
+                                <br>
                             </div>
                             <div class="collection-main-content">
                                 <div id="prodcoll" class="col-sm-6 col-md-6 sidebar hidden-xs">

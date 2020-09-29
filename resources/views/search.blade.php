@@ -27,8 +27,9 @@
                             </div>
                             <div class="collection-warper col-sm-24 clearfix">
                                 <div class="collection-panner">
-                                    <img src="{{ url('resources') }}/{{ url('resources') }}/assets/images/collection_banner.jpg" class="img-responsive" alt="">
+                                    <img src="{{ url('resources') }}/assets/images/collection_banner.jpg" class="img-responsive" alt="">
                                 </div>
+                                <br>
                             </div>
                             <div class="collection-main-content">
                                 <div id="prodcoll" class="col-sm-6 col-md-6 sidebar hidden-xs">
@@ -241,6 +242,16 @@
                                         </div>
                                     </div>
                                     <div id="sandBox-wrapper" class="group-product-item row collection-full">
+                                        @if ($prodSearch->count() == 0)
+                                            <div class="text-center">
+                                                <br>
+                                                <br>
+                                                <img width="40%" src="{{ url('resources') }}/assets/images/not-found.png" alt="OutOfStock">
+                                                <br>
+                                                <br>
+                                                <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Rất tiếc! Chúng tôi không thể tìm thấy kết quả bạn cần</h2>
+                                            </div>
+                                        @endif
                                         <ul id="sandBox" class="list-unstyled list-prod-parent">
                                             @foreach ( $prodSearch as $item)
                                             <li class="element first no_full_width element-items prod-normal"
